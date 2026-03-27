@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Resume — Priya T · UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* SHARED STYLES — imported by all pages */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #1a1815;
+  --ink-muted: #6b6560;
+  --ink-faint: #b0aba5;
+  --cream: #f7f4ef;
+  --cream-dark: #ede9e1;
+  --accent: #c85a2a;
+  --accent-light: #f5ede7;
+  --white: #ffffff;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --max: 1100px;
+  --radius: 4px;
+  --t: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(247,244,239,0.93); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cream-dark);
+  padding: 0 2.5rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color var(--t); }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+footer a { color: var(--accent); text-decoration: none; }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+section { padding: 90px 0; }
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+.eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+h1.display { font-family: var(--serif); font-size: clamp(2.4rem,4.5vw,3.8rem); line-height: 1.1; letter-spacing: -0.02em; }
+h2.section-title { font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.8rem); line-height: 1.15; letter-spacing: -0.02em; }
+em { color: var(--accent); font-style: italic; }
+
+.pill { background: var(--white); border: 1px solid var(--cream-dark); padding: 5px 13px; border-radius: 40px; font-size: 0.78rem; font-weight: 500; color: var(--ink-muted); display: inline-block; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--white); text-decoration: none; padding: 13px 26px; font-size: 0.875rem; font-weight: 500; border-radius: var(--radius); transition: background var(--t), transform var(--t); }
+.btn:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink-faint); }
+.btn-ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; }
+  .nav-links { gap: 1.5rem; }
+  .container { padding: 0 1.25rem; }
+  section { padding: 60px 0; }
+}
+
+</style>
+<style>
+.page-hero { padding: 130px 0 70px; background: var(--white); border-bottom: 1px solid var(--cream-dark); }
+.page-hero-inner { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; }
+.page-hero h1 { font-family: var(--serif); font-size: clamp(2.4rem,4.5vw,3.8rem); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.75rem; }
+.page-hero p { font-size: 1rem; font-weight: 300; color: var(--ink-muted); max-width: 520px; line-height: 1.85; }
+
+#resume-body { background: var(--cream); }
+.resume-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+.r-sidebar { position: sticky; top: 90px; }
+
+.r-card { background: var(--white); border: 1px solid var(--cream-dark); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.25rem; }
+.r-card h4 { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; display: flex; align-items: center; gap: 8px; }
+.r-card h4::after { content: ''; flex: 1; height: 1px; background: var(--cream-dark); }
+
+.info-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.85rem; gap: 1rem; }
+.info-row:last-child { border-bottom: none; }
+.info-row span:first-child { color: var(--ink-muted); font-size: 0.78rem; white-space: nowrap; }
+.info-row span:last-child { font-weight: 500; text-align: right; font-size: 0.85rem; }
+
+.cert-item { padding: 7px 0; border-bottom: 1px solid var(--cream-dark); }
+.cert-item:last-child { border-bottom: none; }
+.cert-item strong { display: block; font-size: 0.87rem; font-weight: 500; }
+.cert-item span { font-size: 0.77rem; color: var(--ink-muted); }
+
+.section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 10px; margin-bottom: 1.75rem; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--cream-dark); }
+
+.exp-item { display: grid; grid-template-columns: 130px 1fr; gap: 1.75rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--cream-dark); }
+.exp-item:last-of-type { border-bottom: none; }
+.exp-date { font-size: 0.78rem; color: var(--ink-muted); line-height: 1.6; padding-top: 3px; }
+.exp-right h3 { font-weight: 500; font-size: 1rem; margin-bottom: 2px; }
+.exp-right .company { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.6rem; }
+.exp-right ul { list-style: none; margin: 0; }
+.exp-right li { font-size: 0.875rem; font-weight: 300; color: var(--ink-muted); padding-left: 14px; position: relative; margin-bottom: 5px; line-height: 1.65; }
+.exp-right li::before { content: '—'; position: absolute; left: 0; color: var(--ink-faint); font-size: 0.65rem; top: 5px; }
+
+.edu-item { display: grid; grid-template-columns: 130px 1fr; gap: 1.75rem; margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--cream-dark); }
+.edu-item:last-of-type { border-bottom: none; }
+.edu-date { font-size: 0.78rem; color: var(--ink-muted); }
+.edu-right h3 { font-weight: 500; font-size: 0.97rem; margin-bottom: 2px; }
+.edu-right span { font-size: 0.82rem; color: var(--ink-muted); }
+
+@media (max-width: 860px) {
+  .resume-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .r-sidebar { position: static; }
+  .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Priya T.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resume.html" class="active">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div>
+        <div class="eyebrow">Resume</div>
+        <h1>Experience &amp;<br/><em>Education</em></h1>
+        <p>UX/Product Designer trained at General Assembly. Background in software development and education — bringing analytical thinking and deep empathy to every project.</p>
+      </div>
+      <a href="Priya_UX_Designer_Resume__1_.pdf" class="btn" download>↓ Download PDF Resume</a>
+    </div>
+  </div>
+</section>
+
+<section id="resume-body">
+  <div class="container" style="padding-top:70px; padding-bottom:80px;">
+    <div class="resume-grid">
+
+      <!-- SIDEBAR -->
+      <div class="r-sidebar fade-up">
+        <div class="r-card">
+          <h4>Contact</h4>
+          <div class="info-row"><span>Email</span><span style="color:var(--accent);font-size:0.76rem;">tpriyadarsini25@gmail.com</span></div>
+          <div class="info-row"><span>Phone</span><span>+1 (408) 548-7046</span></div>
+          <div class="info-row"><span>Location</span><span>Sunnyvale, CA</span></div>
+          <div class="info-row"><span>Work Auth</span><span>H4 EAD</span></div>
+          <div class="info-row"><span>LinkedIn</span><span><a href="https://www.linkedin.com/in/priya-t-3456b220b" target="_blank" style="color:var(--accent);text-decoration:none;font-size:0.76rem;">View Profile</a></span></div>
+        </div>
+
+        <div class="r-card">
+          <h4>Tools</h4>
+          <div class="pill-row">
+            <span class="pill">Figma</span><span class="pill">FigJam</span><span class="pill">Jira</span>
+            <span class="pill">Notion</span><span class="pill">Wix</span><span class="pill">Canva</span>
+            <span class="pill">Slack</span><span class="pill">Zoom</span><span class="pill">Google Workspace</span>
+          </div>
+        </div>
+
+        <div class="r-card">
+          <h4>Skills</h4>
+          <div class="pill-row">
+            <span class="pill">User Research</span><span class="pill">Wireframing</span>
+            <span class="pill">Prototyping</span><span class="pill">Usability Testing</span>
+            <span class="pill">Journey Mapping</span><span class="pill">Personas</span>
+            <span class="pill">Heuristic Eval</span><span class="pill">Card Sorting</span>
+            <span class="pill">IA Design</span><span class="pill">WCAG</span>
+            <span class="pill">Agile</span><span class="pill">Design Thinking</span>
+          </div>
+        </div>
+
+        <div class="r-card">
+          <h4>Languages</h4>
+          <div class="info-row"><span>English</span><span>Fluent</span></div>
+          <div class="info-row"><span>Tamil</span><span>Fluent</span></div>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="fade-up">
+        <div class="section-label">UX / Product Design Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-date">Feb 2026<br/>— Present</div>
+          <div class="exp-right">
+            <h3>UX/UI Designer — Capstone</h3>
+            <div class="company">BollyStep · Remote</div>
+            <ul>
+              <li>Collaborated with a UX team to redesign the BollyStep website, improving usability, navigation, and visual hierarchy</li>
+              <li>Conducted user research and synthesized insights to identify friction points in the user journey</li>
+              <li>Created user flows, wireframes, and high-fidelity prototypes using Figma and FigJam</li>
+              <li>Iterated solutions based on usability testing feedback to improve accessibility and interaction design</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Dec 2025<br/>— Feb 2026</div>
+          <div class="exp-right">
+            <h3>UX/UI Designer — Bootcamp Projects</h3>
+            <div class="company">General Assembly · Remote</div>
+            <ul>
+              <li><strong>Food4U:</strong> Designed a mobile platform connecting restaurants with local organizations to reduce food waste; created simplified workflows enabling restaurants to quickly post surplus food items</li>
+              <li><strong>Mayura Roots:</strong> Performed heuristic evaluation and content audit; redesigned site IA and navigation for improved product discoverability</li>
+              <li><strong>Ruchi Kitchen:</strong> Conducted user interviews; designed a multi-mode Recipe Play feature (Video, Audio, Step-by-Step) improving hands-free cooking usability</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:3rem;">Teaching &amp; Human-Centered Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-date">Aug 2025<br/>— Nov 2025</div>
+          <div class="exp-right">
+            <h3>Preschool Teacher</h3>
+            <div class="company">Kiddie Academy of Cupertino · Cupertino, CA</div>
+            <ul>
+              <li>Observed behavioral patterns and adapted activities to individual needs — deepened user empathy and observation skills</li>
+              <li>Designed engaging learning experiences supporting cognitive, emotional, and social development</li>
+              <li>Collaborated with educators and parents to support developmental progress</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Dec 2024<br/>— Jul 2025</div>
+          <div class="exp-right">
+            <h3>Preschool Teacher</h3>
+            <div class="company">International Child Resource Institute · Stanford, CA</div>
+            <ul>
+              <li>Planned and facilitated educational activities supporting cognitive and social development</li>
+              <li>Observed learning behaviors and adapted strategies to meet individual needs</li>
+              <li>Maintained an inclusive classroom aligned with early childhood education standards</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Aug 2024<br/>— Dec 2024</div>
+          <div class="exp-right">
+            <h3>Support Teacher</h3>
+            <div class="company">ChildCare Careers · San Jose, CA</div>
+            <ul>
+              <li>Assisted lead teachers in implementing structured educational activities</li>
+              <li>Supervised children ensuring safe, engaging play and learning experiences</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Aug 2013<br/>— May 2015</div>
+          <div class="exp-right">
+            <h3>Computer Science Teacher</h3>
+            <div class="company">VVNKM CBSE School · India</div>
+            <ul>
+              <li>Taught coding fundamentals and digital literacy to secondary school students</li>
+              <li>Designed interactive lessons integrating educational technology tools</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:3rem;">Education &amp; Certifications</div>
+
+        <div class="edu-item">
+          <div class="edu-date">Dec 2025 – Mar 2026</div>
+          <div class="edu-right"><h3>UX Design Bootcamp</h3><span>General Assembly</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-date">2025</div>
+          <div class="edu-right"><h3>Learn Figma: UI/UX Design Masterclass</h3><span>Certification — Beginner to Pro</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-date">2025</div>
+          <div class="edu-right"><h3>Early Childhood Education</h3><span>12 Units Completed</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-date">2024</div>
+          <div class="edu-right"><h3>SQL Basic Certification</h3><span>IBM</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-date">2020</div>
+          <div class="edu-right"><h3>Salesforce Certified Administrator</h3><span>Salesforce</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-date">2020</div>
+          <div class="edu-right"><h3>Salesforce Certified Platform Developer I</h3><span>Salesforce</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-date"> </div>
+          <div class="edu-right"><h3>Master of Computer Applications (MCA)</h3><span>Anna University, India</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed &amp; built by <a href="index.html">Priya T.</a> · UX Designer · Sunnyvale, CA · 2026</p>
+</footer>
+<script>
+// Scroll-triggered fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.05) + 's';
+  observer.observe(el);
+});
+// Active nav link
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a').forEach(link => {
+  const href = link.getAttribute('href');
+  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>

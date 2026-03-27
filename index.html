@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Priya T — UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+/* SHARED STYLES — imported by all pages */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #1a1815;
+  --ink-muted: #6b6560;
+  --ink-faint: #b0aba5;
+  --cream: #f7f4ef;
+  --cream-dark: #ede9e1;
+  --accent: #c85a2a;
+  --accent-light: #f5ede7;
+  --white: #ffffff;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --max: 1100px;
+  --radius: 4px;
+  --t: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(247,244,239,0.93); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cream-dark);
+  padding: 0 2.5rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color var(--t); }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+footer a { color: var(--accent); text-decoration: none; }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+section { padding: 90px 0; }
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+.eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+h1.display { font-family: var(--serif); font-size: clamp(2.4rem,4.5vw,3.8rem); line-height: 1.1; letter-spacing: -0.02em; }
+h2.section-title { font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.8rem); line-height: 1.15; letter-spacing: -0.02em; }
+em { color: var(--accent); font-style: italic; }
+
+.pill { background: var(--white); border: 1px solid var(--cream-dark); padding: 5px 13px; border-radius: 40px; font-size: 0.78rem; font-weight: 500; color: var(--ink-muted); display: inline-block; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--white); text-decoration: none; padding: 13px 26px; font-size: 0.875rem; font-weight: 500; border-radius: var(--radius); transition: background var(--t), transform var(--t); }
+.btn:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink-faint); }
+.btn-ghost:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; }
+  .nav-links { gap: 1.5rem; }
+  .container { padding: 0 1.25rem; }
+  section { padding: 60px 0; }
+}
+
+</style>
+<style>
+/* ── HERO ── */
+#hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 2rem 60px; position: relative; overflow: hidden; }
+.hero-blob { position: absolute; top: -8%; right: -4%; width: 52vw; max-width: 680px; aspect-ratio: 1; background: radial-gradient(ellipse at 60% 40%, #e8d5c8 0%, transparent 68%); border-radius: 50%; pointer-events: none; opacity: 0.7; }
+.hero-inner { max-width: var(--max); margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+.hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+.hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.5rem); line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 1.5rem; }
+.hero-sub { font-size: 1rem; font-weight: 300; color: var(--ink-muted); line-height: 1.85; max-width: 460px; margin-bottom: 2.5rem; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--cream-dark); align-items: center; }
+.hero-stat-badge { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ga-badge-img { width: 56px; height: 56px; object-fit: contain; display: block; transition: transform var(--t), opacity var(--t); }
+.ga-badge-img:hover { transform: scale(1.06); opacity: 0.88; }
+.stat-num { display: block; font-family: var(--serif); font-size: 1.9rem; line-height: 1; }
+.stat-lbl { font-size: 0.72rem; color: var(--ink-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.portrait-wrap { display: flex; justify-content: flex-end; }
+.portrait { width: 360px; aspect-ratio: 3/4; background: var(--cream-dark); border-radius: 200px 200px 12px 12px; border: 1px solid rgba(0,0,0,0.06); position: relative; overflow: hidden; }
+.portrait-mono { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 10rem; color: var(--accent); opacity: 0.1; user-select: none; }
+.portrait-badge { position: absolute; bottom: 20px; left: 16px; right: 16px; background: rgba(247,244,239,0.95); backdrop-filter: blur(8px); padding: 12px 16px; border-radius: var(--radius); border: 1px solid var(--cream-dark); }
+.portrait-badge strong { display: block; font-family: var(--serif); font-size: 1.1rem; }
+.portrait-badge span { font-size: 0.78rem; color: var(--ink-muted); }
+
+/* ── WORK PREVIEW ── */
+#work { background: var(--white); }
+.work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1rem; }
+.projects { display: grid; gap: 2rem; }
+.pcard { display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; overflow: hidden; border: 1px solid var(--cream-dark); background: var(--cream); text-decoration: none; color: inherit; transition: transform var(--t), box-shadow var(--t); cursor: pointer; }
+.pcard:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
+.pcard.flip { grid-template-columns: 1fr 1fr; }
+.pcard.flip .pcard-visual { order: 2; }
+.pcard.flip .pcard-info { order: 1; }
+.pcard-visual { position: relative; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+.pcard-emoji { font-size: 7rem; opacity: 0.14; transition: transform 0.4s ease; user-select: none; }
+.pcard:hover .pcard-emoji { transform: scale(1.08); }
+.ptags { position: absolute; bottom: 16px; left: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+.ptag { background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); padding: 3px 9px; border-radius: 30px; border: 1px solid rgba(0,0,0,0.07); }
+.pcard-info { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+.pcard-type { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+.pcard-title { font-family: var(--serif); font-size: clamp(1.5rem,2.2vw,2rem); line-height: 1.2; margin-bottom: 0.9rem; letter-spacing: -0.02em; }
+.pcard-desc { font-size: 0.9rem; font-weight: 300; color: var(--ink-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+.pcard-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 500; color: var(--ink); transition: color var(--t), gap var(--t); }
+.pcard:hover .pcard-link { color: var(--accent); gap: 14px; }
+.arrow-circle { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; transition: background var(--t); }
+.pcard:hover .arrow-circle { background: var(--accent); }
+
+/* ── ABOUT TEASER ── */
+#about-teaser { background: var(--cream); }
+.teaser-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+.teaser-text h2 { margin-bottom: 1.25rem; }
+.teaser-text p { font-size: 0.97rem; font-weight: 300; color: var(--ink-muted); line-height: 1.9; margin-bottom: 1rem; }
+.teaser-text p:last-of-type { margin-bottom: 2rem; }
+.tools-wrap { background: var(--white); border-radius: 12px; padding: 2rem; border: 1px solid var(--cream-dark); }
+.tools-wrap h4 { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+.tools-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+
+/* ── CONTACT CTA ── */
+#cta { background: var(--ink); padding: 100px 2rem; text-align: center; }
+#cta h2 { font-family: var(--serif); font-size: clamp(2.2rem,4vw,3.5rem); color: var(--white); letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+#cta p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.8; }
+
+@media (max-width: 860px) {
+  .hero-inner, .teaser-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .portrait-wrap { justify-content: flex-start; }
+  .portrait { width: 260px; }
+  .pcard { grid-template-columns: 1fr; }
+  .pcard.flip .pcard-visual { order: 0; }
+  .pcard.flip .pcard-info { order: 1; }
+  .pcard-visual { aspect-ratio: 16/9; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Priya T.</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">UX Designer · Sunnyvale, CA</div>
+      <h1 class="hero-title">Designing <em>experiences</em><br/>that feel<br/>human.</h1>
+      <p class="hero-sub">Entry-level UX/Product Designer trained at General Assembly. I translate user research into intuitive digital products — with empathy, iteration, and purpose.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn">View My Work →</a>
+        <a href="contact.html" class="btn btn-ghost">Let's Talk</a>
+      </div>
+      <div class="hero-stats">
+        <div style="display:flex;flex-direction:column;gap:4px;"><span class="stat-num">3</span><span class="stat-lbl">Projects</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px;"><span class="stat-num">Mar '26</span><span class="stat-lbl">Grad</span></div>
+        <div class="hero-stat-badge">
+          <a href="https://badges.parchment.com/public/assertions/GvtYFsELTDyqQCZPV1tcXA?identity__email=tpriyadarsini25@gmail.com" target="_blank" rel="noopener" aria-label="Verify General Assembly UX Design Bootcamp credential">
+            <img src="images/ga-badge.png" alt="General Assembly UX Design Bootcamp Badge" class="ga-badge-img" />
+          </a>
+          <span class="stat-lbl">Verified Credential</span>
+        </div>
+      </div>
+    </div>
+    <div class="portrait-wrap">
+      <div class="portrait" style="background:var(--cream-dark);overflow:hidden;position:relative;">
+        <svg width="100%" height="100%" viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+
+          <!-- Background tint -->
+          <rect width="360" height="480" fill="#ede9e1"/>
+
+          <!-- ── PHONE MOCKUP (center) ── -->
+          <rect x="130" y="60" width="100" height="190" rx="14" fill="#fff" stroke="#c8bfb0" stroke-width="1.5"/>
+          <rect x="137" y="75" width="86" height="148" rx="4" fill="#f0ece6"/>
+          <!-- phone notch -->
+          <rect x="158" y="63" width="44" height="8" rx="4" fill="#c8bfb0"/>
+          <!-- phone screen content: nav bar -->
+          <rect x="137" y="75" width="86" height="14" rx="2" fill="#1a1815" opacity=".85"/>
+          <rect x="142" y="79" width="30" height="6" rx="2" fill="#fff" opacity=".5"/>
+          <rect x="200" y="79" width="16" height="6" rx="2" fill="#c85a2a" opacity=".8"/>
+          <!-- card blocks on screen -->
+          <rect x="141" y="96" width="78" height="28" rx="4" fill="#fff" stroke="#ddd5c8" stroke-width=".8"/>
+          <rect x="146" y="101" width="18" height="18" rx="3" fill="#d8eddf"/>
+          <rect x="169" y="103" width="32" height="5" rx="2" fill="#1a1815" opacity=".6"/>
+          <rect x="169" y="111" width="22" height="4" rx="2" fill="#b0aba5"/>
+          <rect x="141" y="130" width="78" height="28" rx="4" fill="#fff" stroke="#ddd5c8" stroke-width=".8"/>
+          <rect x="146" y="135" width="18" height="18" rx="3" fill="#fce8d8"/>
+          <rect x="169" y="137" width="28" height="5" rx="2" fill="#1a1815" opacity=".6"/>
+          <rect x="169" y="145" width="36" height="4" rx="2" fill="#b0aba5"/>
+          <rect x="141" y="164" width="78" height="28" rx="4" fill="#fff" stroke="#ddd5c8" stroke-width=".8"/>
+          <rect x="146" y="169" width="18" height="18" rx="3" fill="#e8daf5"/>
+          <rect x="169" y="171" width="34" height="5" rx="2" fill="#1a1815" opacity=".6"/>
+          <rect x="169" y="179" width="24" height="4" rx="2" fill="#b0aba5"/>
+          <!-- CTA button on phone -->
+          <rect x="148" y="198" width="64" height="16" rx="8" fill="#c85a2a"/>
+          <rect x="162" y="203" width="36" height="5" rx="2" fill="#fff" opacity=".9"/>
+          <!-- home indicator -->
+          <rect x="162" y="232" width="36" height="4" rx="2" fill="#c8bfb0"/>
+
+          <!-- ── STICKY NOTES ── -->
+          <!-- Yellow sticky top-left -->
+          <rect x="18" y="48" width="72" height="68" rx="3" fill="#f9e784" opacity=".92"/>
+          <rect x="24" y="58" width="44" height="4" rx="2" fill="#a08a20" opacity=".7"/>
+          <rect x="24" y="66" width="52" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+          <rect x="24" y="73" width="38" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+          <rect x="24" y="80" width="48" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+          <rect x="24" y="87" width="30" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+          <rect x="24" y="96" width="16" height="10" rx="2" fill="#c85a2a" opacity=".8"/>
+          <rect x="27" y="99" width="10" height="4" rx="1" fill="#fff" opacity=".9"/>
+
+          <!-- Pink sticky top-right -->
+          <rect x="264" y="38" width="72" height="68" rx="3" fill="#f9c4cf" opacity=".9"/>
+          <rect x="270" y="48" width="40" height="4" rx="2" fill="#8b2040" opacity=".6"/>
+          <rect x="270" y="56" width="54" height="3" rx="2" fill="#8b2040" opacity=".35"/>
+          <rect x="270" y="63" width="46" height="3" rx="2" fill="#8b2040" opacity=".35"/>
+          <rect x="270" y="70" width="50" height="3" rx="2" fill="#8b2040" opacity=".35"/>
+          <rect x="270" y="77" width="32" height="3" rx="2" fill="#8b2040" opacity=".35"/>
+          <!-- small tag -->
+          <rect x="292" y="90" width="28" height="10" rx="5" fill="#8b2040" opacity=".7"/>
+          <rect x="297" y="93" width="18" height="4" rx="2" fill="#fff" opacity=".8"/>
+
+          <!-- Blue sticky mid-left -->
+          <rect x="12" y="178" width="72" height="64" rx="3" fill="#b5d4f4" opacity=".88"/>
+          <rect x="18" y="188" width="48" height="4" rx="2" fill="#0c447c" opacity=".65"/>
+          <rect x="18" y="196" width="56" height="3" rx="2" fill="#0c447c" opacity=".35"/>
+          <rect x="18" y="203" width="42" height="3" rx="2" fill="#0c447c" opacity=".35"/>
+          <rect x="18" y="210" width="50" height="3" rx="2" fill="#0c447c" opacity=".35"/>
+          <rect x="18" y="220" width="52" height="14" rx="3" fill="#185fa5" opacity=".3"/>
+          <rect x="24" y="224" width="36" height="5" rx="2" fill="#0c447c" opacity=".5"/>
+
+          <!-- Green sticky mid-right -->
+          <rect x="274" y="162" width="72" height="64" rx="3" fill="#c0dd97" opacity=".88"/>
+          <rect x="280" y="172" width="44" height="4" rx="2" fill="#27500a" opacity=".65"/>
+          <rect x="280" y="180" width="54" height="3" rx="2" fill="#27500a" opacity=".35"/>
+          <rect x="280" y="187" width="40" height="3" rx="2" fill="#27500a" opacity=".35"/>
+          <rect x="280" y="194" width="48" height="3" rx="2" fill="#27500a" opacity=".35"/>
+          <rect x="280" y="204" width="60" height="14" rx="3" fill="#3b6d11" opacity=".25"/>
+          <rect x="285" y="208" width="40" height="5" rx="2" fill="#27500a" opacity=".5"/>
+
+          <!-- ── WIREFRAME SKETCH (bottom-left) ── -->
+          <rect x="14" y="300" width="108" height="128" rx="6" fill="#fff" stroke="#c8bfb0" stroke-width="1" opacity=".95"/>
+          <!-- wireframe header -->
+          <rect x="14" y="300" width="108" height="20" rx="6" fill="#ede9e1"/>
+          <rect x="14" y="312" width="108" height="8" rx="0" fill="#ede9e1"/>
+          <rect x="22" y="305" width="40" height="6" rx="2" fill="#b0aba5"/>
+          <rect x="96" y="305" width="18" height="6" rx="3" fill="#c85a2a" opacity=".7"/>
+          <!-- wireframe content blocks -->
+          <rect x="22" y="328" width="92" height="32" rx="3" fill="#f0ece6" stroke="#ddd5c8" stroke-width=".8"/>
+          <rect x="28" y="334" width="48" height="5" rx="2" fill="#b0aba5"/>
+          <rect x="28" y="343" width="64" height="4" rx="2" fill="#ddd5c8"/>
+          <rect x="28" y="350" width="40" height="4" rx="2" fill="#ddd5c8"/>
+          <rect x="22" y="366" width="42" height="16" rx="2" fill="#f0ece6" stroke="#ddd5c8" stroke-width=".8"/>
+          <rect x="70" y="366" width="44" height="16" rx="2" fill="#f0ece6" stroke="#ddd5c8" stroke-width=".8"/>
+          <rect x="28" y="371" width="30" height="5" rx="2" fill="#ddd5c8"/>
+          <rect x="76" y="371" width="30" height="5" rx="2" fill="#ddd5c8"/>
+          <rect x="22" y="390" width="92" height="28" rx="3" fill="#1a1815" opacity=".08"/>
+          <rect x="48" y="399" width="40" height="10" rx="2" fill="#c85a2a" opacity=".6"/>
+
+          <!-- ── USER JOURNEY (bottom-right) ── -->
+          <rect x="238" y="294" width="112" height="140" rx="6" fill="#fff" stroke="#c8bfb0" stroke-width="1" opacity=".95"/>
+          <rect x="238" y="294" width="112" height="18" rx="6" fill="#ede9e1"/>
+          <rect x="238" y="304" width="112" height="8" rx="0" fill="#ede9e1"/>
+          <rect x="244" y="298" width="50" height="5" rx="2" fill="#b0aba5"/>
+          <!-- journey nodes row -->
+          <circle cx="256" cy="328" r="7" fill="#c85a2a" opacity=".8"/>
+          <circle cx="294" cy="328" r="7" fill="#c8bfb0"/>
+          <circle cx="332" cy="328" r="7" fill="#c8bfb0"/>
+          <line x1="263" y1="328" x2="287" y2="328" stroke="#c8bfb0" stroke-width="1.5"/>
+          <line x1="301" y1="328" x2="325" y2="328" stroke="#c8bfb0" stroke-width="1.5"/>
+          <rect x="244" y="342" width="20" height="4" rx="2" fill="#ddd5c8"/>
+          <rect x="282" y="342" width="20" height="4" rx="2" fill="#ddd5c8"/>
+          <rect x="320" y="342" width="20" height="4" rx="2" fill="#ddd5c8"/>
+          <!-- emotion curve -->
+          <path d="M248 368 Q262 358 276 365 Q290 374 304 360 Q318 348 340 355" fill="none" stroke="#c85a2a" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+          <!-- insight sticky mini -->
+          <rect x="244" y="380" width="96" height="42" rx="3" fill="#f9e784" opacity=".85"/>
+          <rect x="250" y="386" width="50" height="4" rx="2" fill="#a08a20" opacity=".7"/>
+          <rect x="250" y="394" width="72" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+          <rect x="250" y="401" width="60" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+          <rect x="250" y="408" width="40" height="10" rx="5" fill="#c85a2a" opacity=".7"/>
+          <rect x="255" y="411" width="30" height="4" rx="2" fill="#fff" opacity=".85"/>
+
+          <!-- ── CONNECTOR LINES (subtle, like FigJam) ── -->
+          <line x1="90" y1="112" x2="130" y2="140" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".6"/>
+          <line x1="264" y1="110" x2="230" y2="145" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".6"/>
+          <line x1="84" y1="242" x2="130" y2="185" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+          <line x1="122" y1="328" x2="135" y2="310" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+          <line x1="238" y1="328" x2="230" y2="290" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+
+        </svg>
+        <div class="portrait-badge">
+          <strong>Priya T.</strong>
+          <span>UX / Product Designer · General Assembly</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="container">
+    <div class="work-header">
+      <div>
+        <div class="eyebrow">Selected Work</div>
+        <h2 class="section-title">Projects that <em>solve real problems.</em></h2>
+      </div>
+      <a href="about.html" class="btn btn-ghost" style="font-size:0.82rem;">About Me →</a>
+    </div>
+
+    <div class="projects">
+      <a href="case-bollystep.html" class="pcard fade-up">
+        <div class="pcard-visual" style="background:linear-gradient(135deg,#fce8d8,#f5c4a0);position:relative;overflow:hidden;">
+          <img src="images/bollystep/bollystep-preview.png" alt="BollyStep Dance Coordination Platform" style="width:100%;height:100%;object-fit:cover;opacity:0.9;"/>
+          <div class="ptags"><span class="ptag">Capstone</span><span class="ptag">Web Redesign</span><span class="ptag">Figma</span></div>
+        </div>
+        <div class="pcard-info">
+          <div class="pcard-type">Website Redesign · 3 Weeks</div>
+          <h3 class="pcard-title">BollyStep — Dance Coordination Platform</h3>
+          <p class="pcard-desc">Redesigned onboarding, navigation, and structure for a South Asian dance platform to reduce friction and build trust across three user roles: Organizers, Dancers, and Choreographers.</p>
+          <span class="pcard-link">View Case Study <span class="arrow-circle">→</span></span>
+        </div>
+      </a>
+
+      <a href="case-food4u.html" class="pcard flip fade-up">
+        <div class="pcard-visual" style="background:linear-gradient(145deg,#e4f0e8,#c2dbc9);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/food4u/sneak%20peak%201.png" alt="Food4U Surplus Food Redistribution" style="height:105%;width:auto;max-width:none;object-fit:contain;opacity:0.95;filter:drop-shadow(0 8px 28px rgba(0,0,0,0.22));" onerror="this.style.display='none'"/>
+          <div class="ptags"><span class="ptag">Social Impact</span><span class="ptag">Mobile App</span><span class="ptag">End-to-End</span></div>
+        </div>
+        <div class="pcard-info">
+          <div class="pcard-type">Native Mobile App · 3 Weeks</div>
+          <h3 class="pcard-title">Food4U — Surplus Food Redistribution</h3>
+          <p class="pcard-desc">Designed a real-time mobile platform enabling restaurants to donate surplus food in seconds, connecting them with local organizations to reduce food waste and feed communities.</p>
+          <span class="pcard-link">View Case Study <span class="arrow-circle">→</span></span>
+        </div>
+      </a>
+
+      <a href="case-mayura.html" class="pcard fade-up">
+        <div class="pcard-visual" style="background:linear-gradient(135deg,#e8daf5,#c9acec);position:relative;overflow:hidden;">
+          <img src="images/mayura/Sneakpeak1.png" alt="Mayura Roots Cultural Products Marketplace" style="width:100%;height:100%;object-fit:cover;opacity:0.9;"/>
+          <div class="ptags"><span class="ptag">E-Commerce</span><span class="ptag">IA Redesign</span><span class="ptag">Cultural UX</span></div>
+        </div>
+        <div class="pcard-info">
+          <div class="pcard-type">E-Commerce Redesign · 3 Weeks</div>
+          <h3 class="pcard-title">Mayura Roots — Cultural Products Marketplace</h3>
+          <p class="pcard-desc">Redesigned navigation and information architecture for a traditional Indian products marketplace to feel like exploring a cultural marketplace — not just browsing products.</p>
+          <span class="pcard-link">View Case Study <span class="arrow-circle">→</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT TEASER -->
+<section id="about-teaser">
+  <div class="container">
+    <div class="teaser-grid fade-up">
+      <div class="teaser-text">
+        <div class="eyebrow">About</div>
+        <h2 class="section-title">Designer. Researcher.<br/><em>Former educator.</em></h2>
+        <p>I'm Priya — a UX Designer who recently completed the General Assembly UX Design Bootcamp (March 2026). My background in software development (MCA) and years of teaching sharpen my ability to observe behavior, translate complexity, and design with empathy.</p>
+        <p>I believe great design starts with listening — to users, data, and the spaces in between where frustration quietly lives.</p>
+        <a href="about.html" class="btn">Read My Story →</a>
+      </div>
+      <div class="tools-wrap">
+        <h4>Tools & Skills</h4>
+        <div class="tools-pills pill-row">
+          <span class="pill">Figma</span><span class="pill">FigJam</span><span class="pill">Jira</span>
+          <span class="pill">Notion</span><span class="pill">Wix</span><span class="pill">Canva</span>
+          <span class="pill">User Interviews</span><span class="pill">Usability Testing</span>
+          <span class="pill">Wireframing</span><span class="pill">Prototyping</span>
+          <span class="pill">Journey Mapping</span><span class="pill">Heuristic Eval</span>
+          <span class="pill">Card Sorting</span><span class="pill">WCAG</span>
+          <span class="pill">Agile / Jira</span><span class="pill">Design Thinking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <h2>Got a project? <em style="color:var(--accent);">Let's talk!</em></h2>
+    <p>I'm actively looking for UX Designer, Product Designer, or UX Research Intern roles. Let's build something impactful together.</p>
+    <a href="contact.html" class="btn" style="background:var(--accent);">Get In Touch →</a>
+  </div>
+</section>
+
+<footer>
+  <p>Designed &amp; built by <a href="index.html">Priya T.</a> · UX Designer · Sunnyvale, CA · 2026</p>
+</footer>
+<script>
+// Scroll-triggered fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.05) + 's';
+  observer.observe(el);
+});
+requestAnimationFrame(() => {
+  document.querySelectorAll('.fade-up').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) el.classList.add('visible');
+  });
+});
+// Active nav link
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a').forEach(link => {
+  const href = link.getAttribute('href');
+  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Food4U — Case Study · Priya T</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0f1f14; --bark:#1e3a26; --forest:#2e6b3e; --forest-mid:#3d8c52;
+  --sage:#7dc494; --sage-lt:#d4eddb; --sage-bg:#f0faf4;
+  --parchment:#f7f4ee; --cream:#eef5ef; --sand:#ddeee2; --rule:#c8dece;
+  --warm-mid:#5a7060; --warm-lt:#8aaa92;
+  --red-bg:#fff1ef; --red-bd:#f4a39a; --red-tx:#9b1c1c;
+  --grn-bg:#f0faf4; --grn-bd:#86efac; --grn-tx:#166534;
+  --fd:'Playfair Display',Georgia,serif;
+  --fb:'Plus Jakarta Sans',system-ui,sans-serif;
+  --r3:3px;--r8:8px;--r16:16px;--r24:24px;--r999:999px;
+  --sh1:0 2px 8px rgba(15,31,20,.07);
+  --sh2:0 8px 32px rgba(15,31,20,.12);
+  --sh3:0 24px 64px rgba(15,31,20,.18);
+  --max:1120px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--fb);background:var(--parchment);color:var(--ink);line-height:1.7;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+
+h1,h2,h3,h4{font-family:var(--fd);line-height:1.12;color:var(--ink);}
+h1{font-size:clamp(3rem,6.5vw,6rem);font-weight:900;letter-spacing:-.025em;}
+h2{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:700;letter-spacing:-.015em;}
+h3{font-size:clamp(1.15rem,2vw,1.55rem);font-weight:600;}
+h4{font-size:1rem;font-weight:600;}
+p{font-size:.9375rem;color:var(--warm-mid);line-height:1.75;max-width:64ch;}
+p.lead{font-size:1.1rem;color:var(--ink);}
+strong{color:var(--ink);font-weight:600;}
+.lbl{font-family:var(--fb);font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--forest);display:block;margin-bottom:.75rem;}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 2.5rem;}
+.section{padding:56px 0;}
+.section--alt{background:var(--cream);}
+.section--dark{background:#0f2216;}
+.section--dark h2,.section--dark h3,.section--dark h4{color:#e8f0ea;}
+.section--dark p{color:rgba(200,230,210,.6);}
+.section--dark .lbl{color:var(--sage);}
+hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
+.sec-hd{margin-bottom:2rem;}
+.sec-hd p{margin-top:.5rem;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;border-radius:var(--r999);font-family:var(--fb);font-size:.85rem;font-weight:700;cursor:pointer;border:2px solid transparent;transition:all .2s ease;}
+.btn-primary{background:var(--forest);color:#fff;border-color:var(--forest);}
+.btn-primary:hover{background:var(--forest-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(46,107,62,.3);}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3);}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--rule);}
+.btn-outline:hover{background:var(--sand);border-color:var(--warm-mid);}
+
+/* Progress bar */
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--forest),var(--sage));z-index:300;transition:width .1s linear;width:0%;}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(247,244,238,.9);backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s;}
+.nav.scrolled{border-color:var(--rule);box-shadow:var(--sh1);}
+.nav-logo{font-family:var(--fd);font-size:1.35rem;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:.35rem;}
+.nav-logo::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--forest);display:inline-block;margin-bottom:1px;}
+.nav-links{display:flex;gap:2.25rem;list-style:none;}
+.nav-links a{font-size:.8rem;font-weight:600;color:var(--warm-mid);letter-spacing:.03em;transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 2.5rem 5rem;background:linear-gradient(160deg,#051208 0%,#0d2415 35%,#1a4a26 65%,#2e6b3e 100%);}
+.hero-left::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2rem;}
+.hero-tag{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .85rem;border-radius:var(--r999);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:.7rem;font-weight:600;letter-spacing:.04em;}
+.hero-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;}
+.hero h1{color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4);margin-bottom:.6rem;}
+.hero-sub{font-family:var(--fd);font-size:clamp(1rem,1.8vw,1.3rem);font-style:italic;color:rgba(255,255,255,.65);max-width:42ch;margin-bottom:2.25rem;line-height:1.55;}
+.hero-strip{display:flex;flex-wrap:wrap;gap:2rem;padding:1.4rem 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:2.25rem;}
+.h-stat .sl{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:.2rem;}
+.h-stat .sv{font-size:.875rem;color:rgba(255,255,255,.88);font-weight:500;}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;position:relative;z-index:3;}
+.hero-right{position:relative;background:var(--cream);display:flex;align-items:center;justify-content:center;padding:5rem 2rem 4rem;}
+.hero-phones{display:flex;gap:2rem;align-items:center;justify-content:center;}
+.hero-phone{width:210px;flex-shrink:0;border-radius:28px;overflow:hidden;box-shadow:var(--sh3);border:1px solid rgba(0,0,0,.08);}
+.hero-phone img{width:100%;display:block;}
+.hero-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:1rem;}
+.hero-logo-img{width:120px;height:120px;object-fit:contain;filter:drop-shadow(0 4px 16px rgba(15,31,20,.15));}
+.hero-logo-label{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--forest);letter-spacing:-.01em;}
+.hero-badge{margin-top:2rem;background:#fff;border-radius:var(--r16);padding:.9rem 1.5rem;box-shadow:var(--sh2);display:flex;gap:1.5rem;white-space:nowrap;justify-content:center;}
+.hb-stat .hn{font-family:var(--fd);font-size:1.5rem;font-weight:700;color:var(--forest);line-height:1;}
+.hb-stat .hd{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--warm-lt);margin-top:.12rem;}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.3);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+.hero-scroll::before{content:'';display:block;width:1px;height:32px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.28));}
+
+/* Sneak peek */
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+.preview-item{border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);transition:transform .3s,box-shadow .3s;}
+.preview-item:hover{transform:translateY(-4px);box-shadow:var(--sh2);}
+.preview-item img{width:100%;display:block;}
+.preview-cap{padding:.6rem 1rem;background:#fff;font-size:.72rem;font-weight:600;color:var(--warm-mid);letter-spacing:.05em;text-transform:uppercase;}
+
+/* Problem */
+.pain-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1.25rem;}
+.pain-item{display:flex;gap:1rem;align-items:flex-start;padding:.9rem;border-radius:var(--r8);transition:background .2s;}
+.pain-item:hover{background:var(--cream);}
+.pain-icon{flex-shrink:0;width:42px;height:42px;border-radius:var(--r8);background:linear-gradient(135deg,var(--sand),#c8e0cc);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-top:2px;}
+.pain-text h4{margin-bottom:.2rem;font-size:.95rem;}
+.pain-text p{font-size:.85rem;max-width:none;}
+.hmw-banner{background:linear-gradient(135deg,var(--forest),#1a3d22);border-radius:var(--r16);padding:1.75rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;}
+.hmw-item{border-left:3px solid rgba(125,196,148,.4);padding-left:1.1rem;}
+.hmw-q{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:.35rem;}
+.hmw-item p{font-family:var(--fd);font-size:1rem;font-style:italic;color:rgba(255,255,255,.85);max-width:none;}
+
+/* Vision */
+.vision-card{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem;box-shadow:var(--sh1);position:relative;overflow:hidden;}
+.vision-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--forest),var(--sage));}
+.vision-icon{font-size:1.75rem;margin-bottom:.65rem;}
+.vision-card h4{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);margin-bottom:.4rem;}
+.vision-card p{font-family:var(--fd);font-size:1rem;font-style:italic;max-width:none;color:var(--ink);}
+
+/* Research cards */
+.r-card{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem;box-shadow:var(--sh1);transition:transform .25s,box-shadow .25s;}
+.r-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);}
+.r-icon{width:44px;height:44px;border-radius:var(--r8);background:linear-gradient(135deg,var(--forest),var(--forest-mid));display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1rem;}
+.r-card h3{font-size:1.05rem;margin-bottom:.4rem;}
+.r-card p{font-size:.82rem;}
+.r-stat{font-family:var(--fd);font-size:2.2rem;font-weight:700;color:var(--forest);line-height:1;margin-top:.75rem;display:block;}
+
+/* Affinity */
+.affinity{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);margin-top:1.75rem;}
+.affinity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem;}
+.cluster{border-radius:var(--r8);padding:1rem 1.1rem;}
+.cluster.orange{background:#fff7ed;border:1.5px solid #fed7aa;}
+.cluster.red{background:#fff1f2;border:1.5px solid #fca5a5;}
+.cluster.amber{background:#fffbeb;border:1.5px solid #fcd34d;}
+.cluster.green{background:#f0fdf4;border:1.5px solid #86efac;}
+.c-title{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.65rem;}
+.cluster.orange .c-title{color:#c2410c;}
+.cluster.red .c-title{color:#be123c;}
+.cluster.amber .c-title{color:#92400e;}
+.cluster.green .c-title{color:#15803d;}
+.c-note{background:rgba(255,255,255,.85);border-radius:3px;padding:.38rem .5rem;font-size:.7rem;color:var(--ink);line-height:1.4;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:.4rem;}
+
+/* Persona */
+.persona{background:#fff;border:1px solid var(--rule);border-radius:var(--r24);padding:1.75rem;box-shadow:var(--sh2);display:grid;grid-template-columns:160px 1fr;gap:2rem;align-items:start;}
+.p-avatar{display:flex;flex-direction:column;align-items:center;gap:.6rem;text-align:center;}
+.p-avatar img{border-radius:50%;border:3px solid var(--forest);object-fit:cover;}
+.p-name{font-family:var(--fd);font-size:1.1rem;font-weight:700;}
+.p-badge{display:inline-block;padding:.25rem .75rem;background:var(--sage-bg);color:var(--forest);border-radius:var(--r999);font-size:.68rem;font-weight:700;border:1px solid var(--sage-lt);}
+.p-open-btn{margin-top:.5rem;padding:.5rem 1rem;background:var(--forest);color:#fff;border:none;border-radius:var(--r8);cursor:pointer;font-size:.78rem;font-weight:700;font-family:var(--fb);transition:background .2s;}
+.p-open-btn:hover{background:var(--forest-mid);}
+.p-details h3{font-size:1.25rem;margin-bottom:.3rem;}
+.p-bio{font-size:.9rem;color:var(--warm-mid);margin:.7rem 0 1.1rem;max-width:none;}
+.p-attrs{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.25rem;}
+.p-attr{padding:.65rem;background:var(--parchment);border-radius:var(--r8);border:1px solid var(--rule);}
+.p-attr .al{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--warm-lt);margin-bottom:.18rem;}
+.p-attr .av{font-size:.82rem;color:var(--ink);font-weight:500;}
+.p-quote{background:linear-gradient(135deg,var(--sage-bg),var(--sage-lt));border-left:3px solid var(--forest);border-radius:0 var(--r8) var(--r8) 0;padding:1rem 1.25rem;font-family:var(--fd);font-size:1.05rem;font-style:italic;color:#1a3d22;max-width:none;}
+
+/* Journey */
+.journey{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);margin-top:1.75rem;}
+.journey img{width:100%;border-radius:var(--r8);border:1px solid var(--rule);margin:1rem 0;}
+
+/* Decision table */
+.d-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:1.75rem;border-radius:var(--r16);overflow:hidden;box-shadow:var(--sh1);}
+.d-table th{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--forest);padding:12px 16px;text-align:left;border-bottom:2px solid var(--rule);background:var(--cream);}
+.d-table td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--warm-mid);vertical-align:top;line-height:1.65;background:#fff;}
+.d-table td:first-child{color:var(--ink);font-weight:500;}
+.d-table td:last-child{color:var(--forest);font-weight:600;font-size:.82rem;}
+.d-table tr:hover td{background:var(--parchment);}
+.d-table tr:last-child td{border-bottom:none;}
+
+/* MoSCoW */
+.moscow-img-wrap{border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);margin-top:1.5rem;}
+.moscow-img-wrap img{width:100%;display:block;}
+.moscow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.25rem;}
+.moscow-col h4{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1rem;border-radius:var(--r8) var(--r8) 0 0;margin-bottom:0;}
+.moscow-col ul{border:1px solid var(--rule);border-top:none;border-radius:0 0 var(--r8) var(--r8);padding:.85rem;}
+.moscow-col ul li{font-size:.78rem;color:var(--warm-mid);padding:.28rem 0;border-bottom:1px solid var(--rule);display:flex;align-items:flex-start;gap:.4rem;}
+.moscow-col ul li::before{content:'→';color:var(--forest);flex-shrink:0;font-size:.7rem;margin-top:2px;}
+.moscow-col ul li:last-child{border-bottom:none;}
+.moscow-col.must h4{background:linear-gradient(135deg,var(--forest),var(--forest-mid));color:#fff;}
+.moscow-col.should h4{background:linear-gradient(135deg,#2a6e9e,#1a5a8c);color:#fff;}
+.moscow-col.could h4{background:linear-gradient(135deg,#d4922a,#b87e22);color:#fff;}
+.moscow-col.wont h4{background:linear-gradient(135deg,#7a6e62,#5c4a30);color:#fff;}
+
+/* Feature cards */
+.flow-card{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);overflow:hidden;box-shadow:var(--sh1);}
+.flow-card-top{padding:1.5rem;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
+.flow-card-bottom{padding:1rem 1.5rem;background:var(--parchment);}
+.flow-badge{display:inline-block;padding:.2rem .7rem;border-radius:var(--r999);font-size:.68rem;font-weight:700;margin-bottom:.6rem;letter-spacing:.04em;}
+.flow-badge.restaurant{background:var(--sage-bg);color:var(--forest);}
+.flow-badge.org{background:#e8f4ff;color:#185fa5;}
+.flow-badge.both{background:#fdf4e8;color:#92400e;}
+.flow-card ul{display:flex;flex-direction:column;gap:.4rem;}
+.flow-card li{font-size:.85rem;color:var(--warm-mid);padding-left:1rem;position:relative;line-height:1.55;}
+.flow-card li::before{content:'→';position:absolute;left:0;color:var(--forest);}
+.flow-card-img{border-radius:var(--r8);border:1px solid var(--rule);width:100%;}
+.insight-bar{font-size:.8rem;font-style:italic;color:var(--warm-mid);max-width:none;}
+
+/* WCAG */
+.wcag-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.wcag-item{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.25rem;text-align:center;box-shadow:var(--sh1);}
+.wcag-check{font-size:1.5rem;margin-bottom:.5rem;display:block;}
+.wcag-item h4{font-size:.85rem;margin-bottom:.3rem;}
+.wcag-item p{font-size:.75rem;max-width:none;}
+.wcag-item img{border-radius:var(--r8);width:100%;margin-bottom:.75rem;}
+
+/* Metric cards */
+.metric-card{background:var(--ink);border-radius:var(--r16);padding:1.5rem 1rem;text-align:center;position:relative;overflow:hidden;}
+.metric-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--forest),var(--sage));}
+.metric-icon{font-size:1.5rem;margin-bottom:.5rem;display:block;}
+.metric-val{font-family:var(--fd);font-size:2.75rem;font-weight:900;color:var(--sage);line-height:1;display:block;}
+.metric-lbl{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin:.4rem 0 .3rem;}
+.metric-desc{font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.5;max-width:none;}
+
+/* Test rounds */
+.test-round{border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);}
+.test-round.r1{background:var(--red-bg);border-color:var(--red-bd);}
+.test-round.r2{background:var(--grn-bg);border-color:var(--grn-bd);}
+.test-round h3{font-size:1.1rem;margin-bottom:1rem;}
+.test-round.r1 h3{color:var(--red-tx);}
+.test-round.r2 h3{color:var(--grn-tx);}
+.test-items{display:flex;flex-direction:column;gap:.65rem;list-style:none;}
+.test-items li{display:flex;gap:.75rem;font-size:.875rem;color:var(--warm-mid);align-items:flex-start;}
+.test-items .x{color:var(--red-tx);flex-shrink:0;font-size:1.1rem;}
+.test-items .ok{color:var(--grn-tx);flex-shrink:0;font-size:1.1rem;}
+
+/* Reflection */
+.ref-card{border-top:3px solid var(--forest);padding:1.1rem 0;display:flex;flex-direction:column;gap:.4rem;}
+.ref-icon{font-size:1.6rem;}
+.ref-card h4{font-size:.9rem;}
+.ref-card p{font-size:.8rem;}
+
+/* Final CTA */
+.final-cta{background:linear-gradient(150deg,#0f2216 0%,#1a4a26 100%);border-radius:var(--r24);padding:2.5rem;text-align:center;position:relative;overflow:hidden;}
+.final-cta::before{content:'🌱';position:absolute;font-size:10rem;right:-1rem;bottom:-1.5rem;opacity:.06;line-height:1;}
+.final-cta h2{color:#fff;margin-bottom:.5rem;}
+.final-cta p{color:rgba(255,255,255,.5);max-width:44ch;margin:0 auto 1.5rem;}
+.final-cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+
+/* Footer */
+.footer{background:var(--ink);padding:2.5rem;text-align:center;}
+.footer-logo{font-family:var(--fd);font-size:1.75rem;color:#fff;margin-bottom:.9rem;}
+.footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;list-style:none;margin-bottom:.9rem;}
+.footer-links a{font-size:.78rem;color:rgba(255,255,255,.4);font-weight:500;transition:color .2s;}
+.footer-links a:hover{color:var(--sage);}
+.footer p{font-size:.75rem;color:rgba(255,255,255,.25);}
+.footer-rule{height:1px;background:rgba(255,255,255,.08);margin:1.1rem auto;max-width:200px;}
+
+/* Lightbox */
+.lb-wrap{position:relative;display:block;cursor:zoom-in;border-radius:var(--r8);overflow:hidden;}
+.lb-wrap img{width:100%;display:block;max-height:400px;object-fit:contain;object-position:top;background:var(--parchment);transition:opacity .2s;}
+.lb-wrap:hover img{opacity:.9;}
+.lb-hint{position:absolute;bottom:.6rem;right:.6rem;background:rgba(15,31,20,.65);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;padding:.3rem .65rem;border-radius:var(--r999);display:flex;align-items:center;gap:.3rem;pointer-events:none;backdrop-filter:blur(4px);opacity:0;transition:opacity .2s;}
+.lb-hint::before{content:'⤢';font-size:.8rem;}
+.lb-wrap:hover .lb-hint{opacity:1;}
+.lb-overlay{display:none;position:fixed;inset:0;background:rgba(5,18,8,.92);z-index:600;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out;}
+.lb-overlay.open{display:flex;}
+.lb-overlay img{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:var(--r16);box-shadow:0 32px 80px rgba(0,0,0,.5);cursor:default;}
+.lb-close{position:fixed;top:1.25rem;right:1.25rem;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;color:#fff;transition:background .2s;backdrop-filter:blur(8px);}
+.lb-close:hover{background:rgba(255,255,255,.25);}
+.lb-caption{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:rgba(15,31,20,.7);color:rgba(255,255,255,.8);font-size:.75rem;font-weight:600;letter-spacing:.06em;padding:.45rem 1.1rem;border-radius:var(--r999);backdrop-filter:blur(8px);white-space:nowrap;}
+
+/* Persona / Journey modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,31,20,.85);z-index:500;align-items:center;justify-content:center;padding:2rem;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:var(--r24);max-width:820px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 32px 80px rgba(15,31,20,.4);}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;background:var(--cream);border:1px solid var(--rule);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;z-index:2;}
+.modal-close:hover{background:var(--sand);}
+.modal-body{padding:2.5rem;}
+.modal-body img{width:100%;border-radius:var(--r16);border:1px solid var(--rule);margin-bottom:1.5rem;}
+
+/* Design system scroll region scrollbar */
+#fd-ds-scroll{overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--forest) var(--sand);}
+#fd-ds-scroll::-webkit-scrollbar{width:5px;}
+#fd-ds-scroll::-webkit-scrollbar-track{background:var(--sand);border-radius:3px;}
+#fd-ds-scroll::-webkit-scrollbar-thumb{background:var(--forest);border-radius:3px;}
+
+/* Fade */
+.fade{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.fade.d1{transition-delay:.1s;}.fade.d2{transition-delay:.2s;}.fade.d3{transition-delay:.3s;}.fade.d4{transition-delay:.4s;}.fade.d5{transition-delay:.5s;}
+.fade.vis{opacity:1;transform:none;}
+
+/* Responsive */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{min-height:100vh;}
+  .g2,.persona,.flow-card-top,.hmw-banner{grid-template-columns:1fr;}
+  .g3,.g4,.affinity-grid,.moscow-grid,.wcag-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .wrap{padding:0 1.25rem;}.nav{padding:1rem 1.25rem;}.section{padding:40px 0;}
+  .g3,.g4,.affinity-grid,.moscow-grid,.wcag-grid{grid-template-columns:1fr;}
+  .nav-links{gap:1.1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress-bar" id="pb"></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">Priya T</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-tags">
+      <span class="hero-tag"><span class="dot"></span>Social Impact</span>
+      <span class="hero-tag"><span class="dot"></span>Native Mobile App</span>
+      <span class="hero-tag"><span class="dot"></span>End-to-End UX</span>
+      <span class="hero-tag"><span class="dot"></span>3-Week Sprint</span>
+      <span class="hero-tag" style="background:rgba(125,196,148,.18);border-color:rgba(125,196,148,.4);color:#a8e8bc;"><span class="dot" style="background:#a8e8bc;"></span>Team Project</span>
+    </div>
+    <h1>Food4U</h1>
+    <p class="hero-sub">Turning surplus food into meals — through real-time, last-minute redistribution.</p>
+    <div class="hero-strip">
+      <div class="h-stat" style="position:relative;">
+        <span class="sl">My Role</span>
+        <span class="sv" style="color:#fff;font-weight:700;display:flex;align-items:center;gap:.4rem;">
+          <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;"></span>
+          UX Researcher &amp; Designer
+        </span>
+        <span style="font-size:.68rem;color:rgba(255,255,255,.45);display:block;margin-top:.2rem;font-style:italic;">Lead on research, flows &amp; final design</span>
+      </div>
+      <div class="h-stat"><span class="sl">Timeline</span><span class="sv">3 Weeks</span></div>
+      <div class="h-stat"><span class="sl">Platform</span><span class="sv">Native Mobile App</span></div>
+      <div class="h-stat"><span class="sl">Scope</span><span class="sv">Research → Design → Testing</span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="https://www.figma.com/proto/WEpZqi52dlQflwZP79f1g9/Orange-team---P3_-Prototype?node-id=251-649&p=f&t=uzBHdtomOwCUAvIg-0&scaling=scale-down&content-scaling=fixed&page-id=43%3A6&starting-point-node-id=251%3A649" target="_blank" class="btn btn-primary">View Prototype ↗</a>
+      <a href="index.html" class="btn btn-ghost">← All Projects</a>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </div>
+  <div class="hero-right">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:2rem;">
+      <!-- App icon + phone in a natural "app launch" composition -->
+      <div style="position:relative;display:inline-block;">
+        <!-- Phone mockup -->
+        <div class="hero-phone" style="width:240px;">
+          <img src="images/food4u/sneak%20peak%201.png" alt="Food4U dashboard — restaurant view"/>
+        </div>
+        <!-- Logo badge pinned to top-left corner of phone, like an app icon -->
+        <div style="position:absolute;top:-18px;left:-18px;background:#fff;border-radius:20px;padding:10px;box-shadow:0 8px 28px rgba(15,31,20,.18);border:1px solid rgba(15,31,20,.06);">
+          <img src="images/food4u/logo1.png" alt="Food4U logo" style="width:52px;height:52px;object-fit:contain;display:block;"/>
+        </div>
+        <!-- "App Store" style label below icon -->
+        <div style="position:absolute;top:-18px;left:46px;background:var(--forest);color:#fff;border-radius:var(--r999);padding:.2rem .75rem;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:var(--sh1);top:auto;bottom:-14px;left:50%;transform:translateX(-50%);">Food4U · Native App</div>
+      </div>
+      <div class="hero-badge" style="margin-top:.5rem;">
+        <div class="hb-stat"><div class="hn">&lt;60s</div><div class="hd">Post time</div></div>
+        <div class="hb-stat"><div class="hn">1-tap</div><div class="hd">Repost</div></div>
+        <div class="hb-stat"><div class="hn">0</div><div class="hd">Logistics calls</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SNEAK PEEK ── -->
+<section class="section section--alt" id="sneak">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">01 — Final Design Preview</span>
+      <h2>A glimpse of the platform.</h2>
+      <p>Real-time listings, nearby discovery, and one-tap claim — designed to make food donation effortless during a busy closing rush.</p>
+    </div>
+    <div style="display:flex;justify-content:center;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="width:220px;border-radius:32px;overflow:hidden;box-shadow:var(--sh3);border:1px solid rgba(0,0,0,.08);display:inline-block;">
+          <img src="images/food4u/sneak%20peak%201.png" alt="Dashboard — restaurant view" style="width:100%;display:block;max-height:none;background:transparent;object-fit:unset;"/>
+        </div>
+        <p style="margin-top:.75rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--warm-mid);max-width:none;">Dashboard — restaurant</p>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <div style="width:220px;border-radius:32px;overflow:hidden;box-shadow:var(--sh3);border:1px solid rgba(0,0,0,.08);display:inline-block;">
+          <img src="images/food4u/sneak%20peak%202.png" alt="Donation guide screen" style="width:100%;display:block;max-height:none;background:transparent;object-fit:unset;"/>
+        </div>
+        <p style="margin-top:.75rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--warm-mid);max-width:none;">Donation guide</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── PROBLEM ── -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="g2" style="align-items:start;gap:3.5rem;">
+      <div>
+        <span class="lbl">02 — The Problem</span>
+        <h2>Food wasted. Communities hungry. No simple bridge.</h2>
+        <p class="lead" style="margin-top:.8rem;">Restaurants discard edible food every night while local organizations struggle to access consistent donations.</p>
+        <div class="pain-list">
+          <div class="pain-item fade">
+            <div class="pain-icon">⏱️</div>
+            <div class="pain-text"><h4>Donations are time-sensitive</h4><p>Surplus food has a narrow window — often 30–60 minutes before it must be discarded.</p></div>
+          </div>
+          <div class="pain-item fade d1">
+            <div class="pain-icon">⚖️</div>
+            <div class="pain-text"><h4>Liability fears stop donations</h4><p>Restaurants worry about food safety liability — even though Good Samaritan laws protect them.</p></div>
+          </div>
+          <div class="pain-item fade d2">
+            <div class="pain-icon">😓</div>
+            <div class="pain-text"><h4>Donation feels like extra work</h4><p>Staff are already exhausted at closing time. Any friction = no donation.</p></div>
+          </div>
+          <div class="pain-item fade d3">
+            <div class="pain-icon">🔗</div>
+            <div class="pain-text"><h4>No simple connection system</h4><p>Existing solutions lack real-time coordination, simple logistics, and reliable delivery.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade">
+        <div style="background:linear-gradient(135deg,var(--sage-bg),var(--cream));border:1.5px solid var(--sage-lt);border-radius:var(--r16);padding:1.75rem;margin-bottom:1.25rem;">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--forest);margin-bottom:.75rem;">Secondary Research</div>
+          <h3 style="font-size:1.1rem;margin-bottom:.75rem;color:var(--ink);">The scale of the problem</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+            <div style="background:#fff;border-radius:var(--r8);padding:1rem;border:1px solid var(--rule);text-align:center;">
+              <div style="font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--forest);line-height:1;">40%</div>
+              <div style="font-size:.75rem;color:var(--warm-mid);margin-top:.3rem;">of all food produced is wasted globally</div>
+            </div>
+            <div style="background:#fff;border-radius:var(--r8);padding:1rem;border:1px solid var(--rule);text-align:center;">
+              <div style="font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--forest);line-height:1;">1 in 6</div>
+              <div style="font-size:.75rem;color:var(--warm-mid);margin-top:.3rem;">Americans face food insecurity daily</div>
+            </div>
+          </div>
+          <p style="font-size:.85rem;max-width:none;">Revealed the scale of food waste, key safety concerns around liability, and critical gaps in existing redistribution processes — validating the need for a real-time, low-friction solution.</p>
+        </div>
+        <div class="hmw-banner" style="grid-template-columns:1fr 1fr 1fr;">
+          <div class="hmw-item"><div class="hmw-q">How Might We…</div><p>Motivate restaurants to want to donate their surplus food?</p></div>
+          <div class="hmw-item"><div class="hmw-q">How Might We…</div><p>Make it easy to donate without adding staff burden?</p></div>
+          <div class="hmw-item"><div class="hmw-q">How Might We…</div><p>Provide restaurant owners + staff members with clear donation instructions/guidelines?</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── PRODUCT VISION ── -->
+<section class="section section--alt" id="vision">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">03 — Product Vision</span>
+      <h2>Purpose before pixels.</h2>
+      <p>Establishing a clear mission before design decisions ensured every feature tied back to real impact.</p>
+    </div>
+    <div class="g3">
+      <div class="vision-card fade"><div class="vision-icon">🎯</div><h4>Mission</h4><p>Prevent food waste by rescuing surplus food and delivering it to communities in need.</p></div>
+      <div class="vision-card fade d1"><div class="vision-icon">🔭</div><h4>Vision</h4><p>A world where no food is wasted and no community goes hungry.</p></div>
+      <div class="vision-card fade d2"><div class="vision-icon">💡</div><h4>Unique Value</h4><p>Real-time, last-minute food redistribution — fast enough to catch food before it's discarded.</p></div>
+    </div>
+    <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem;margin-top:1.25rem;" class="fade">
+      <h4 style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);margin-bottom:1rem;">Product Principles</h4>
+      <div class="g4" style="gap:1rem;">
+        <div style="display:flex;gap:.6rem;align-items:flex-start;font-size:.82rem;color:var(--warm-mid);"><span style="color:var(--forest);font-weight:700;flex-shrink:0;">→</span>Food should not be wasted when people are hungry</div>
+        <div style="display:flex;gap:.6rem;align-items:flex-start;font-size:.82rem;color:var(--warm-mid);"><span style="color:var(--forest);font-weight:700;flex-shrink:0;">→</span>Make donations effortless for restaurants</div>
+        <div style="display:flex;gap:.6rem;align-items:flex-start;font-size:.82rem;color:var(--warm-mid);"><span style="color:var(--forest);font-weight:700;flex-shrink:0;">→</span>Ensure trust through safety and quality standards</div>
+        <div style="display:flex;gap:.6rem;align-items:flex-start;font-size:.82rem;color:var(--warm-mid);"><span style="color:var(--forest);font-weight:700;flex-shrink:0;">→</span>Maximize meals served over profit</div>
+      </div>
+    </div>
+
+    <!-- Business Model Canvas -->
+    <div style="margin-top:1.75rem;" class="fade">
+      <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);">
+        <h3 style="margin-bottom:.4rem;">Business Model Canvas</h3>
+        <p style="margin-bottom:.75rem;">Mapped the full value exchange — from restaurant pain to organizational benefit — to ensure design decisions aligned with a viable, sustainable model.</p>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/BMCspot.png','Business Model Canvas — Spotlight')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+          <img src="images/food4u/BMCspot.png" alt="Business Model Canvas spotlight" style="max-height:340px;object-fit:contain;object-position:top;background:var(--parchment);width:100%;display:block;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <button class="p-open-btn" style="margin-top:1rem;" onclick="openModal('bmcModal')">View Detailed BMC →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── RESEARCH ── -->
+<section class="section" id="research">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">04 — Research</span>
+      <h2>Five methods. One clear direction.</h2>
+    </div>
+    <div class="g3">
+      <div class="r-card fade">
+        <div class="r-icon">📋</div>
+        <h3>Surveys</h3>
+        <p>Separate surveys for restaurants and organizations. Stronger pain points on the restaurant side — drove us to focus the MVP on restaurant workflows.</p>
+        <span class="r-stat">2</span>
+        <p style="font-size:.75rem;margin-top:.15rem;">stakeholder groups surveyed</p>
+      </div>
+      <div class="r-card fade d1">
+        <div class="r-icon">🎙️</div>
+        <h3>User Interviews</h3>
+        <p>Uncovered three key barriers: time sensitivity, safety liability fears, and the complexity of the donation process during busy closing hours.</p>
+        <span class="r-stat">6</span>
+        <p style="font-size:.75rem;margin-top:.15rem;">restaurant staff interviewed</p>
+      </div>
+      <div class="r-card fade d2">
+        <div class="r-icon">🔍</div>
+        <h3>Competitive Analysis</h3>
+        <p>Analyzed Goodr, Too Good To Go, and similar platforms. Most lacked real-time coordination, simplicity, and reliable logistics support.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1rem;">
+          <div class="lb-wrap" onclick="openLightbox('images/food4u/Swot.png','SWOT Analysis')" style="border:1px solid var(--rule);border-radius:var(--r8);">
+            <img src="images/food4u/Swot.png" alt="SWOT Analysis"/>
+            <span class="lb-hint">Click to expand</span>
+          </div>
+          <div class="lb-wrap" onclick="openLightbox('images/food4u/Feature.png','Feature Comparison')" style="border:1px solid var(--rule);border-radius:var(--r8);">
+            <img src="images/food4u/Feature.png" alt="Feature Comparison"/>
+            <span class="lb-hint">Click to expand</span>
+          </div>
+        </div>
+        <span class="r-stat">5</span>
+        <p style="font-size:.75rem;margin-top:.15rem;">platforms analyzed</p>
+      </div>
+    </div>
+
+    <!-- Venn Diagram -->
+    <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);margin-top:1.75rem;" class="fade">
+      <h3 style="margin-bottom:.4rem;">Opportunity Space</h3>
+      <p style="margin-bottom:.75rem;">A Venn diagram analysis helped identify the opportunity at the intersection of restaurant surplus availability and organization pickup capacity — pinpointing where real-time coordination creates the most value.</p>
+      <div class="lb-wrap" onclick="openLightbox('images/food4u/venn%20diagram.png','Opportunity Space — Venn Diagram')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+        <img src="images/food4u/venn%20diagram.png" alt="Venn diagram showing opportunity space"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+    </div>
+
+    <!-- Affinity Map -->
+    <div class="affinity fade" style="margin-top:1.75rem;">
+      <h3 style="margin-bottom:.75rem;">Affinity Map — Key Themes</h3>
+      <div class="lb-wrap" onclick="openLightbox('images/food4u/Affni%20Map.png','Affinity Map — Key Research Themes')" style="border:1px solid var(--rule);border-radius:var(--r8);margin-bottom:1.25rem;">
+        <img src="images/food4u/Affni%20Map.png" alt="Affinity map from Food4U research"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+      <div class="affinity-grid">
+        <div class="cluster orange">
+          <div class="c-title">Time Sensitivity</div>
+          <div class="c-note">30–60 min window to donate</div>
+          <div class="c-note">Closing rush = max stress</div>
+          <div class="c-note">No time to coordinate logistics</div>
+        </div>
+        <div class="cluster red">
+          <div class="c-title">Safety Concerns</div>
+          <div class="c-note">Fear of liability lawsuits</div>
+          <div class="c-note">Don't know Good Samaritan laws</div>
+          <div class="c-note">Quality control worries</div>
+        </div>
+        <div class="cluster amber">
+          <div class="c-title">Process Complexity</div>
+          <div class="c-note">Multiple steps to post donation</div>
+          <div class="c-note">Need to find organizations</div>
+          <div class="c-note">Have to arrange pickup myself</div>
+        </div>
+        <div class="cluster green">
+          <div class="c-title">Repetitive Patterns</div>
+          <div class="c-note">Same surplus items daily</div>
+          <div class="c-note">Predictable closing patterns</div>
+          <div class="c-note">Could automate reposting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── PERSONA ── -->
+<section class="section section--alt" id="persona">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">05 — User Understanding</span>
+      <h2>Meet Katie — restaurant owner, NYC.</h2>
+    </div>
+    <div class="persona fade">
+      <div class="p-avatar">
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/pers%20spot.png','Katie M. — Persona Spotlight')" style="border-radius:50%;border:3px solid var(--forest);">
+          <img src="images/food4u/pers%20spot.png" alt="Persona spotlight - Katie M" style="width:100px;height:100px;border-radius:50%;object-fit:cover;max-height:none;background:transparent;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <div class="p-name">Katie M.</div>
+        <div class="p-badge">Restaurant Owner</div>
+        <button class="p-open-btn" onclick="openModal('personaModal')">View Full Persona →</button>
+      </div>
+      <div class="p-details">
+        <h3>Managing surplus food every single night</h3>
+        <p class="p-bio">Katie runs a mid-size restaurant in New York. Every night at closing she faces the same problem — 30+ portions of unsold prepared food that will be thrown away. She wants to donate but doesn't have the time or system to make it happen consistently.</p>
+        <div class="p-attrs">
+          <div class="p-attr"><div class="al">Goal</div><div class="av">Donate food fast with minimal effort</div></div>
+          <div class="p-attr"><div class="al">Frustration</div><div class="av">No easy, reliable system exists</div></div>
+          <div class="p-attr"><div class="al">Context</div><div class="av">Closing rush — exhausted staff, time pressure</div></div>
+          <div class="p-attr"><div class="al">Motivation</div><div class="av">Reduce waste, give back to community</div></div>
+        </div>
+        <div class="p-quote">"I throw away perfectly good food every night. It's heartbreaking. I just need someone to make it easy."</div>
+      </div>
+    </div>
+
+    <!-- Journey -->
+    <div class="journey fade">
+      <h3>User Journey / Journey Mapping</h3>
+      <div class="lb-wrap" onclick="openLightbox('images/food4u/Journey%20SL.png','Katie\'s User Journey — Friction Points')" style="border:1px solid var(--rule);border-radius:var(--r8);">
+        <img src="images/food4u/Journey%20SL.png" alt="Katie's user journey map"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+      <button class="p-open-btn" style="margin-top:1rem;" onclick="openModal('journeyModal')">View Detailed User Journey →</button>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── DESIGN DECISIONS ── -->
+<section class="section" id="insights">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">06 — Design Decisions</span>
+      <h2>Every insight has a solution.</h2>
+    </div>
+    <table class="d-table fade">
+      <thead><tr><th>Research Insight</th><th>Design Decision</th><th>Feature</th></tr></thead>
+      <tbody>
+        <tr><td>Donations are highly time-sensitive</td><td>Real-time listing system with instant visibility</td><td>Live food listing feed</td></tr>
+        <tr><td>Donation process feels complex</td><td>Smart dropdowns + copy-paste previous listing</td><td>Quick post flow (&lt;60 sec)</td></tr>
+        <tr><td>Restaurants fear liability</td><td>Good Samaritan info embedded in the posting flow</td><td>Safety guidelines card</td></tr>
+        <tr><td>Surplus patterns are repetitive</td><td>One-tap repost of yesterday's listing</td><td>Copy-paste feature</td></tr>
+        <tr><td>Logistics are a barrier</td><td>Uber Eats API integration for driver dispatch</td><td>Automatic delivery</td></tr>
+        <tr><td>Organizations need real-time updates</td><td>Push notifications + in-app messaging</td><td>Notification system</td></tr>
+      </tbody>
+    </table>
+
+    <!-- MoSCoW -->
+    <div style="margin-top:2rem;" class="fade">
+      <h3 style="margin-bottom:.4rem;">Feature Prioritization — MoSCoW</h3>
+      <p style="margin-bottom:.75rem;">Focused MVP on core actions: post, discover, claim, deliver.</p>
+      <div class="lb-wrap" onclick="openLightbox('images/food4u/MoSoCoW.png','MoSCoW Prioritization')" style="border-radius:var(--r16);border:1.5px solid var(--rule);margin-bottom:1.25rem;">
+        <img src="images/food4u/MoSoCoW.png" alt="MoSCoW Prioritization"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+      <div class="moscow-grid">
+        <div class="moscow-col must"><h4>Must Have</h4><ul><li>Food listing / post flow</li><li>Nearby listings map</li><li>Claim &amp; confirm</li><li>Copy-paste repost</li><li>Real-time notifications</li></ul></div>
+        <div class="moscow-col should"><h4>Should Have</h4><ul><li>Delivery tracking</li><li>In-app messaging</li><li>Safety guidelines</li><li>History / analytics</li></ul></div>
+        <div class="moscow-col could"><h4>Could Have</h4><ul><li>Impact dashboard</li><li>Scheduled donations</li><li>Multi-location orgs</li></ul></div>
+        <div class="moscow-col wont"><h4>Won't Have (v1)</h4><ul><li>Consumer-facing app</li><li>Payment processing</li><li>Restaurant ratings</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── IDEATION + USER FLOW + MID-FI ── -->
+<section class="section section--alt" id="process">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">06b — Design Process</span>
+      <h2>From sketches to structure.</h2>
+      <p>Rapid ideation and user flow mapping before committing to mid-fidelity wireframes — ensuring every screen tied back to a validated user need.</p>
+    </div>
+
+    <div class="g2" style="gap:1.5rem;margin-bottom:1.75rem;">
+      <div style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
+        <h3 style="margin-bottom:.6rem;font-size:1.05rem;">✏️ Ideation — Design Studio</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/design%20studio%20p3.png','Design Studio — Ideation Sketches')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
+          <img src="images/food4u/design%20studio%20p3.png" alt="Design studio sketches" style="max-height:180px;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p style="font-size:.85rem;">Rapid sketching sessions explored multiple navigation structures and posting flows — identifying the most intuitive, lowest-friction approach before wireframing.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
+        <h3 style="margin-bottom:.6rem;font-size:1.05rem;">🔄 User Flow — End to End</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/user%20flow%20p3.png','User Flow — Restaurant to Organization')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
+          <img src="images/food4u/user%20flow%20p3.png" alt="User flow diagram" style="max-height:180px;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p style="font-size:.85rem;">Mapped the complete flow from restaurant posting through organization discovery, claim, and delivery — identifying decision points and potential drop-off moments.</p>
+      </div>
+    </div>
+
+    <!-- Mid-Fi Wireframes -->
+    <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);">
+      <h3 style="margin-bottom:.4rem;">Mid-Fidelity Wireframes</h3>
+      <p style="margin-bottom:.75rem;">Validated layout, navigation hierarchy, and core task flows with real users before committing to high-fidelity visual design.</p>
+      <div class="lb-wrap" onclick="openLightbox('images/food4u/Mid%20fi%20P3.png','Mid-Fidelity Wireframes')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+        <img src="images/food4u/Mid%20fi%20P3.png" alt="Mid-fidelity wireframes"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── FINAL DESIGN ── -->
+<section class="section section--alt" id="prototype">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">07 — Final Design</span>
+      <h2>Three features that power the platform.</h2>
+    </div>
+
+    <!-- Carousel tab strip -->
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;background:var(--sand);border-radius:var(--r999);padding:.35rem;width:fit-content;">
+      <button class="fd-tab active" data-slide="0" style="padding:.5rem 1.2rem;border-radius:var(--r999);font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:#fff;color:var(--ink);box-shadow:var(--sh1);transition:all .2s;font-family:var(--fb);">🍽️ For Restaurants</button>
+      <button class="fd-tab" data-slide="1" style="padding:.5rem 1.2rem;border-radius:var(--r999);font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--warm-mid);transition:all .2s;font-family:var(--fb);">🚚 Restaurant + Org</button>
+      <button class="fd-tab" data-slide="2" style="padding:.5rem 1.2rem;border-radius:var(--r999);font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--warm-mid);transition:all .2s;font-family:var(--fb);">🎨 Design System</button>
+    </div>
+
+    <!-- Carousel track wrapper — height locked to tallest of slide 0/1 by JS -->
+    <div id="fd-outer" style="overflow:hidden;border-radius:var(--r16);">
+      <div id="fd-track" style="display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);align-items:flex-start;">
+
+        <!-- Slide 1 — For Restaurants -->
+        <div class="fd-slide flow-card" id="fd-slide-0" style="flex-shrink:0;width:100%;">
+          <div class="flow-card-top">
+            <div>
+              <div class="flow-badge restaurant">For Restaurants</div>
+              <h3>Smart dropdown posting</h3>
+              <p style="margin:.6rem 0 1rem;max-width:none;">Pre-populated fields and dropdown menus let staff post surplus food in under 60 seconds — even during a chaotic closing rush. One tap to copy yesterday's listing.</p>
+              <ul><li>Dropdown: food type, quantity, best-by time</li><li>Copy-paste previous listing in one tap</li><li>Safety guidelines embedded — no extra steps</li></ul>
+            </div>
+            <div class="lb-wrap" onclick="openLightbox('images/food4u/feat%201.png','Smart Dropdown Posting — Restaurant Screen')" style="border:1px solid var(--rule);border-radius:var(--r8);align-self:start;">
+              <img src="images/food4u/feat%201.png" alt="Restaurant posting screen" style="max-height:420px;"/>
+              <span class="lb-hint">Click to expand</span>
+            </div>
+          </div>
+          <div class="flow-card-bottom">
+            <p class="insight-bar">💡 Insight: Staff are time-constrained and donation feels like extra work. The copy-paste feature alone removed the biggest friction for repeat donors.</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 — Restaurant + Org -->
+        <div class="fd-slide flow-card" id="fd-slide-1" style="flex-shrink:0;width:100%;">
+          <div class="flow-card-top">
+            <div>
+              <div class="flow-badge both">Restaurant + Org</div>
+              <h3>Pickup status &amp; delivery tracking</h3>
+              <p style="margin:.6rem 0 1rem;max-width:none;">Real-time updates reassure restaurants that food will be collected — without requiring any staff coordination. Uber Eats integration handles driver dispatch and delivery tracking automatically.</p>
+              <ul><li>Live driver location via Uber Direct API</li><li>ETA shown to both restaurant and organization</li><li>Zero staff coordination required after posting</li></ul>
+            </div>
+            <div class="lb-wrap" onclick="openLightbox('images/food4u/feat%202.png','Delivery Tracking Screen')" style="border:1px solid var(--rule);border-radius:var(--r8);align-self:start;">
+              <img src="images/food4u/feat%202.png" alt="Delivery tracking screen" style="max-height:420px;"/>
+              <span class="lb-hint">Click to expand</span>
+            </div>
+          </div>
+          <div class="flow-card-bottom">
+            <p class="insight-bar">💡 Insight: The moment restaurants had to manage driver coordination, donations stopped. Removing this step was essential.</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 — Design System: fixed outer height, only image area scrolls -->
+        <div class="fd-slide flow-card" id="fd-slide-2" style="flex-shrink:0;width:100%;display:flex;flex-direction:column;">
+          <!-- Header: always visible, never scrolls -->
+          <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--rule);flex-shrink:0;">
+            <div class="flow-badge" style="background:#f3f0ff;color:#5b21b6;margin-bottom:.6rem;">Design System</div>
+            <h3 style="margin-bottom:.4rem;">🎨 A consistent visual language</h3>
+            <p style="max-width:none;margin:0;">Colours, typography, components, and spacing — documented and applied across all screens to ensure cohesion and accessibility throughout the product.</p>
+          </div>
+          <!-- Scrollable image region only -->
+          <div id="fd-ds-scroll" style="flex:1;overflow-y:auto;padding:1.25rem 1.5rem;">
+            <div class="lb-wrap" onclick="openLightbox('images/food4u/design%20gui.png','Design System — Guidelines')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+              <img src="images/food4u/design%20gui.png" alt="Design system guidelines" style="max-height:none;object-fit:unset;width:100%;display:block;"/>
+              <span class="lb-hint">Click to expand</span>
+            </div>
+          </div>
+          <!-- Custom scrollbar hint -->
+          <div style="padding:.5rem 1.5rem;background:var(--parchment);border-top:1px solid var(--rule);display:flex;align-items:center;gap:.5rem;flex-shrink:0;">
+            <span style="font-size:.65rem;color:var(--warm-lt);letter-spacing:.06em;">↕ Scroll to see full design system</span>
+          </div>
+          <!-- Insight bar -->
+          <div class="flow-card-bottom" style="flex-shrink:0;">
+            <p class="insight-bar">💡 A shared design system meant the team could move faster across screens while maintaining visual consistency from wireframes to hi-fi.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Carousel dots -->
+    <div id="fd-dots" style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:1.25rem;">
+      <div class="fd-dot" data-slide="0" style="width:20px;height:7px;border-radius:4px;background:var(--forest);cursor:pointer;transition:all .25s;"></div>
+      <div class="fd-dot" data-slide="1" style="width:7px;height:7px;border-radius:50%;background:var(--rule);cursor:pointer;transition:all .25s;"></div>
+      <div class="fd-dot" data-slide="2" style="width:7px;height:7px;border-radius:50%;background:var(--rule);cursor:pointer;transition:all .25s;"></div>
+    </div>
+
+    <div style="margin-top:2rem;text-align:center;background:var(--sage-bg);border-radius:var(--r16);padding:1.75rem;border:1px solid var(--rule);" class="fade">
+      <h3 style="margin-bottom:.5rem;">Interactive Prototype</h3>
+      <p style="margin:0 auto 1.25rem;">See the full restaurant-to-organization flow in Figma.</p>
+      <a href="https://www.figma.com/proto/WEpZqi52dlQflwZP79f1g9/Orange-team---P3_-Prototype?node-id=251-649&p=f&t=uzBHdtomOwCUAvIg-0&scaling=scale-down&content-scaling=fixed&page-id=43%3A6&starting-point-node-id=251%3A649" target="_blank" class="btn btn-primary">View Full Prototype ↗</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── ACCESSIBILITY ── -->
+<section class="section" id="accessibility">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">08 — Accessibility</span>
+      <h2>Designed for everyone.</h2>
+      <p>Applied WCAG guidelines to ensure the app works for the diverse staff and volunteer base who interact with it.</p>
+    </div>
+    <div class="g2" style="gap:1.75rem;align-items:start;">
+      <div class="fade" style="background:#fff;border:1px solid var(--rule);border-radius:var(--r24);box-shadow:var(--sh2);overflow:hidden;">
+        <div style="background:linear-gradient(135deg,var(--forest),var(--forest-mid));padding:1rem 1.5rem;display:flex;align-items:center;gap:.6rem;">
+          <span style="font-size:1.1rem;">🎨</span>
+          <span style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);">Color Contrast</span>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="border-radius:var(--r16);border:1px solid var(--rule);overflow:hidden;box-shadow:var(--sh1);background:#f8f8f8;">
+            <div style="background:#e8e8e8;height:10px;border-radius:var(--r999);width:60%;margin:10px auto 0;"></div>
+            <div class="lb-wrap" onclick="openLightbox('images/food4u/Wcag%201.png','WCAG Color Contrast Audit')">
+              <img src="images/food4u/Wcag%201.png" alt="WCAG Color Contrast" style="max-height:280px;object-fit:cover;object-position:top;width:100%;display:block;background:#fff;"/>
+              <span class="lb-hint">Click to expand</span>
+            </div>
+          </div>
+          <div style="margin-top:1rem;">
+            <h4 style="margin-bottom:.3rem;">Color Contrast</h4>
+            <p style="font-size:.82rem;max-width:none;">All text meets AA contrast ratio. No reliance on color alone to convey meaning.</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade d1" style="background:#fff;border:1px solid var(--rule);border-radius:var(--r24);box-shadow:var(--sh2);overflow:hidden;">
+        <div style="background:linear-gradient(135deg,var(--forest),var(--forest-mid));padding:1rem 1.5rem;display:flex;align-items:center;gap:.6rem;">
+          <span style="font-size:1.1rem;">🔤</span>
+          <span style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);">Typography</span>
+        </div>
+        <div style="padding:1.25rem;">
+          <div style="border-radius:var(--r16);border:1px solid var(--rule);overflow:hidden;box-shadow:var(--sh1);background:#f8f8f8;">
+            <div style="background:#e8e8e8;height:10px;border-radius:var(--r999);width:60%;margin:10px auto 0;"></div>
+            <div class="lb-wrap" onclick="openLightbox('images/food4u/Wcap%202.png','WCAG Typography Audit')">
+              <img src="images/food4u/Wcap%202.png" alt="WCAG Typography" style="max-height:280px;object-fit:cover;object-position:top;width:100%;display:block;background:#fff;"/>
+              <span class="lb-hint">Click to expand</span>
+            </div>
+          </div>
+          <div style="margin-top:1rem;">
+            <h4 style="margin-bottom:.3rem;">Typography</h4>
+            <p style="font-size:.82rem;max-width:none;">Clear hierarchy, minimum 16px body text, generous line height for readability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── USABILITY TESTING ── -->
+<section class="section section--dark" id="testing">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">09 — Usability Testing</span>
+      <h2>Two rounds. Real improvements.</h2>
+      <p>R1 & R2 on mid-fi designs. Iterated to high-fidelity based on findings.</p>
+    </div>
+    <div class="g2" style="gap:1.5rem;margin-bottom:1.75rem;">
+      <div class="test-round r1 fade">
+        <h3>Round 1 Findings</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/r1%20feedback.png','Round 1 — Usability Feedback')" style="border-radius:var(--r8);border:1px solid var(--red-bd);margin-bottom:1rem;">
+          <img src="images/food4u/r1%20feedback.png" alt="Round 1 feedback"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <ul class="test-items">
+          <li><span class="x">✗</span>Primary CTA button wasn't prominent enough</li>
+          <li><span class="x">✗</span>Donation Guide was buried — users couldn't find safety info</li>
+          <li><span class="x">✗</span>Too many required fields in posting flow</li>
+          <li><span class="x">✗</span>Copy-paste feature wasn't discoverable</li>
+        </ul>
+      </div>
+      <div class="test-round r2 fade d1">
+        <h3>Round 2 Improvements</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/r2%20change.png','Round 2 — Changes & High-Fidelity')" style="border-radius:var(--r8);border:1px solid var(--grn-bd);margin-bottom:1rem;">
+          <img src="images/food4u/r2%20change.png" alt="Round 2 changes applied"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <ul class="test-items">
+          <li><span class="ok">✓</span>Made primary CTA prominent — full-width green button</li>
+          <li><span class="ok">✓</span>Surfaced Donation Guide on home screen</li>
+          <li><span class="ok">✓</span>Reduced to 3 required fields — rest optional</li>
+          <li><span class="ok">✓</span>Copy-paste surfaced as hero action on second visit</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Metrics + Delta side by side -->
+    <div class="g2" style="gap:1.5rem;margin-bottom:1.75rem;">
+      <div class="fade" style="background:rgba(255,255,255,.07);border-radius:var(--r16);padding:1.25rem;border:1px solid rgba(255,255,255,.12);">
+        <h3 style="margin-bottom:.5rem;font-size:1rem;color:#e8f0ea;">📈 Detailed Metrics View</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/metri%20deta%20vw.png','Detailed Metrics View')" style="border-radius:var(--r8);border:1px solid rgba(255,255,255,.15);margin:.75rem 0;">
+          <img src="images/food4u/metri%20deta%20vw.png" alt="Detailed metrics view"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p style="font-size:.82rem;color:rgba(200,230,210,.6);">Full breakdown of task times, completion rates, and SUS scores across both rounds.</p>
+      </div>
+      <div class="fade d1" style="background:rgba(255,255,255,.07);border-radius:var(--r16);padding:1.25rem;border:1px solid rgba(255,255,255,.12);">
+        <h3 style="margin-bottom:.5rem;font-size:1rem;color:#e8f0ea;">📊 Usability Test Deltas</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/usability%20test%20delta.png','Usability Test Deltas — Round 1 vs Round 2')" style="border-radius:var(--r8);border:1px solid rgba(255,255,255,.15);margin:.75rem 0;">
+          <img src="images/food4u/usability%20test%20delta.png" alt="Usability Test Delta"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p style="font-size:.82rem;color:rgba(200,230,210,.6);">Round 1 vs Round 2 comparison — task time reductions across all tested flows.</p>
+      </div>
+    </div>
+
+    <div class="g4">
+      <div class="metric-card fade"><span class="metric-icon">⚡</span><span class="metric-val">&lt;60s</span><div class="metric-lbl">Post time target</div><p class="metric-desc">From opening app to listing live</p></div>
+      <div class="metric-card fade d1"><span class="metric-icon">♻️</span><span class="metric-val">1-tap</span><div class="metric-lbl">Repost previous</div><p class="metric-desc">Copy-paste for repeat donors</p></div>
+      <div class="metric-card fade d2"><span class="metric-icon">🚚</span><span class="metric-val">0</span><div class="metric-lbl">Logistics calls needed</div><p class="metric-desc">Uber Eats handles dispatch</p></div>
+      <div class="metric-card fade d3"><span class="metric-icon">📱</span><span class="metric-val">2</span><div class="metric-lbl">Test rounds</div><p class="metric-desc">With meaningful improvements between each</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── REFLECTION ── -->
+<section class="section section--alt" id="reflection">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">10 — Reflection</span>
+      <h2>What this project taught me.</h2>
+    </div>
+    <div class="g3" style="margin-bottom:1.5rem;">
+      <div class="ref-card fade"><div class="ref-icon">⏱️</div><h4>Time constraints change everything</h4><p>In time-sensitive scenarios, every extra step is an abandonment risk. Designing for the closing rush meant ruthlessly cutting anything non-essential.</p></div>
+      <div class="ref-card fade d1"><div class="ref-icon">🤝</div><h4>Logistics is a design problem</h4><p>The Uber Eats integration wasn't a tech decision — it was the UX decision that made donation feasible. Removing coordination from the user's responsibility changed everything.</p></div>
+      <div class="ref-card fade d2"><div class="ref-icon">🌱</div><h4>Social impact needs simplicity most</h4><p>Users want to do good. The only thing stopping them is friction. Reducing effort aligns design values with social values — making it effortless to be generous.</p></div>
+      <div class="ref-card fade d3"><div class="ref-icon">📊</div><h4>Test on both sides</h4><p>I focused testing on the restaurant side. With more time, I'd invest equally in testing with organizations — their experience is equally critical to the system working.</p></div>
+      <div class="ref-card fade d4"><div class="ref-icon">🔮</div><h4>What I'd explore next</h4><p>Deeper organization-side research, low-tech fallback for restaurants without smartphones, and impact dashboards showing meals served over time.</p></div>
+      <div class="ref-card fade d5"><div class="ref-icon">💡</div><h4>Patterns over problems</h4><p>The copy-paste feature emerged from noticing that surplus patterns repeat daily. Always look for patterns in user behavior — they're design opportunities in disguise.</p></div>
+    </div>
+
+    <div class="final-cta fade">
+      <h2>Explore the full prototype</h2>
+      <p>See the complete restaurant-to-organization flow — from posting to delivery — in the interactive Figma prototype.</p>
+      <div class="final-cta-btns">
+        <a href="https://www.figma.com/proto/WEpZqi52dlQflwZP79f1g9/Orange-team---P3_-Prototype?node-id=251-649&p=f&t=uzBHdtomOwCUAvIg-0&scaling=scale-down&content-scaling=fixed&page-id=43%3A6&starting-point-node-id=251%3A649" target="_blank" class="btn btn-primary">View Prototype ↗</a>
+        <a href="index.html" class="btn btn-ghost">← All Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-logo">Priya T.</div>
+  <ul class="footer-links">
+    <li><a href="index.html">All Projects</a></li>
+    <li><a href="case-bollystep.html">← BollyStep</a></li>
+    <li><a href="case-mayura.html">Mayura Roots →</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-rule"></div>
+  <p>Food4U Case Study · Social Impact · 3-Week Sprint · 2026</p>
+  <p style="margin-top:.3rem;">Designed by Priya T. · UX Designer · General Assembly</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lb-overlay" id="lb-overlay" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt=""/>
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<!-- BMC Modal -->
+<div id="bmcModal" class="modal-overlay" onclick="closeOnOverlay(event,'bmcModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('bmcModal')">✕</button>
+    <div class="modal-body">
+      <h2 style="margin-bottom:1.5rem;">Business Model Canvas</h2>
+      <img src="images/food4u/detail BMC.png" alt="Detailed Business Model Canvas"/>
+    </div>
+  </div>
+</div>
+
+<!-- Persona Modal -->
+<div id="personaModal" class="modal-overlay" onclick="closeOnOverlay(event,'personaModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('personaModal')">✕</button>
+    <div class="modal-body">
+      <img src="images/food4u/persona%20deta.png" alt="Detailed Persona — Katie M"/>
+      <h2 style="margin-bottom:.4rem;">Katie M.</h2>
+      <p style="color:var(--forest);font-weight:700;font-size:1rem;margin-bottom:1rem;">Restaurant Owner · NYC</p>
+      <p>Katie runs a mid-size restaurant in New York. Every night at closing she faces the same problem — 30+ portions of unsold prepared food that will be thrown away. She wants to donate but doesn't have the time or system to make it happen consistently.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Journey Modal -->
+<div id="journeyModal" class="modal-overlay" onclick="closeOnOverlay(event,'journeyModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('journeyModal')">✕</button>
+    <div class="modal-body">
+      <h2 style="margin-bottom:1.5rem;">Katie's Detailed User Journey Map</h2>
+      <img src="images/food4u/User%20journey.png" alt="Detailed User Journey Map"/>
+    </div>
+  </div>
+</div>
+
+<script>
+// Progress bar
+const pb = document.getElementById('pb');
+window.addEventListener('scroll', () => {
+  const s = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+  pb.style.width = (s / h * 100) + '%';
+});
+// Nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+// Fade in
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }});
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+// Lightbox
+function openLightbox(src, caption) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-caption').textContent = caption;
+  document.getElementById('lb-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lb-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Modals
+function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+function closeOnOverlay(e, id) { if(e.target === document.getElementById(id)) closeModal(id); }
+// Final Design carousel — height locked to tallest of slide 0/1
+(function(){
+  const track = document.getElementById('fd-track');
+  const outer = document.getElementById('fd-outer');
+  const dsScroll = document.getElementById('fd-ds-scroll');
+  if(!track || !outer) return;
+  const tabs = document.querySelectorAll('.fd-tab');
+  const dots = document.querySelectorAll('.fd-dot');
+  let current = 0;
+  let lockedHeight = 0;
+
+  function lockHeight() {
+    // Temporarily show all slides to measure natural heights
+    const slide0 = document.getElementById('fd-slide-0');
+    const slide1 = document.getElementById('fd-slide-1');
+    const slide2 = document.getElementById('fd-slide-2');
+
+    // Read heights while outer has no constraint
+    outer.style.height = 'auto';
+    track.style.transform = 'translateX(0)';
+    const h0 = slide0 ? slide0.offsetHeight : 0;
+    track.style.transform = 'translateX(-100%)';
+    const h1 = slide1 ? slide1.offsetHeight : 0;
+
+    lockedHeight = Math.max(h0, h1);
+    outer.style.height = lockedHeight + 'px';
+
+    // Restore current slide position
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    // Set the scrollable image region inside slide 3 to fill remaining space
+    // slide3 total height = lockedHeight; subtract header (~130px) + scrollbar hint (~32px) + insight bar (~52px)
+    if(slide2 && dsScroll) {
+      const header = slide2.querySelector('[style*="border-bottom"]');
+      const hint = slide2.querySelector('[style*="Scroll to see"]')?.parentElement;
+      const insightBar = slide2.querySelector('.flow-card-bottom');
+      const usedHeight =
+        (header ? header.offsetHeight : 130) +
+        (hint ? hint.offsetHeight : 32) +
+        (insightBar ? insightBar.offsetHeight : 52);
+      dsScroll.style.height = Math.max(120, lockedHeight - usedHeight) + 'px';
+      dsScroll.style.flex = 'none';
+    }
+  }
+
+  function goTo(idx) {
+    current = idx;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    tabs.forEach((t, i) => {
+      const isActive = i === idx;
+      t.style.background = isActive ? '#fff' : 'transparent';
+      t.style.color = isActive ? 'var(--ink)' : 'var(--warm-mid)';
+      t.style.boxShadow = isActive ? 'var(--sh1)' : 'none';
+    });
+    dots.forEach((d, i) => {
+      const isActive = i === idx;
+      d.style.width = isActive ? '20px' : '7px';
+      d.style.borderRadius = isActive ? '4px' : '50%';
+      d.style.background = isActive ? 'var(--forest)' : 'var(--rule)';
+    });
+  }
+
+  tabs.forEach((tab, i) => tab.addEventListener('click', () => goTo(i)));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  // Run after images load so heights are accurate
+  window.addEventListener('load', lockHeight);
+  window.addEventListener('resize', lockHeight);
+  // Fallback in case load already fired
+  if(document.readyState === 'complete') lockHeight();
+})();
+
+// ESC
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') {
+    closeLightbox();
+    document.querySelectorAll('.modal-overlay.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; });
+  }
+});
+</script>
+</body>
+</html>

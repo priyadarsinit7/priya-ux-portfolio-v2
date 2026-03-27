@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Priya T · UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #1a1815; --ink-muted: #6b6560; --ink-faint: #b0aba5;
+  --cream: #f7f4ef; --cream-dark: #ede9e1;
+  --accent: #c85a2a; --accent-light: #f5ede7; --white: #ffffff;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --max: 1100px; --radius: 4px; --t: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,244,239,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--cream-dark); padding: 0 2.5rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: color var(--t); }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+footer a { color: var(--accent); text-decoration: none; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+section { padding: 90px 0; }
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+.eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+h2.section-title { font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.8rem); line-height: 1.15; letter-spacing: -0.02em; }
+em { color: var(--accent); font-style: italic; }
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--white); text-decoration: none; padding: 13px 26px; font-size: 0.875rem; font-weight: 500; border-radius: var(--radius); transition: background var(--t), transform var(--t); }
+.btn:hover { background: var(--accent); transform: translateY(-2px); }
+@media (max-width: 768px) { nav { padding: 0 1rem; } .nav-links { gap: 1.5rem; } .container { padding: 0 1.25rem; } section { padding: 60px 0; } }
+</style>
+<style>
+.page-hero { padding: 130px 0 80px; background: var(--white); border-bottom: 1px solid var(--cream-dark); position: relative; }
+.page-hero .eyebrow { margin-bottom: 1rem; }
+.page-hero h1 { font-family: var(--serif); font-size: clamp(2.8rem,5vw,4rem); line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 1.5rem; }
+.page-hero p { font-size: 1.05rem; font-weight: 300; color: var(--ink-muted); line-height: 1.9; max-width: 580px; }
+.page-hero-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem; }
+.page-hero-text { flex: 1; min-width: 0; }
+.page-hero-badge { position: absolute; right: 8rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.page-hero-badge img { width: 150px; height: 150px; object-fit: contain; display: block; transition: transform var(--t), opacity var(--t); }
+.page-hero-badge img:hover { transform: scale(1.05); opacity: 0.85; }
+.page-hero-badge-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); text-align: center; }
+@media (max-width: 640px) { .page-hero-inner { flex-direction: column; gap: 2rem; } .page-hero-badge { position: static; flex-direction: row; align-self: flex-start; } }
+
+#about-main { background: var(--cream); }
+.about-layout { display: grid; grid-template-columns: 340px 1fr; gap: 5rem; align-items: start; }
+.about-sidebar { position: sticky; top: 90px; }
+.sidebar-portrait { width: 100%; aspect-ratio: 3/4; background: var(--cream-dark); border-radius: 160px 160px 12px 12px; border: 1px solid rgba(0,0,0,0.06); position: relative; overflow: hidden; margin-bottom: 1.5rem; }
+.sidebar-info { background: var(--white); border: 1px solid var(--cream-dark); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+.sidebar-info-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--cream-dark); font-size: 0.85rem; }
+.sidebar-info-row:last-child { border-bottom: none; }
+.sidebar-info-row span:first-child { color: var(--ink-muted); font-size: 0.78rem; }
+.sidebar-info-row span:last-child { font-weight: 500; text-align: right; }
+
+.about-body h2 { font-family: var(--serif); font-size: clamp(1.7rem,2.5vw,2.3rem); line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
+.about-body p { font-size: 0.97rem; font-weight: 300; color: var(--ink-muted); line-height: 1.9; margin-bottom: 1.1rem; }
+.pull-quote { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 20px 24px; margin: 2.5rem 0; border-radius: 0 var(--radius) var(--radius) 0; font-family: var(--serif); font-size: 1.15rem; color: var(--ink); line-height: 1.6; font-style: italic; }
+.about-divider { height: 1px; background: var(--cream-dark); margin: 2.5rem 0; }
+
+.skills-section { margin-top: 0.5rem; }
+.skills-section h3 { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 1.5rem; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+.skill-col h4 { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+.skill-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.skill-col li { font-size: 0.87rem; color: var(--ink-muted); padding-left: 14px; position: relative; }
+.skill-col li::before { content: '—'; position: absolute; left: 0; color: var(--ink-faint); font-size: 0.65rem; top: 5px; }
+
+#values { background: var(--white); }
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+.value-card { background: var(--cream); border: 1px solid var(--cream-dark); border-radius: 10px; padding: 1.5rem; }
+.value-card .v-icon { font-size: 1.5rem; margin-bottom: 0.75rem; display: block; }
+.value-card h4 { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 0.5rem; }
+.value-card p { font-size: 0.85rem; font-weight: 300; color: var(--ink-muted); line-height: 1.7; }
+
+.sidebar-credential-link { display: flex; align-items: center; gap: 7px; text-decoration: none; color: inherit; }
+.sidebar-credential-link:hover .sidebar-credential-text { color: var(--accent); }
+.sidebar-credential-img { width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
+.sidebar-credential-text { font-size: 0.78rem; font-weight: 500; transition: color var(--t); }
+
+.sidebar-profile-card { display: flex; align-items: center; gap: 12px; background: var(--white); border: 1px solid var(--cream-dark); border-radius: 10px; padding: 12px 14px; margin-bottom: 1.25rem; }
+.sidebar-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 500; color: var(--accent); flex-shrink: 0; letter-spacing: 0.02em; }
+.sidebar-profile-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.sidebar-profile-name { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+.sidebar-profile-role { font-size: 0.75rem; color: var(--ink-muted); }
+.sidebar-profile-badge { flex-shrink: 0; display: block; transition: transform var(--t), opacity var(--t); }
+.sidebar-profile-badge img { width: 44px; height: 44px; object-fit: contain; display: block; }
+.sidebar-profile-badge:hover { transform: scale(1.08); opacity: 0.85; }
+@media (max-width: 860px) { .about-layout { grid-template-columns: 1fr; gap: 2.5rem; } .about-sidebar { position: static; } .skills-grid { grid-template-columns: 1fr 1fr; } .values-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .skills-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Priya T.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Work</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-hero-text">
+        <div class="eyebrow">About Me</div>
+        <h1>Hi, I'm Priya — <em>UX Designer</em><br/>based in Sunnyvale, CA.</h1>
+        <p>I design experiences that feel intuitive, empathetic, and grounded in real human needs. I recently completed the General Assembly UX Design Bootcamp (March 2026), and I'm actively looking for UX Designer, Product Designer, or UX Research Intern roles.</p>
+      </div>
+      <a href="https://badges.parchment.com/public/assertions/GvtYFsELTDyqQCZPV1tcXA?identity__email=tpriyadarsini25@gmail.com" target="_blank" rel="noopener" class="page-hero-badge" aria-label="Verify General Assembly UX Design Bootcamp credential">
+        <img src="images/ga-badge.png" alt="General Assembly UX Design Bootcamp Badge" />
+        <span class="page-hero-badge-label">Verified Credential</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="about-main">
+  <div class="container">
+    <div class="about-layout">
+
+      <div class="about-sidebar fade-up">
+        <div class="sidebar-portrait">
+          <svg width="100%" height="100%" viewBox="0 0 340 455" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+            <rect width="340" height="455" fill="#ede9e1"/>
+            <!-- Phone mockup -->
+            <rect x="118" y="52" width="104" height="192" rx="14" fill="#fff" stroke="#c8bfb0" stroke-width="1.5"/>
+            <rect x="126" y="68" width="88" height="152" rx="4" fill="#f0ece6"/>
+            <rect x="148" y="56" width="44" height="8" rx="4" fill="#c8bfb0"/>
+            <rect x="126" y="68" width="88" height="14" rx="2" fill="#1a1815" opacity=".85"/>
+            <rect x="132" y="72" width="28" height="5" rx="2" fill="#fff" opacity=".5"/>
+            <rect x="192" y="72" width="15" height="5" rx="3" fill="#c85a2a" opacity=".8"/>
+            <rect x="130" y="90" width="80" height="28" rx="4" fill="#fff" stroke="#ddd5c8" stroke-width=".8"/>
+            <rect x="135" y="95" width="16" height="16" rx="3" fill="#d8eddf"/>
+            <rect x="157" y="97" width="30" height="5" rx="2" fill="#1a1815" opacity=".6"/>
+            <rect x="157" y="105" width="22" height="4" rx="2" fill="#b0aba5"/>
+            <rect x="130" y="124" width="80" height="28" rx="4" fill="#fff" stroke="#ddd5c8" stroke-width=".8"/>
+            <rect x="135" y="129" width="16" height="16" rx="3" fill="#fce8d8"/>
+            <rect x="157" y="131" width="26" height="5" rx="2" fill="#1a1815" opacity=".6"/>
+            <rect x="157" y="139" width="34" height="4" rx="2" fill="#b0aba5"/>
+            <rect x="130" y="158" width="80" height="28" rx="4" fill="#fff" stroke="#ddd5c8" stroke-width=".8"/>
+            <rect x="135" y="163" width="16" height="16" rx="3" fill="#e8daf5"/>
+            <rect x="157" y="165" width="32" height="5" rx="2" fill="#1a1815" opacity=".6"/>
+            <rect x="157" y="173" width="20" height="4" rx="2" fill="#b0aba5"/>
+            <rect x="138" y="192" width="64" height="16" rx="8" fill="#c85a2a"/>
+            <rect x="152" y="197" width="36" height="5" rx="2" fill="#fff" opacity=".9"/>
+            <rect x="152" y="225" width="36" height="4" rx="2" fill="#c8bfb0"/>
+            <!-- Yellow sticky -->
+            <rect x="14" y="42" width="68" height="64" rx="3" fill="#f9e784" opacity=".92"/>
+            <rect x="20" y="52" width="42" height="4" rx="2" fill="#a08a20" opacity=".7"/>
+            <rect x="20" y="60" width="50" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+            <rect x="20" y="67" width="36" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+            <rect x="20" y="74" width="46" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+            <rect x="20" y="90" width="16" height="10" rx="2" fill="#c85a2a" opacity=".8"/>
+            <rect x="23" y="93" width="10" height="4" rx="1" fill="#fff" opacity=".9"/>
+            <!-- Pink sticky -->
+            <rect x="256" y="34" width="68" height="64" rx="3" fill="#f9c4cf" opacity=".9"/>
+            <rect x="262" y="44" width="38" height="4" rx="2" fill="#8b2040" opacity=".6"/>
+            <rect x="262" y="52" width="52" height="3" rx="2" fill="#8b2040" opacity=".35"/>
+            <rect x="262" y="59" width="44" height="3" rx="2" fill="#8b2040" opacity=".35"/>
+            <rect x="262" y="66" width="48" height="3" rx="2" fill="#8b2040" opacity=".35"/>
+            <rect x="278" y="82" width="28" height="10" rx="5" fill="#8b2040" opacity=".7"/>
+            <rect x="283" y="85" width="18" height="4" rx="2" fill="#fff" opacity=".8"/>
+            <!-- Blue sticky -->
+            <rect x="10" y="172" width="68" height="60" rx="3" fill="#b5d4f4" opacity=".88"/>
+            <rect x="16" y="182" width="46" height="4" rx="2" fill="#0c447c" opacity=".65"/>
+            <rect x="16" y="190" width="54" height="3" rx="2" fill="#0c447c" opacity=".35"/>
+            <rect x="16" y="197" width="40" height="3" rx="2" fill="#0c447c" opacity=".35"/>
+            <rect x="16" y="204" width="50" height="3" rx="2" fill="#0c447c" opacity=".35"/>
+            <rect x="16" y="214" width="50" height="12" rx="3" fill="#185fa5" opacity=".28"/>
+            <!-- Green sticky -->
+            <rect x="260" y="158" width="68" height="60" rx="3" fill="#c0dd97" opacity=".88"/>
+            <rect x="266" y="168" width="42" height="4" rx="2" fill="#27500a" opacity=".65"/>
+            <rect x="266" y="176" width="52" height="3" rx="2" fill="#27500a" opacity=".35"/>
+            <rect x="266" y="183" width="38" height="3" rx="2" fill="#27500a" opacity=".35"/>
+            <rect x="266" y="190" width="46" height="3" rx="2" fill="#27500a" opacity=".35"/>
+            <rect x="266" y="200" width="52" height="12" rx="3" fill="#3b6d11" opacity=".22"/>
+            <!-- Wireframe card -->
+            <rect x="10" y="288" width="106" height="122" rx="6" fill="#fff" stroke="#c8bfb0" stroke-width="1" opacity=".95"/>
+            <rect x="10" y="288" width="106" height="20" rx="6" fill="#ede9e1"/>
+            <rect x="10" y="300" width="106" height="8" fill="#ede9e1"/>
+            <rect x="18" y="293" width="38" height="5" rx="2" fill="#b0aba5"/>
+            <rect x="90" y="293" width="18" height="5" rx="3" fill="#c85a2a" opacity=".7"/>
+            <rect x="18" y="316" width="90" height="30" rx="3" fill="#f0ece6" stroke="#ddd5c8" stroke-width=".8"/>
+            <rect x="24" y="322" width="46" height="5" rx="2" fill="#b0aba5"/>
+            <rect x="24" y="331" width="62" height="4" rx="2" fill="#ddd5c8"/>
+            <rect x="18" y="352" width="40" height="16" rx="2" fill="#f0ece6" stroke="#ddd5c8" stroke-width=".8"/>
+            <rect x="64" y="352" width="44" height="16" rx="2" fill="#f0ece6" stroke="#ddd5c8" stroke-width=".8"/>
+            <rect x="24" y="357" width="28" height="5" rx="2" fill="#ddd5c8"/>
+            <rect x="70" y="357" width="30" height="5" rx="2" fill="#ddd5c8"/>
+            <rect x="18" y="375" width="90" height="24" rx="3" fill="#1a1815" opacity=".07"/>
+            <rect x="42" y="383" width="42" height="9" rx="2" fill="#c85a2a" opacity=".6"/>
+            <!-- User journey card -->
+            <rect x="224" y="282" width="110" height="136" rx="6" fill="#fff" stroke="#c8bfb0" stroke-width="1" opacity=".95"/>
+            <rect x="224" y="282" width="110" height="18" rx="6" fill="#ede9e1"/>
+            <rect x="224" y="292" width="110" height="8" fill="#ede9e1"/>
+            <rect x="230" y="287" width="48" height="4" rx="2" fill="#b0aba5"/>
+            <circle cx="242" cy="316" r="7" fill="#c85a2a" opacity=".8"/>
+            <circle cx="279" cy="316" r="7" fill="#c8bfb0"/>
+            <circle cx="316" cy="316" r="7" fill="#c8bfb0"/>
+            <line x1="249" y1="316" x2="272" y2="316" stroke="#c8bfb0" stroke-width="1.5"/>
+            <line x1="286" y1="316" x2="309" y2="316" stroke="#c8bfb0" stroke-width="1.5"/>
+            <rect x="230" y="330" width="20" height="4" rx="2" fill="#ddd5c8"/>
+            <rect x="267" y="330" width="20" height="4" rx="2" fill="#ddd5c8"/>
+            <rect x="304" y="330" width="20" height="4" rx="2" fill="#ddd5c8"/>
+            <path d="M234 356 Q248 346 262 353 Q276 362 290 348 Q304 336 326 343" fill="none" stroke="#c85a2a" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+            <rect x="230" y="368" width="96" height="38" rx="3" fill="#f9e784" opacity=".85"/>
+            <rect x="236" y="374" width="48" height="4" rx="2" fill="#a08a20" opacity=".7"/>
+            <rect x="236" y="382" width="70" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+            <rect x="236" y="389" width="56" height="3" rx="2" fill="#a08a20" opacity=".4"/>
+            <rect x="236" y="397" width="38" height="9" rx="5" fill="#c85a2a" opacity=".7"/>
+            <rect x="241" y="400" width="28" height="3" rx="2" fill="#fff" opacity=".85"/>
+            <!-- FigJam connectors -->
+            <line x1="82" y1="106" x2="118" y2="132" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".6"/>
+            <line x1="256" y1="100" x2="222" y2="136" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".6"/>
+            <line x1="78" y1="232" x2="120" y2="194" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+            <line x1="116" y1="316" x2="126" y2="300" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+            <line x1="224" y1="316" x2="222" y2="282" stroke="#c8bfb0" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+          </svg>
+        </div>
+
+        <div class="sidebar-info">
+          <div class="sidebar-info-row"><span>Location</span><span>Sunnyvale, CA</span></div>
+          <div class="sidebar-info-row"><span>Work Auth</span><span>H4 EAD · US Auth</span></div>
+          <div class="sidebar-info-row"><span>Email</span><span style="color:var(--accent);font-size:0.78rem;">tpriyadarsini25@gmail.com</span></div>
+          <div class="sidebar-info-row"><span>Languages</span><span>English, Tamil</span></div>
+          <div class="sidebar-info-row"><span>Availability</span><span style="color:#4a7c6b;">Open to Roles</span></div>
+        </div>
+        <a href="resume.html" class="btn" style="width:100%;justify-content:center;">View Resume →</a>
+      </div>
+
+      <div class="about-body fade-up">
+        <h2>Designer, researcher,<br/>former educator.</h2>
+        <p>I came to UX design through an unusual path — I spent years as a preschool and computer science teacher before pivoting to design. Those roles gave me something most designers have to learn over time: how to truly observe people, adapt to their individual needs, and communicate complexity in clear, accessible ways.</p>
+        <p>My MCA background in software development rounds out my analytical thinking — I understand how products are built, which helps me design within real constraints and collaborate more meaningfully with engineers.</p>
+        <div class="pull-quote">"I believe great design starts with listening — to users, to data, and to the spaces in between where frustration quietly lives."</div>
+        <p>For my capstone project, I worked on BollyStep — a platform to help users like Sanjana, who wanted to organize a Bollywood dance performance for her wedding. She struggled with coordinating choreography across different schedules, time zones, and experience levels. I redesigned the platform to help users learn dances asynchronously while streamlining navigation, onboarding, and trust — reducing friction from discovery to event creation.</p>
+        <p>I'm excited to apply my skills to projects that bridge the gap between user needs and business goals. I believe in an empathetic, collaborative, and iterative approach to design — and I'm just getting started.</p>
+        <div class="about-divider"></div>
+        <div class="skills-section">
+          <h3>Skills &amp; Methods</h3>
+          <div class="skills-grid">
+            <div class="skill-col">
+              <h4>UX Research</h4>
+              <ul>
+                <li>User Interviews</li><li>Usability Testing</li><li>Heuristic Evaluation</li>
+                <li>Card Sorting</li><li>Competitive Analysis</li><li>Content Audits</li>
+                <li>Affinity Mapping</li><li>Persona Creation</li><li>Journey Mapping</li>
+              </ul>
+            </div>
+            <div class="skill-col">
+              <h4>Design</h4>
+              <ul>
+                <li>Interaction Design</li><li>Wireframing</li><li>Prototyping</li>
+                <li>Visual Design</li><li>Information Architecture</li><li>Responsive / Mobile UX</li>
+                <li>Accessibility (WCAG)</li><li>Design Systems</li><li>User Flows</li>
+              </ul>
+            </div>
+            <div class="skill-col">
+              <h4>Tools &amp; Process</h4>
+              <ul>
+                <li>Figma &amp; FigJam</li><li>Jira</li><li>Notion</li>
+                <li>Wix</li><li>Canva</li><li>Agile / Sprints</li>
+                <li>Design Thinking</li><li>Double Diamond</li><li>Google Workspace</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="container">
+    <div class="eyebrow">How I Work</div>
+    <h2 class="section-title">Design principles<br/>I <em>actually believe in.</em></h2>
+    <div class="values-grid fade-up">
+      <div class="value-card">
+        <span class="v-icon">👂</span>
+        <h4>Listen first, design second</h4>
+        <p>Every design decision should trace back to something a real user said, did, or felt. I start with research — not assumptions.</p>
+      </div>
+      <div class="value-card">
+        <span class="v-icon">🔄</span>
+        <h4>Iterate, don't over-polish</h4>
+        <p>The best design is never done. I test early, gather feedback, and improve — rather than waiting for perfection that never arrives.</p>
+      </div>
+      <div class="value-card">
+        <span class="v-icon">🤝</span>
+        <h4>Collaborate across silos</h4>
+        <p>Great products come from designers, engineers, and stakeholders working together — not in isolation. I make that collaboration easier.</p>
+      </div>
+      <div class="value-card">
+        <span class="v-icon">🎯</span>
+        <h4>Simplicity is the goal</h4>
+        <p>Reducing friction, clarifying hierarchy, and removing cognitive load are design acts of respect — for users and for their time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed &amp; built by <a href="index.html">Priya T.</a> · UX Designer · Sunnyvale, CA · 2026</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.05) + 's';
+  observer.observe(el);
+});
+// Trigger immediately for elements already in viewport
+requestAnimationFrame(() => {
+  document.querySelectorAll('.fade-up').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) el.classList.add('visible');
+  });
+});
+const currentPage = window.location.pathname.split('/').pop() || 'about.html';
+document.querySelectorAll('.nav-links a').forEach(link => {
+  const href = link.getAttribute('href');
+  if (href === currentPage) {
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
+  }
+});
+</script>

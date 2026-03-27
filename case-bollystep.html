@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BollyStep — Case Study · Priya T</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  /* Palette — warm, South Asian, cultural */
+  --ink:        #1a1109;
+  --bark:       #2e1b0e;
+  --terracotta: #c4520a;
+  --turmeric:   #d4920e;
+  --saffron:    #e8a820;
+  --rose-dust:  #c4786b;
+  --crimson:    #8b2020;
+  --parchment:  #faf5ec;
+  --cream:      #f5ede0;
+  --sand:       #ede0cc;
+  --rule:       #ddd0bc;
+  --warm-mid:   #7a6550;
+  --warm-lt:    #b09878;
+  /* semantic */
+  --red-bg: #fff1ef; --red-bd: #f4a39a; --red-tx: #9b1c1c;
+  --grn-bg: #f0faf4; --grn-bd: #86efac; --grn-tx: #166534;
+  /* type */
+  --fd: 'Playfair Display', Georgia, serif;
+  --fb: 'Plus Jakarta Sans', system-ui, sans-serif;
+  /* radii */
+  --r3:3px; --r8:8px; --r16:16px; --r24:24px; --r999:999px;
+  /* shadows */
+  --sh1: 0 2px 8px rgba(26,17,9,.07);
+  --sh2: 0 8px 32px rgba(26,17,9,.12);
+  --sh3: 0 24px 64px rgba(26,17,9,.18);
+  /* layout */
+  --max: 1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--fb);background:var(--parchment);color:var(--ink);line-height:1.7;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+
+/* ── TYPOGRAPHY ─────────────────────────────── */
+h1,h2,h3,h4{font-family:var(--fd);line-height:1.12;color:var(--ink);}
+h1{font-size:clamp(3rem,6.5vw,6rem);font-weight:900;letter-spacing:-.025em;}
+h2{font-size:clamp(1.9rem,3.8vw,3rem);font-weight:700;letter-spacing:-.015em;}
+h3{font-size:clamp(1.15rem,2vw,1.55rem);font-weight:600;}
+h4{font-size:1rem;font-weight:600;}
+p{font-size:.9375rem;color:var(--warm-mid);line-height:1.75;max-width:64ch;}
+p.lead{font-size:1.1rem;color:var(--ink);}
+strong{color:var(--ink);font-weight:600;}
+.lbl{font-family:var(--fb);font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--turmeric);display:block;margin-bottom:.75rem;}
+
+/* ── LAYOUT ─────────────────────────────────── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 2.5rem;}
+.section{padding:56px 0;}
+.section--alt{background:var(--cream);}
+.section--dark{background:var(--bark);}
+.section--dark h2,.section--dark h3,.section--dark h4{color:#fff;}
+.section--dark p{color:rgba(255,255,255,.55);}
+.section--dark .lbl{color:var(--saffron);}
+hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
+.sec-hd{margin-bottom:2rem;}
+.sec-hd p{margin-top:.5rem;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+
+/* ── BUTTONS ─────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;border-radius:var(--r999);font-family:var(--fb);font-size:.85rem;font-weight:700;cursor:pointer;border:2px solid transparent;transition:all .2s ease;letter-spacing:.01em;}
+.btn-gold{background:var(--turmeric);color:var(--ink);border-color:var(--turmeric);}
+.btn-gold:hover{background:var(--terracotta);border-color:var(--terracotta);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,82,10,.3);}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3);}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;}
+.btn-ink{background:transparent;color:var(--ink);border-color:var(--rule);}
+.btn-ink:hover{background:var(--sand);border-color:var(--warm-mid);}
+
+/* ── NAV ─────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(250,245,236,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s;}
+.nav.scrolled{border-color:var(--rule);box-shadow:var(--sh1);}
+.nav-logo{font-family:var(--fd);font-size:1.35rem;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:.35rem;}
+.nav-logo::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--turmeric);display:inline-block;margin-bottom:1px;}
+.nav-links{display:flex;gap:2.25rem;list-style:none;}
+.nav-links a{font-size:.8rem;font-weight:600;color:var(--warm-mid);letter-spacing:.03em;transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+
+/* ── PROGRESS BAR ────────────────────────────── */
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--turmeric),var(--terracotta));z-index:300;transition:width .1s linear;width:0%;}
+
+/* ── HERO ────────────────────────────────────── */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 2.5rem 5rem;background:linear-gradient(160deg,#110800 0%,#2e1200 35%,#6b2800 65%,#a84208 100%);}
+.hero-left::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:1;pointer-events:none;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2rem;}
+.hero-tag{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .85rem;border-radius:var(--r999);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:.7rem;font-weight:600;letter-spacing:.04em;}
+.hero-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--saffron);flex-shrink:0;}
+.hero h1{color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4);margin-bottom:.6rem;}
+.hero-sub{font-family:var(--fd);font-size:clamp(1rem,1.8vw,1.3rem);font-style:italic;color:rgba(255,255,255,.65);max-width:42ch;margin-bottom:2.25rem;line-height:1.55;}
+.hero-strip{display:flex;flex-wrap:wrap;gap:2rem;padding:1.4rem 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:2.25rem;}
+.h-stat .sl{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron);display:block;margin-bottom:.2rem;}
+.h-stat .sv{font-size:.875rem;color:rgba(255,255,255,.88);font-weight:500;}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;position:relative;z-index:3;}
+
+.hero-right{position:relative;background:var(--cream);display:flex;align-items:center;justify-content:center;padding:6rem 3rem 3rem;}
+.hero-right-inner{position:relative;width:100%;max-width:520px;}
+.hero-mockup{width:100%;border-radius:var(--r16);box-shadow:var(--sh3);display:block;}
+.hero-badge{position:absolute;bottom:-1.5rem;left:50%;transform:translateX(-50%);background:#fff;border-radius:var(--r16);padding:1rem 1.75rem;box-shadow:var(--sh2);display:flex;gap:2rem;white-space:nowrap;}
+.hb-stat .hn{font-family:var(--fd);font-size:1.75rem;font-weight:700;color:var(--terracotta);line-height:1;}
+.hb-stat .hd{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--warm-lt);margin-top:.15rem;}
+
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.3);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+.hero-scroll::before{content:'';display:block;width:1px;height:32px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.28));}
+
+/* ── SNEAK PEEK ──────────────────────────────── */
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:0;}
+.preview-item{border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);transition:transform .3s,box-shadow .3s;}
+.preview-item:hover{transform:translateY(-4px);box-shadow:var(--sh2);}
+.preview-item img{width:100%;display:block;}
+.preview-cap{padding:.6rem 1rem;background:#fff;font-size:.72rem;font-weight:600;color:var(--warm-mid);letter-spacing:.05em;text-transform:uppercase;}
+
+/* ── PROBLEM ─────────────────────────────────── */
+.problem-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.pain-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1.25rem;}
+.pain-item{display:flex;gap:1rem;align-items:flex-start;padding:.9rem;border-radius:var(--r8);transition:background .2s;}
+.pain-item:hover{background:var(--cream);}
+.pain-icon{flex-shrink:0;width:42px;height:42px;border-radius:var(--r8);background:linear-gradient(135deg,var(--sand),#dcc9a8);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-top:2px;}
+.pain-text h4{margin-bottom:.2rem;font-size:.95rem;}
+.pain-text p{font-size:.85rem;max-width:none;}
+.quote-pull{background:linear-gradient(135deg,var(--red-bg),#fce8e6);border:1.5px solid var(--red-bd);border-radius:var(--r16);padding:2rem 2.25rem;}
+.quote-pull blockquote{font-family:var(--fd);font-size:1.2rem;font-style:italic;color:var(--red-tx);line-height:1.6;max-width:none;}
+.quote-pull blockquote::before{content:'"';font-size:3rem;line-height:0;vertical-align:-.55rem;color:var(--red-bd);margin-right:.15rem;}
+
+/* ── RESEARCH CARDS ──────────────────────────── */
+.r-card{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.75rem;box-shadow:var(--sh1);transition:transform .25s,box-shadow .25s;}
+.r-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);}
+.r-icon{width:46px;height:46px;border-radius:var(--r8);background:linear-gradient(135deg,var(--turmeric),var(--terracotta));display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem;}
+.r-card h3{font-size:1.05rem;margin-bottom:.4rem;}
+.r-card p{font-size:.82rem;}
+.r-stat{font-family:var(--fd);font-size:2.4rem;font-weight:700;color:var(--turmeric);line-height:1;margin-top:.9rem;display:block;}
+.r-card img{margin:1rem 0;border-radius:var(--r8);border:1px solid var(--rule);}
+
+/* ── AFFINITY MAP ────────────────────────────── */
+.affinity{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);margin-top:1.75rem;}
+.affinity img{width:100%;border-radius:var(--r8);border:1px solid var(--rule);margin-bottom:1.25rem;}
+.affinity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.cluster{border-radius:var(--r8);padding:1rem 1.1rem;}
+.cluster.blue{background:#eff6ff;border:1.5px solid #93c5fd;}
+.cluster.green{background:#f0fdf4;border:1.5px solid #86efac;}
+.cluster.amber{background:#fffbeb;border:1.5px solid #fcd34d;}
+.cluster.rose{background:#fff1f2;border:1.5px solid #fca5a5;}
+.c-title{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.65rem;}
+.cluster.blue .c-title{color:#1d4ed8;}
+.cluster.green .c-title{color:#15803d;}
+.cluster.amber .c-title{color:#92400e;}
+.cluster.rose .c-title{color:#be123c;}
+.c-note{background:rgba(255,255,255,.85);border-radius:3px;padding:.38rem .5rem;font-size:.7rem;color:var(--ink);line-height:1.4;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:.4rem;}
+
+/* ── PERSONA ─────────────────────────────────── */
+.persona{background:#fff;border:1px solid var(--rule);border-radius:var(--r24);padding:1.75rem;box-shadow:var(--sh2);display:grid;grid-template-columns:180px 1fr;gap:2rem;align-items:start;margin-top:1.75rem;}
+.p-avatar{display:flex;flex-direction:column;align-items:center;gap:.75rem;text-align:center;}
+.p-avatar img{width:100%;display:block;border-radius:var(--r16);}
+.p-name{font-family:var(--fd);font-size:1.2rem;font-weight:700;}
+.p-badge{display:inline-block;padding:.25rem .75rem;background:var(--cream);color:var(--terracotta);border-radius:var(--r999);font-size:.68rem;font-weight:700;border:1px solid var(--sand);}
+.p-open-btn{margin-top:.5rem;padding:.5rem 1rem;background:var(--turmeric);color:var(--ink);border:none;border-radius:var(--r8);cursor:pointer;font-size:.78rem;font-weight:700;font-family:var(--fb);transition:background .2s;}
+.p-open-btn:hover{background:var(--terracotta);color:#fff;}
+.p-details h3{font-size:1.35rem;margin-bottom:.3rem;}
+.p-bio{font-size:.9rem;color:var(--warm-mid);margin:.7rem 0 1.25rem;max-width:none;}
+.p-attrs{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.4rem;}
+.p-attr{padding:.7rem;background:var(--parchment);border-radius:var(--r8);border:1px solid var(--rule);}
+.p-attr .al{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--warm-lt);margin-bottom:.18rem;}
+.p-attr .av{font-size:.82rem;color:var(--ink);font-weight:500;}
+.p-quote{background:linear-gradient(135deg,var(--cream),var(--sand));border-left:3px solid var(--turmeric);border-radius:0 var(--r8) var(--r8) 0;padding:1rem 1.25rem;font-family:var(--fd);font-size:1.05rem;font-style:italic;color:var(--ink);max-width:none;}
+
+/* ── JOURNEY MAP ─────────────────────────────── */
+.journey{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);margin-top:1.75rem;}
+.journey img{width:100%;border-radius:var(--r8);border:1px solid var(--rule);margin:1rem 0;}
+.view-full-btn{padding:.7rem 1.4rem;background:var(--turmeric);color:var(--ink);border:none;border-radius:var(--r8);cursor:pointer;font-size:.875rem;font-weight:700;font-family:var(--fb);transition:background .2s;}
+.view-full-btn:hover{background:var(--terracotta);color:#fff;}
+
+/* ── INSIGHTS ────────────────────────────────── */
+.i-card{background:#fff;border:1.5px solid var(--rule);border-radius:var(--r16);padding:1.75rem;box-shadow:var(--sh1);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;gap:.6rem;position:relative;overflow:hidden;}
+.i-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--turmeric),var(--terracotta));}
+.i-card:hover{transform:translateY(-5px);box-shadow:var(--sh2);}
+.i-num{font-family:var(--fd);font-size:3.5rem;font-weight:900;color:var(--sand);line-height:1;position:absolute;bottom:.5rem;right:1rem;}
+.i-icon{font-size:1.6rem;}
+.i-card h4{font-size:.95rem;padding-right:2rem;}
+.i-card p{font-size:.82rem;}
+
+/* ── DECISION TABLE ──────────────────────────── */
+.d-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:1.75rem;border-radius:var(--r16);overflow:hidden;box-shadow:var(--sh1);}
+.d-table th{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--turmeric);padding:12px 16px;text-align:left;border-bottom:2px solid var(--rule);background:var(--cream);}
+.d-table td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--warm-mid);vertical-align:top;line-height:1.65;background:#fff;}
+.d-table td:first-child{color:var(--ink);font-weight:500;}
+.d-table td:last-child{color:var(--terracotta);font-weight:600;font-size:.82rem;}
+.d-table tr:hover td{background:var(--parchment);}
+.d-table tr:last-child td{border-bottom:none;}
+
+/* ── SITE ARCHITECTURE ───────────────────────── */
+.arch-img-wrap{border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);}
+.arch-img-wrap img{width:100%;display:block;}
+.check-list{display:flex;flex-direction:column;gap:.7rem;margin-top:1.5rem;list-style:none;}
+.check-list li{display:flex;gap:.6rem;align-items:flex-start;font-size:.875rem;color:var(--warm-mid);}
+.check-list .x{color:#be123c;font-size:.8rem;margin-top:3px;flex-shrink:0;}
+.check-list .ok{color:var(--grn-tx);font-size:.8rem;margin-top:3px;flex-shrink:0;}
+
+/* ── WIREFRAME CAROUSEL ──────────────────────── */
+.wf-carousel{position:relative;overflow:hidden;}
+.wf-track{display:flex;gap:1.5rem;transition:transform .45s cubic-bezier(.4,0,.2,1);}
+.wf-slide{flex-shrink:0;width:calc((100% - 3rem) / 3);border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);background:#fff;box-shadow:var(--sh1);display:flex;flex-direction:column;}
+.wf-slide-img{height:460px;overflow-y:auto;overflow-x:hidden;}
+.wf-slide-img::-webkit-scrollbar{width:4px;}
+.wf-slide-img::-webkit-scrollbar-track{background:var(--sand);}
+.wf-slide-img::-webkit-scrollbar-thumb{background:var(--turmeric);border-radius:2px;}
+.wf-slide-img img{width:100%;display:block;}
+.wf-slide-cap{padding:.55rem .9rem;font-size:.7rem;font-weight:700;color:var(--warm-mid);text-transform:uppercase;letter-spacing:.08em;border-top:1px solid var(--rule);background:var(--parchment);flex-shrink:0;}
+.wf-nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.25rem;}
+.wf-btn{width:38px;height:38px;border-radius:50%;background:#fff;border:1.5px solid var(--rule);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;transition:all .2s;color:var(--ink);}
+.wf-btn:hover{background:var(--turmeric);border-color:var(--turmeric);}
+.wf-dots{display:flex;gap:.5rem;}
+.wf-dot{width:7px;height:7px;border-radius:50%;background:var(--rule);cursor:pointer;transition:background .2s;}
+.wf-dot.active{background:var(--turmeric);width:20px;border-radius:4px;}
+
+/* ── WIREFRAME CAROUSEL ──────────────────────── */
+.carousel-wrap{position:relative;overflow:hidden;border-radius:var(--r16);}
+.carousel-track{display:flex;gap:1.5rem;transition:transform .45s cubic-bezier(.4,0,.2,1);}
+.carousel-slide{flex-shrink:0;width:calc((100% - 3rem)/3);border-radius:var(--r8);overflow:hidden;border:1.5px solid var(--rule);background:#fff;box-shadow:var(--sh1);}
+.carousel-slide img{width:100%;display:block;}
+.c-cap{padding:.6rem .9rem;font-size:.72rem;font-weight:600;color:var(--warm-mid);text-transform:uppercase;letter-spacing:.07em;border-top:1px solid var(--rule);}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:1.5rem;}
+
+
+/* ── ROLE TABS ───────────────────────────────── */
+.role-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;background:var(--cream);border-radius:var(--r999);padding:.35rem;width:fit-content;}
+.role-tab{padding:.5rem 1.2rem;border-radius:var(--r999);font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--warm-mid);transition:all .2s;font-family:var(--fb);}
+.role-tab.active{background:#fff;color:var(--ink);box-shadow:var(--sh1);}
+.role-panel{display:none;}
+.role-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+.role-panel-img{border-radius:var(--r16);border:1.5px solid var(--rule);box-shadow:var(--sh1);overflow-y:auto;max-height:420px;}
+.role-panel-img img{width:100%;display:block;}
+.role-panel-img::-webkit-scrollbar{width:5px;}
+.role-panel-img::-webkit-scrollbar-track{background:var(--sand);}
+.role-panel-img::-webkit-scrollbar-thumb{background:var(--turmeric);border-radius:3px;}
+.role-features{display:flex;flex-direction:column;gap:.6rem;list-style:none;margin-top:1rem;}
+.role-features li{font-size:.875rem;color:var(--warm-mid);padding-left:1.25rem;position:relative;line-height:1.6;}
+.role-features li::before{content:'→';position:absolute;left:0;color:var(--turmeric);}
+.proto-cta{margin-top:2rem;background:var(--cream);border-radius:var(--r16);padding:1.75rem;text-align:center;border:1px solid var(--rule);}
+
+/* ── BEFORE / AFTER ──────────────────────────── */
+.ba{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);overflow:hidden;box-shadow:var(--sh1);margin-bottom:1.25rem;}
+.ba-hd{padding:1rem 1.5rem;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;background:var(--parchment);}
+.ba-hd h3{font-size:1.05rem;}
+.ba-chip{background:linear-gradient(135deg,var(--turmeric),var(--terracotta));color:#fff;border-radius:var(--r999);padding:.28rem .85rem;font-size:.68rem;font-weight:700;letter-spacing:.05em;}
+.ba-panels{display:grid;grid-template-columns:1fr 1fr;}
+.ba-panel{padding:1.1rem 1.4rem;}
+.ba-panel:first-child{border-right:1px solid var(--rule);}
+.ba-lbl{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:.4rem;margin-bottom:.6rem;}
+.ba-lbl.before{color:var(--red-tx);}.ba-lbl.before::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--red-tx);display:inline-block;}
+.ba-lbl.after{color:var(--grn-tx);}.ba-lbl.after::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--grn-tx);display:inline-block;}
+.ba-panel img{border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin-bottom:.65rem;}
+.ba-panel p{font-size:.82rem;max-width:none;}
+
+/* ── METRICS ─────────────────────────────────── */
+.metric-card{background:var(--ink);border-radius:var(--r16);padding:1.5rem 1rem;text-align:center;position:relative;overflow:hidden;}
+.metric-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--turmeric),var(--terracotta));}
+.metric-icon{font-size:1.5rem;margin-bottom:.5rem;display:block;}
+.metric-val{font-family:var(--fd);font-size:2.75rem;font-weight:900;color:var(--turmeric);line-height:1;display:block;}
+.metric-lbl{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin:.4rem 0 .3rem;}
+.metric-desc{font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.5;max-width:none;}
+
+/* ── USABILITY TESTING ───────────────────────── */
+.test-round{border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);}
+.test-round.r1{background:var(--red-bg);border-color:var(--red-bd);}
+.test-round.r2{background:var(--grn-bg);border-color:var(--grn-bd);}
+.test-round h3{font-size:1.1rem;margin-bottom:1.1rem;}
+.test-round.r1 h3{color:var(--red-tx);}
+.test-round.r2 h3{color:var(--grn-tx);}
+.test-items{display:flex;flex-direction:column;gap:.7rem;list-style:none;}
+.test-items li{display:flex;gap:.75rem;font-size:.875rem;color:var(--warm-mid);align-items:flex-start;}
+.test-items .x{color:var(--red-tx);flex-shrink:0;font-size:1.1rem;}
+.test-items .ok{color:var(--grn-tx);flex-shrink:0;font-size:1.1rem;}
+.test-img-wrap{margin:1.25rem 0;border-radius:var(--r16);overflow:hidden;border:1px solid var(--rule);box-shadow:var(--sh1);}
+.test-img-wrap img{width:100%;display:block;}
+
+.ref-card{border-top:3px solid var(--turmeric);padding:1.1rem 0;display:flex;flex-direction:column;gap:.4rem;}
+.ref-icon{font-size:1.6rem;}
+.ref-card h4{font-size:.9rem;}
+.ref-card p{font-size:.8rem;}
+
+/* ── FINAL CTA BLOCK ─────────────────────────── */
+.final-cta{background:linear-gradient(150deg,var(--ink) 0%,#3d1500 100%);border-radius:var(--r24);padding:2.5rem;text-align:center;position:relative;overflow:hidden;}
+.final-cta::before{content:'💃';position:absolute;font-size:10rem;right:-1rem;bottom:-1.5rem;opacity:.06;line-height:1;}
+.final-cta h2{color:#fff;margin-bottom:.5rem;}
+.final-cta p{color:rgba(255,255,255,.5);max-width:44ch;margin:0 auto 1.5rem;}
+.final-cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+
+/* ── FOOTER ──────────────────────────────────── */
+.footer{background:var(--ink);padding:2.5rem 2.5rem;text-align:center;}
+.footer-logo{font-family:var(--fd);font-size:1.75rem;color:#fff;margin-bottom:.9rem;}
+.footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;list-style:none;margin-bottom:.9rem;}
+.footer-links a{font-size:.78rem;color:rgba(255,255,255,.4);font-weight:500;transition:color .2s;}
+.footer-links a:hover{color:var(--turmeric);}
+.footer p{font-size:.75rem;color:rgba(255,255,255,.25);}
+.footer-rule{height:1px;background:rgba(255,255,255,.08);margin:1.1rem auto;max-width:200px;}
+
+/* ── FADE ANIMATIONS ─────────────────────────── */
+.fade{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.fade.d1{transition-delay:.1s;}.fade.d2{transition-delay:.2s;}.fade.d3{transition-delay:.3s;}.fade.d4{transition-delay:.4s;}.fade.d5{transition-delay:.5s;}
+.fade.vis{opacity:1;transform:none;}
+
+/* ── PERSONA / JOURNEY MODALS ────────────────── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(26,17,9,.82);z-index:500;align-items:center;justify-content:center;padding:2rem;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:var(--r24);max-width:820px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 32px 80px rgba(26,17,9,.4);}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;background:var(--cream);border:1px solid var(--rule);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;z-index:2;}
+.modal-close:hover{background:var(--sand);}
+.modal-body{padding:2.5rem;}
+.modal-body img{width:100%;border-radius:var(--r16);border:1px solid var(--rule);margin-bottom:1.75rem;}
+
+/* ── LIGHTBOX ────────────────────────────────── */
+/* Wrapper makes any image expandable */
+.lb-wrap{position:relative;display:block;cursor:zoom-in;border-radius:var(--r8);overflow:hidden;}
+.lb-wrap img{width:100%;display:block;max-height:400px;object-fit:contain;object-position:top;background:var(--parchment);transition:opacity .2s;}
+.lb-wrap:hover img{opacity:.9;}
+.lb-hint{position:absolute;bottom:.6rem;right:.6rem;background:rgba(26,17,9,.65);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;padding:.3rem .65rem;border-radius:var(--r999);display:flex;align-items:center;gap:.3rem;pointer-events:none;backdrop-filter:blur(4px);opacity:0;transition:opacity .2s;}
+.lb-hint::before{content:'⤢';font-size:.8rem;}
+.lb-wrap:hover .lb-hint{opacity:1;}
+
+/* Lightbox overlay */
+.lb-overlay{display:none;position:fixed;inset:0;background:rgba(15,10,5,.92);z-index:600;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out;}
+.lb-overlay.open{display:flex;}
+.lb-overlay img{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:var(--r16);box-shadow:0 32px 80px rgba(0,0,0,.5);cursor:default;}
+.lb-close{position:fixed;top:1.25rem;right:1.25rem;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;color:#fff;transition:background .2s;backdrop-filter:blur(8px);}
+.lb-close:hover{background:rgba(255,255,255,.25);}
+.lb-caption{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:rgba(26,17,9,.7);color:rgba(255,255,255,.8);font-size:.75rem;font-weight:600;letter-spacing:.06em;padding:.45rem 1.1rem;border-radius:var(--r999);backdrop-filter:blur(8px);white-space:nowrap;}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{min-height:100vh;}
+  .problem-split,.g2,.ba-panels,.persona,.role-panel.active{grid-template-columns:1fr;}
+  .g3,.g4{grid-template-columns:1fr 1fr;}
+  .affinity-grid{grid-template-columns:1fr 1fr;}
+  .carousel-slide{width:calc((100% - 1.5rem)/2);}
+}
+@media(max-width:640px){
+  .wrap{padding:0 1.25rem;}
+  .nav{padding:1rem 1.25rem;}
+  .g3,.g4,.affinity-grid{grid-template-columns:1fr;}
+  .carousel-slide{width:100%;}
+  .nav-links{gap:1.1rem;}
+  .hero-strip{gap:1.1rem;}
+  .section{padding:40px 0;}
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="pb"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">Priya T</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-tags">
+      <span class="hero-tag"><span class="dot"></span>Capstone Project</span>
+      <span class="hero-tag"><span class="dot"></span>Website Redesign</span>
+      <span class="hero-tag"><span class="dot"></span>3-Week Sprint</span>
+      <span class="hero-tag"><span class="dot"></span>Live Beta Product</span>
+    </div>
+
+    <h1>BollyStep</h1>
+    <p class="hero-sub">Helping South Asian wedding groups coordinate and learn dances — asynchronously.</p>
+
+    <div class="hero-strip">
+      <div class="h-stat"><span class="sl">Role</span><span class="sv">UX Designer</span></div>
+      <div class="h-stat"><span class="sl">Timeline</span><span class="sv">3 Weeks</span></div>
+      <div class="h-stat"><span class="sl">Platform</span><span class="sv">Live Beta Web</span></div>
+      <div class="h-stat"><span class="sl">Tools</span><span class="sv">Figma · FigJam · Jira</span></div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="https://www.figma.com/proto/9Hsn3A5eJ7N5shMZBcPzJf/BollyStepxGA-Deliverable?node-id=1635-10473&t=o3dDOLRvtyEl5bbQ-0&scaling=scale-down&content-scaling=fixed&page-id=154%3A54049&starting-point-node-id=1635%3A10473&show-proto-sidebar=1" target="_blank" class="btn btn-gold">View Prototype ↗</a>
+      <a href="index.html" class="btn btn-ghost">← All Projects</a>
+    </div>
+
+    <div class="hero-scroll">Scroll</div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <img src="images/bollystep/bollystep-preview.png" alt="BollyStep redesigned interface preview" class="hero-mockup"/>
+      <div class="hero-badge">
+        <div class="hb-stat"><div class="hn">3×</div><div class="hd">Faster tasks</div></div>
+        <div class="hb-stat"><div class="hn">87</div><div class="hd">SUS Score</div></div>
+        <div class="hb-stat"><div class="hn">100%</div><div class="hd">Pricing clarity</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SNEAK PEEK ─────────────────────────────────────────────────── -->
+<section class="section section--alt" id="sneak">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">01 — Final Design Preview</span>
+      <h2>A glimpse of what we built.</h2>
+      <p>Role-based navigation, simplified onboarding, and an explore-first experience — designed to reduce drop-off and build trust.</p>
+    </div>
+    <div class="preview-grid">
+      <div class="preview-item fade">
+        <img src="images/bollystep/P4 Sneak 1.png" alt="BollyStep redesign — homepage concept"/>
+        <div class="preview-cap">Homepage redesign — role entry points</div>
+      </div>
+      <div class="preview-item fade d1">
+        <img src="images/bollystep/Sneak peak 2.png" alt="BollyStep redesign — navigation concept"/>
+        <div class="preview-cap">Role-based navigation & onboarding</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── PROBLEM ───────────────────────────────────────────────────── -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="problem-split">
+      <div>
+        <span class="lbl">02 — The Problem</span>
+        <h2>Coordination chaos, broken sign-up, zero trust.</h2>
+        <p class="lead" style="margin-top:.8rem;">Users struggled to coordinate group dances across schedules and time zones — and the platform made it worse with a confusing experience.</p>
+
+        <div class="pain-list">
+          <div class="pain-item fade">
+            <div class="pain-icon">📝</div>
+            <div class="pain-text">
+              <h4>Broken sign-up flow</h4>
+              <p>Users expected instant account creation but got redirected to a contact form — with no clear path forward.</p>
+            </div>
+          </div>
+          <div class="pain-item fade d1">
+            <div class="pain-icon">🗺️</div>
+            <div class="pain-text">
+              <h4>Overwhelming navigation</h4>
+              <p>No clear hierarchy — users couldn't find where to go or understand what the platform offered them.</p>
+            </div>
+          </div>
+          <div class="pain-item fade d2">
+            <div class="pain-icon">👤</div>
+            <div class="pain-text">
+              <h4>Unclear user roles</h4>
+              <p>Dancers, Organizers, and Choreographers shared one confusing experience with zero differentiation.</p>
+            </div>
+          </div>
+          <div class="pain-item fade d3">
+            <div class="pain-icon">💰</div>
+            <div class="pain-text">
+              <h4>No pricing transparency</h4>
+              <p>Hidden costs and no content previews killed trust before users even reached sign-up.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade">
+        <div class="quote-pull">
+          <blockquote>The platform added friction at every turn — unclear navigation, no pricing transparency, and a broken sign-up that sent users to a contact form. Result: low trust and high drop-off before onboarding even began.</blockquote>
+        </div>
+        <div style="margin-top:1.75rem;display:flex;flex-direction:column;gap:.75rem;">
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--turmeric);margin-bottom:.25rem;">How Might We…</div>
+          <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #fcd34d;border-radius:var(--r12,12px);padding:1rem 1.25rem;display:flex;gap:.75rem;align-items:flex-start;">
+            <span style="font-size:1.1rem;flex-shrink:0;">💡</span>
+            <p style="font-size:.875rem;color:#92400e;max-width:none;line-height:1.6;margin:0;">HMW communicate what Bollystep is + who it's for within seconds?</p>
+          </div>
+          <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #fcd34d;border-radius:var(--r12,12px);padding:1rem 1.25rem;display:flex;gap:.75rem;align-items:flex-start;">
+            <span style="font-size:1.1rem;flex-shrink:0;">💡</span>
+            <p style="font-size:.875rem;color:#92400e;max-width:none;line-height:1.6;margin:0;">HMW simplify user flow to reduce stress and make planning enjoyable?</p>
+          </div>
+          <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #fcd34d;border-radius:var(--r12,12px);padding:1rem 1.25rem;display:flex;gap:.75rem;align-items:flex-start;">
+            <span style="font-size:1.1rem;flex-shrink:0;">💡</span>
+            <p style="font-size:.875rem;color:#92400e;max-width:none;line-height:1.6;margin:0;">HMW present purpose + offerings clearly for first-time users?</p>
+          </div>
+          <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #fcd34d;border-radius:var(--r12,12px);padding:1rem 1.25rem;display:flex;gap:.75rem;align-items:flex-start;">
+            <span style="font-size:1.1rem;flex-shrink:0;">💡</span>
+            <p style="font-size:.875rem;color:#92400e;max-width:none;line-height:1.6;margin:0;">HMW design homepage for both new clients and returning users?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── GOAL ──────────────────────────────────────────────────────── -->
+<section class="section section--alt" id="goal">
+  <div class="wrap">
+    <div style="max-width:780px;">
+      <span class="lbl">02b — Goal</span>
+      <h2>Clear paths for three distinct roles.</h2>
+      <p class="lead" style="margin-top:.8rem;">Simplify onboarding, clarify the platform's value early, create separate experiences for Dancers, Organizers, and Choreographers — and enable users to confidently create and manage dance events.</p>
+    </div>
+    <div class="g3" style="margin-top:1.5rem;">
+      <div class="fade" style="background:#fff;border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
+        <div style="font-size:2rem;margin-bottom:.75rem;">💃</div>
+        <h3 style="font-size:1.1rem;margin-bottom:.4rem;">Dancers</h3>
+        <p style="font-size:.85rem;">Receive invite + code → access tutorials, practice at your pace, and perform confidently on event day.</p>
+      </div>
+      <div class="fade d1" style="background:#fff;border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
+        <div style="font-size:2rem;margin-bottom:.75rem;">📋</div>
+        <h3 style="font-size:1.1rem;margin-bottom:.4rem;">Organizers</h3>
+        <p style="font-size:.85rem;">Manage group dances, invite participants, track progress — all in one streamlined dashboard.</p>
+      </div>
+      <div class="fade d2" style="background:#fff;border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
+        <div style="font-size:2rem;margin-bottom:.75rem;">🎭</div>
+        <h3 style="font-size:1.1rem;margin-bottom:.4rem;">Choreographers</h3>
+        <p style="font-size:.85rem;">Apply, upload routines, and build a professional profile — with a dedicated onboarding pathway.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── RESEARCH ───────────────────────────────────────────────────── -->
+<section class="section" id="research">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">03 — Research</span>
+      <h2>Three methods. One clear picture.</h2>
+      <p>Used interviews, heuristic evaluation, and content auditing to triangulate what was broken and why.</p>
+    </div>
+
+    <div class="g3">
+      <div class="r-card fade">
+        <div class="r-icon">🎙️</div>
+        <h3>User Interviews</h3>
+        <p>6 participants across all three roles. Revealed coordination challenges and platform confusion as the core barriers.</p>
+        <span class="r-stat">6</span>
+        <p style="font-size:.75rem;margin-top:.2rem;">participants interviewed across all roles</p>
+      </div>
+      <div class="r-card fade d1">
+        <div class="r-icon">🔍</div>
+        <h3>Heuristic Evaluation</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Heru Eval.png','Heuristic Evaluation Results')">
+          <img src="images/bollystep/Heru Eval.png" alt="Heuristic Evaluation findings"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p>Evaluated against Nielsen's 10 heuristics — major issues in navigation, missing trust signals, and unclear flows.</p>
+      </div>
+      <div class="r-card fade d2">
+        <div class="r-icon">📋</div>
+        <h3>Content Audit</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Content audit.png','Content Audit — High Priority Issues')">
+          <img src="images/bollystep/Content audit.png" alt="Content audit findings"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p>Reviewed all landing and client-facing pages. Found dense copy, unclear messaging, and poor content hierarchy.</p>
+      </div>
+    </div>
+
+    <!-- Affinity Map -->
+    <div class="affinity fade" style="margin-top:1.25rem;">
+      <h3 style="margin-bottom:1rem;">Affinity Map — 4 Key Themes</h3>
+      <div class="lb-wrap" onclick="openLightbox('images/bollystep/affinity map.png','Affinity Map — 4 Key Research Themes')">
+        <img src="images/bollystep/affinity map.png" alt="Affinity map showing themes from user research"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+      <div class="affinity-grid">
+        <div class="cluster blue">
+          <div class="c-title">Navigation Confusion</div>
+          <div class="c-note">Can't find where to sign up</div>
+          <div class="c-note">Too many menu options</div>
+          <div class="c-note">No clear homepage CTA</div>
+          <div class="c-note">Role unclear from nav</div>
+        </div>
+        <div class="cluster amber">
+          <div class="c-title">Onboarding Friction</div>
+          <div class="c-note">Contact form instead of signup</div>
+          <div class="c-note">No instant access</div>
+          <div class="c-note">NDA barrier before use</div>
+          <div class="c-note">Multi-step signup in app</div>
+        </div>
+        <div class="cluster rose">
+          <div class="c-title">Lack of Trust</div>
+          <div class="c-note">Pricing hidden or missing</div>
+          <div class="c-note">No social proof</div>
+          <div class="c-note">Can't preview content</div>
+          <div class="c-note">Outdated visual design</div>
+        </div>
+        <div class="cluster green">
+          <div class="c-title">Coordination Pain</div>
+          <div class="c-note">Different time zones</div>
+          <div class="c-note">Mixed experience levels</div>
+          <div class="c-note">No async learning tool</div>
+          <div class="c-note">Hard to track progress</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── PERSONA & JOURNEY ──────────────────────────────────────────── -->
+<section class="section section--alt" id="persona">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">04 — User Understanding</span>
+      <h2>Meet Sanjana — our primary user.</h2>
+    </div>
+
+    <div class="persona fade">
+      <div class="p-avatar">
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Spotli perso.png','Sanjana — Persona Spotlight')" style="border-radius:var(--r16);border:2px solid var(--rule);">
+          <img src="images/bollystep/Spotli perso.png" alt="Sanjana persona spotlight"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <div class="p-name">Sanjana</div>
+        <div class="p-badge">Wedding Organizer</div>
+        <button class="p-open-btn" onclick="openModal('personaModal')">View Full Persona →</button>
+      </div>
+      <div class="p-details">
+        <h3>The overwhelmed wedding planner</h3>
+        <p class="p-bio">Sanjana is planning her wedding in 3 months. She needs 12 family members — spread across 4 cities and 3 time zones — to learn a coordinated Bollywood dance routine. She has no professional dance training and is managing everything via WhatsApp.</p>
+        <div class="p-attrs">
+          <div class="p-attr"><div class="al">Goal</div><div class="av">Coordinate group dance with minimal stress</div></div>
+          <div class="p-attr"><div class="al">Frustration</div><div class="av">Platform doesn't explain how it helps her</div></div>
+          <div class="p-attr"><div class="al">Expectation</div><div class="av">Sign up instantly, preview content, see pricing</div></div>
+          <div class="p-attr"><div class="al">Context</div><div class="av">Mobile-first, time-poor, high emotional stakes</div></div>
+        </div>
+        <div class="p-quote">"I just want to see if this can help me before I commit to anything. Why do I need to fill a contact form just to sign up?"</div>
+      </div>
+    </div>
+
+    <!-- Journey Map -->
+    <div class="journey fade">
+      <h3>Sanjana's User Journey — Friction Points</h3>
+      <div class="lb-wrap" onclick="openLightbox('images/bollystep/User spotlight.png','Sanjana\'s User Journey — Friction Points')">
+        <img src="images/bollystep/User spotlight.png" alt="User journey map showing friction points"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+      <button class="view-full-btn" onclick="openModal('journeyModal')">View Full Journey Map →</button>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── INSIGHTS ───────────────────────────────────────────────────── -->
+<section class="section" id="insights">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">05 — Key Insights</span>
+      <h2>Five barriers. Five design decisions.</h2>
+    </div>
+
+    <div class="g3" style="margin-bottom:1.25rem;">
+      <div class="i-card fade">
+        <div class="i-icon">📝</div>
+        <h4>Expected instant sign-up</h4>
+        <p>Contact form felt like a wall. Users wanted direct account creation with no friction.</p>
+        <div class="i-num">01</div>
+      </div>
+      <div class="i-card fade d1">
+        <div class="i-icon">🗺️</div>
+        <h4>Navigation felt overwhelming</h4>
+        <p>Too many options, no clear path for any specific user type or intent.</p>
+        <div class="i-num">02</div>
+      </div>
+      <div class="i-card fade d2">
+        <div class="i-icon">👤</div>
+        <h4>Roles were invisible</h4>
+        <p>Dancers, Organizers, Choreographers had no distinct experience at all.</p>
+        <div class="i-num">03</div>
+      </div>
+      <div class="i-card fade d3">
+        <div class="i-icon">💰</div>
+        <h4>No pricing, no trust</h4>
+        <p>Hidden pricing and no previews stopped users from committing to the platform.</p>
+        <div class="i-num">04</div>
+      </div>
+      <div class="i-card fade d4" style="grid-column:span 2;">
+        <div class="i-icon">📅</div>
+        <h4>Coordination was the core pain</h4>
+        <p>Managing group dances across time zones, schedules, and skill levels was the fundamental challenge — but the existing platform barely addressed it at all.</p>
+        <div class="i-num">05</div>
+      </div>
+    </div>
+
+    <!-- Decision Table -->
+    <div class="fade">
+      <h3 style="margin-bottom:.4rem;">Insight → Design Decision</h3>
+      <p style="margin-bottom:.5rem;">The golden thread from research to solution.</p>
+      <table class="d-table">
+        <thead><tr><th>Insight</th><th>Design Decision</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td>Confusing sign-up → contact form</td><td>Instant sign-up / log in directly from homepage</td><td>Removed #1 drop-off point</td></tr>
+          <tr><td>Unclear user roles</td><td>Role-based nav: Organizer · Dancer · Choreographer</td><td>Faster orientation for all users</td></tr>
+          <tr><td>Overwhelming content</td><td>Simplified IA, cleaner hierarchy, clear CTAs</td><td>Reduced cognitive load</td></tr>
+          <tr><td>Low trust — no pricing</td><td>Pricing transparency + social proof in funnel</td><td>Higher sign-up intent</td></tr>
+          <tr><td>No content preview</td><td>"Explore before commit" — browse dances first</td><td>Trust built before sign-up</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── SITE ARCHITECTURE ───────────────────────────────────────────── -->
+<section class="section section--alt" id="architecture">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">06 — Site Architecture</span>
+      <h2>From one muddled structure to three clear paths.</h2>
+    </div>
+
+    <div class="g2" style="align-items:start;gap:2rem;">
+      <div>
+        <h3 style="margin-bottom:1rem;color:var(--red-tx);">Before — One confusing nav for everyone</h3>
+        <div class="arch-img-wrap">
+          <img src="images/bollystep/SiteArchOld.png" alt="Old site architecture — flat, role-agnostic navigation"/>
+        </div>
+        <ul class="check-list">
+          <li><span class="x">✗</span>Single navigation for all roles — no differentiation</li>
+          <li><span class="x">✗</span>"Join Now" → contact form (not a real sign-up)</li>
+          <li><span class="x">✗</span>Marketing site and platform were fully disconnected</li>
+          <li><span class="x">✗</span>No choreographer onboarding pathway existed</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-bottom:1rem;color:var(--grn-tx);">After — Role-based architecture</h3>
+        <div class="arch-img-wrap">
+          <img src="images/bollystep/Site Arch.png" alt="Redesigned site architecture with dedicated role paths"/>
+        </div>
+        <ul class="check-list">
+          <li><span class="ok">✓</span>Dedicated pages for Organizers, Dancers & Choreographers</li>
+          <li><span class="ok">✓</span>Direct Log In / Sign Up from homepage</li>
+          <li><span class="ok">✓</span>Marketing site + platform unified into one seamless flow</li>
+          <li><span class="ok">✓</span>"Apply to be a Choreographer" dedicated CTA pathway</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── USER FLOWS + IDEATION ──────────────────────────────────────── -->
+<section class="section" id="flows">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">06b — User Flows & Ideation</span>
+      <h2>Mapping friction, then sketching solutions.</h2>
+    </div>
+
+    <div class="g2" style="gap:1.5rem;">
+      <div class="fade" style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
+        <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1.05rem;"><span>🔄</span> User Flow — Discovery to Event Creation</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/User flow.png','User Flow — Discovery to Event Creation')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
+          <img src="images/bollystep/User flow.png" alt="User flow from discovery to event creation" style="max-height:180px;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p style="font-size:.85rem;">Mapped all critical decision points and friction opportunities across the three user roles — identifying exactly where the existing flow caused users to drop off.</p>
+      </div>
+      <div class="fade d1" style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
+        <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1.05rem;"><span>✏️</span> Ideation — Design Studio</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Design stu.png','Ideation — Design Studio Sketches')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
+          <img src="images/bollystep/Design stu.png" alt="Design studio sketches" style="max-height:130px;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.6rem 0;">
+          <div class="lb-wrap" onclick="openLightbox('images/bollystep/Design 2.png','Design Exploration 2')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+            <img src="images/bollystep/Design 2.png" alt="Design exploration 2" style="max-height:100px;"/>
+            <span class="lb-hint">Click to expand</span>
+          </div>
+          <div class="lb-wrap" onclick="openLightbox('images/bollystep/Design 3.png','Design Exploration 3')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+            <img src="images/bollystep/Design 3.png" alt="Design exploration 3" style="max-height:100px;"/>
+            <span class="lb-hint">Click to expand</span>
+          </div>
+        </div>
+        <p style="font-size:.85rem;">Rapid sketching before wireframing — explored multiple navigation structures and onboarding concepts to find the most intuitive approach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── WIREFRAMES ─────────────────────────────────────────────────── -->
+<section class="section section--alt" id="wireframes">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">07 — Mid-Fi Wireframes</span>
+      <h2>Testing structure before visual polish.</h2>
+      <p>Mid-fidelity wireframes validated layout, navigation flow, and content hierarchy with real users before committing to high-fidelity design.</p>
+    </div>
+
+    <div class="wf-carousel">
+      <div class="wf-track" id="wf-track">
+        <div class="wf-slide">
+          <div class="wf-slide-img"><img src="images/bollystep/midd fi.png" alt="Homepage wireframe with role entry points"/></div>
+          <div class="wf-slide-cap">Homepage — role entry</div>
+        </div>
+        <div class="wf-slide">
+          <div class="wf-slide-img"><img src="images/bollystep/Dancermidfi.png" alt="Dancer role page wireframe"/></div>
+          <div class="wf-slide-cap">Dancer role page</div>
+        </div>
+        <div class="wf-slide">
+          <div class="wf-slide-img"><img src="images/bollystep/organizers mid fi.png" alt="Organizer dashboard wireframe"/></div>
+          <div class="wf-slide-cap">Organizer dashboard</div>
+        </div>
+        <div class="wf-slide">
+          <div class="wf-slide-img"><img src="images/bollystep/choreograopher mid fi.png" alt="Choreographer wireframe"/></div>
+          <div class="wf-slide-cap">Choreographer profile</div>
+        </div>
+        <div class="wf-slide">
+          <div class="wf-slide-img"><img src="images/bollystep/mid fi 3.png" alt="Sign-up flow wireframe"/></div>
+          <div class="wf-slide-cap">Sign-up flow</div>
+        </div>
+      </div>
+    </div>
+    <div class="wf-nav">
+      <button class="wf-btn" id="wf-prev" aria-label="Previous">←</button>
+      <div class="wf-dots" id="wf-dots"></div>
+      <button class="wf-btn" id="wf-next" aria-label="Next">→</button>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── FINAL DESIGN ───────────────────────────────────────────────── -->
+<section class="section" id="prototype">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">08 — Final Design</span>
+      <h2>Three focused design decisions.</h2>
+    </div>
+
+    <div class="role-tabs">
+      <button class="role-tab active" data-role="dancer">💃 For Dancers</button>
+      <button class="role-tab" data-role="organizer">📋 For Organizers</button>
+      <button class="role-tab" data-role="choreo">🎭 For Choreographers</button>
+    </div>
+
+    <div class="role-panel active" id="panel-dancer">
+      <div>
+        <span class="lbl">Design Decision 1</span>
+        <h3>Explore before you commit</h3>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">Dancers receive link + code → access tutorials, track progress, use looping + speed control. Preview videos with mirroring + speed control.</p>
+        <ul class="role-features">
+          <li>Browse 120+ dance routines by occasion & style</li>
+          <li>Preview video with mirroring and speed control</li>
+          <li>See transparent pricing before sign-up commitment</li>
+        </ul>
+      </div>
+      <div class="role-panel-img">
+        <img src="images/bollystep/Dancer.png" alt="Dancer role — Explore dance screen"/>
+      </div>
+    </div>
+
+    <div class="role-panel" id="panel-organizer">
+      <div>
+        <span class="lbl">Design Decision 2</span>
+        <h3>Manage everything in one place</h3>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">Organizers get a dedicated dashboard to invite dancers, assign routines, track progress, and communicate — replacing fragmented WhatsApp coordination with one streamlined tool.</p>
+        <ul class="role-features">
+          <li>Invite dancers via email or shareable link</li>
+          <li>Assign routines and track individual learning progress</li>
+          <li>Communicate and schedule within the platform</li>
+          <li>Browse 120+ dance routines by occasion & style</li>
+          <li>See transparent pricing before sign-up commitment</li>
+        </ul>
+      </div>
+      <div class="role-panel-img">
+        <img src="images/bollystep/Organizer.png" alt="Organizer dashboard — event management"/>
+      </div>
+    </div>
+
+    <div class="role-panel" id="panel-choreo">
+      <div>
+        <span class="lbl">Design Decision 3</span>
+        <h3>Apply, upload, and build your profile</h3>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">Choreographers have their own dedicated onboarding pathway — a clear "Apply to be a Choreographer" CTA with a streamlined application and profile creation flow replacing the opaque contact form.</p>
+        <ul class="role-features">
+          <li>Dedicated application with clear expectations upfront</li>
+          <li>Upload routines with metadata and difficulty levels</li>
+          <li>Track how many groups are using your routines</li>
+        </ul>
+      </div>
+      <div class="role-panel-img">
+        <img src="images/bollystep/choreographers hi fi.png" alt="Choreographer — Apply and profile screen"/>
+      </div>
+    </div>
+
+    <div class="proto-cta">
+      <h3 style="margin-bottom:.5rem;">Explore all three role experiences end-to-end</h3>
+      <p style="margin:0 auto 1.5rem;">The interactive Figma prototype walks through sign-up, dashboard, and core task flows for each user type.</p>
+      <a href="https://www.figma.com/proto/9Hsn3A5eJ7N5shMZBcPzJf/BollyStepxGA-Deliverable?node-id=1635-10473&t=o3dDOLRvtyEl5bbQ-0&scaling=scale-down&content-scaling=fixed&page-id=154%3A54049&starting-point-node-id=1635%3A10473&show-proto-sidebar=1" target="_blank" class="btn btn-gold">View Full Prototype ↗</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── BEFORE / AFTER ─────────────────────────────────────────────── -->
+<section class="section section--alt" id="before-after">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">09 — Before / After</span>
+      <h2>What changed, and why.</h2>
+    </div>
+
+    <div class="ba fade">
+      <div class="ba-hd">
+        <h3>Sign-Up Flow</h3>
+        <span class="ba-chip">High Impact</span>
+      </div>
+      <div class="ba-panels">
+        <div class="ba-panel">
+          <div class="ba-lbl before">Before</div>
+          <img src="images/bollystep/Sign up flow before .png" alt="Old sign-up — contact form"/>
+          <p>Users hit a contact form asking for name, email, and event details — with no clear sign-up path. Most dropped off here entirely.</p>
+        </div>
+        <div class="ba-panel">
+          <div class="ba-lbl after">After</div>
+          <img src="images/bollystep/Sp 3.png" alt="Redesigned sign-up — direct account creation"/>
+          <p>Direct email + password sign-up. No NDA barrier. Marketing site and platform unified into one seamless flow.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ba fade">
+      <div class="ba-hd">
+        <h3>Homepage Navigation</h3>
+        <span class="ba-chip">High Impact</span>
+      </div>
+      <div class="ba-panels">
+        <div class="ba-panel">
+          <div class="ba-lbl before">Before</div>
+          <img src="images/bollystep/beforehomepage.png" alt="Old navigation"/>
+          <p>Generic nav with "About", "Pricing", "Join Now" — no indication of who the platform is for or what it does for each role.</p>
+        </div>
+        <div class="ba-panel">
+          <div class="ba-lbl after">After</div>
+          <img src="images/bollystep/home page nav after.png" alt="New role-based navigation"/>
+          <p>Clear role-based navigation: Organizers · Dancers · Choreographers. Each leads to a tailored page with relevant content and CTAs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── USABILITY TESTING ──────────────────────────────────────────── -->
+<section class="section" id="testing">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">10 — Usability Testing</span>
+      <h2>Two rounds. Meaningful gains.</h2>
+      <p>Round 1 on the existing site. Round 2 on mid-fi prototype. Iterated to high-fidelity based on findings.</p>
+    </div>
+
+    <div class="g2" style="align-items:start;gap:1.5rem;margin-bottom:1.5rem;">
+      <div class="test-round r1 fade">
+        <h3>Round 1 — Existing Site</h3>
+        <ul class="test-items">
+          <li><span class="x">✗</span>0% could identify pricing before sign-up</li>
+          <li><span class="x">✗</span>All participants confused by the sign-up flow</li>
+          <li><span class="x">✗</span>Average 4m 12s to complete core task</li>
+          <li><span class="x">✗</span>SUS score: 52 — rated "OK"</li>
+        </ul>
+      </div>
+      <div class="test-round r2 fade d1">
+        <h3>Round 2 — Redesigned Prototype</h3>
+        <ul class="test-items">
+          <li><span class="ok">✓</span>100% could identify pricing before sign-up</li>
+          <li><span class="ok">✓</span>Users understood their role in &lt;30 seconds</li>
+          <li><span class="ok">✓</span>Average 1m 26s to complete core task (3× faster)</li>
+          <li><span class="ok">✓</span>SUS score: 87 — rated "Excellent"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="test-img-wrap fade">
+      <div class="lb-wrap" onclick="openLightbox('images/bollystep/usabilitydelta.png','Usability Testing — Task Details & Results')">
+        <img src="images/bollystep/usabilitydelta.png" alt="Usability testing results and findings"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+    </div>
+
+    <!-- Key Metrics + Next Steps (supporting evidence) -->
+    <div class="g2" style="margin:1.25rem 0;gap:1.5rem;">
+      <div class="fade" style="background:var(--cream);border-radius:var(--r16);padding:1.25rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
+        <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1rem;"><span>📊</span> Key Metrics</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Metrics.png','Key Metrics — HEART Framework')">
+          <img src="images/bollystep/Metrics.png" alt="HEART metrics framework — goals, signals and metrics" style="border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin:.75rem 0;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p style="font-size:.82rem;">Quantified impact across usability, adoption, and user satisfaction benchmarks using the HEART framework.</p>
+      </div>
+      <div class="fade d1" style="background:var(--cream);border-radius:var(--r16);padding:1.25rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
+        <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1rem;"><span>🚀</span> Next Steps & Recommendations</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Next steps.png','Next Steps & Recommendations')">
+          <img src="images/bollystep/Next steps.png" alt="Next steps — API integrations and post-launch roadmap" style="border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin:.75rem 0;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+        <p style="font-size:.82rem;">Strategic recommendations for post-launch iterations and feature prioritization — including API integrations and coordination tooling.</p>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="g4" style="margin-top:1.25rem;">
+      <div class="metric-card fade">
+        <span class="metric-icon">⚡</span>
+        <span class="metric-val">3×</span>
+        <div class="metric-lbl">Faster task completion</div>
+        <p class="metric-desc">4m 12s → 1m 26s for core task</p>
+      </div>
+      <div class="metric-card fade d1">
+        <span class="metric-icon">💰</span>
+        <span class="metric-val">100%</span>
+        <div class="metric-lbl">Pricing clarity</div>
+        <p class="metric-desc">0% → 100% in Round 2</p>
+      </div>
+      <div class="metric-card fade d2">
+        <span class="metric-icon">⭐</span>
+        <span class="metric-val">87</span>
+        <div class="metric-lbl">SUS Score (R2)</div>
+        <p class="metric-desc">Up from 52 — "OK" to "Excellent"</p>
+      </div>
+      <div class="metric-card fade d3">
+        <span class="metric-icon">🎯</span>
+        <span class="metric-val">+35</span>
+        <div class="metric-lbl">SUS point gain</div>
+        <p class="metric-desc">Largest single-sprint gain in the cohort</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── STYLE GUIDE ─────────────────────────────────────────────────── -->
+<section class="section section--alt" id="styleguide">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">10b — Style Guide</span>
+      <h2>Visual language that tells the story.</h2>
+      <p>A cohesive design language rooted in South Asian warmth — colours, typography, and iconography that feel culturally grounded and modern.</p>
+    </div>
+    <div class="fade" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh2);">
+      <div class="lb-wrap" onclick="openLightbox('images/bollystep/styleguide.png','BollyStep Style Guide')">
+        <img src="images/bollystep/styleguide.png" alt="BollyStep style guide — colours, typography, and components" style="max-height:none;object-fit:unset;"/>
+        <span class="lb-hint">Click to expand</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── COMPONENT LIBRARY ───────────────────────────────────────────── -->
+<section class="section" id="components">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">10c — Design System / Components</span>
+      <h2>A reusable component library.</h2>
+      <p>Built for scalability — every UI element documented with states, variants, and usage guidelines so future iterations can move faster.</p>
+    </div>
+    <div class="g2" style="gap:1.25rem;">
+      <div class="fade" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/compo1.png','Component Library — Sheet 1')">
+          <img src="images/bollystep/compo1.png" alt="Component library — sheet 1" style="max-height:none;object-fit:unset;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+      </div>
+      <div class="fade d1" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/compo2.png','Component Library — Sheet 2')">
+          <img src="images/bollystep/compo2.png" alt="Component library — sheet 2" style="max-height:none;object-fit:unset;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+      </div>
+      <div class="fade d2" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/compo3.png','Component Library — Sheet 3')">
+          <img src="images/bollystep/compo3.png" alt="Component library — sheet 3" style="max-height:none;object-fit:unset;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+      </div>
+      <div class="fade d3" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/compo4.png','Component Library — Sheet 4')">
+          <img src="images/bollystep/compo4.png" alt="Component library — sheet 4" style="max-height:none;object-fit:unset;"/>
+          <span class="lb-hint">Click to expand</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ── REFLECTION ─────────────────────────────────────────────────── -->
+<section class="section section--alt" id="reflection">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">11 — Reflection</span>
+      <h2>What I learned building this.</h2>
+    </div>
+
+    <div class="g3" style="margin-bottom:1.5rem;">
+      <div class="ref-card fade">
+        <div class="ref-icon">🎭</div>
+        <h4>Role-first design is underused</h4>
+        <p>Treating role differentiation as a first-class design constraint unlocked the biggest usability gains. This should be the default for any multi-role product.</p>
+      </div>
+      <div class="ref-card fade d1">
+        <div class="ref-icon">🛡️</div>
+        <h4>Trust signals are a structural problem</h4>
+        <p>Missing pricing and social proof aren't just copy issues — they're IA problems requiring intentional placement throughout the entire user journey.</p>
+      </div>
+      <div class="ref-card fade d2">
+        <div class="ref-icon">⚡</div>
+        <h4>Move fast, but anchor to data</h4>
+        <p>Three weeks forced ruthless prioritization. Heuristic evaluation gave us a defensible backlog faster than any stakeholder assumption list.</p>
+      </div>
+      <div class="ref-card fade d3">
+        <div class="ref-icon">🔗</div>
+        <h4>The invite flow is often forgotten</h4>
+        <p>Most Dancers entered via a forwarded link — not the homepage. Always map the full entry surface, not just the primary marketing page.</p>
+      </div>
+      <div class="ref-card fade d4">
+        <div class="ref-icon">🌏</div>
+        <h4>Cultural context matters deeply</h4>
+        <p>South Asian weddings carry deep emotional stakes around performance and family. Future iterations should hold space for those cultural delight moments.</p>
+      </div>
+      <div class="ref-card fade d5">
+        <div class="ref-icon">🔮</div>
+        <h4>What I'd explore next</h4>
+        <p>In-app rehearsal mode with sync playback, mobile-native experience, and a post-wedding reflection feature to close the emotional loop.</p>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="final-cta fade">
+      <h2>Ready to explore the full prototype?</h2>
+      <p>The interactive Figma prototype walks through all three role experiences — sign-up, dashboard, and core task flows.</p>
+      <div class="final-cta-btns">
+        <a href="https://www.figma.com/proto/9Hsn3A5eJ7N5shMZBcPzJf/BollyStepxGA-Deliverable?node-id=1635-10473&t=o3dDOLRvtyEl5bbQ-0&scaling=scale-down&content-scaling=fixed&page-id=154%3A54049&starting-point-node-id=1635%3A10473&show-proto-sidebar=1" target="_blank" class="btn btn-gold">View Prototype ↗</a>
+        <a href="index.html" class="btn btn-ghost">← All Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-logo">Priya T.</div>
+  <ul class="footer-links">
+    <li><a href="index.html">All Projects</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="case-food4u.html">Food4U →</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-rule"></div>
+  <p>BollyStep Case Study · 3-Week Sprint · Capstone Project · General Assembly · 2026</p>
+  <p style="margin-top:.3rem;">Designed & built by Priya T. · UX Designer · Sunnyvale, CA</p>
+</footer>
+
+<!-- ── PERSONA MODAL ──────────────────────────────────────────────── -->
+<div id="personaModal" class="modal-overlay" onclick="closeOnOverlay(event, 'personaModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('personaModal')">✕</button>
+    <div class="modal-body">
+      <img src="images/bollystep/Detail persona.png" alt="Detailed Persona — Sanjana"/>
+      <h2 style="margin-bottom:.4rem;">Sanjana</h2>
+      <p style="color:var(--turmeric);font-weight:700;font-size:1rem;margin-bottom:1.25rem;">Wedding Organizer · South Asian Professional</p>
+      <p>Sanjana is a 28-year-old wedding organizer planning her wedding in 3 months. She needs 12 family members spread across 4 cities and 3 time zones to learn a coordinated Bollywood dance routine. She has no professional dance training background but is highly organized and uses WhatsApp as her primary communication medium.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── JOURNEY MODAL ──────────────────────────────────────────────── -->
+<div id="journeyModal" class="modal-overlay" onclick="closeOnOverlay(event, 'journeyModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('journeyModal')">✕</button>
+    <div class="modal-body">
+      <h2 style="margin-bottom:1.5rem;">Sanjana's Detailed User Journey Map</h2>
+      <img src="images/bollystep/detailed UJ.png" alt="Detailed User Journey Map"/>
+      <div class="g2" style="gap:1.5rem;margin-top:1.5rem;">
+        <div>
+          <h3 style="margin-bottom:1rem;color:var(--red-tx);font-size:1rem;">High-Stress Moments</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
+            <li style="font-size:.875rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--turmeric);">●</span>Trying to sign up but hitting contact form</li>
+            <li style="font-size:.875rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--turmeric);">●</span>Searching for pricing information with no result</li>
+            <li style="font-size:.875rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--turmeric);">●</span>Can't preview content before committing</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem;color:var(--grn-tx);font-size:1rem;">Positive Touchpoints</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
+            <li style="font-size:.875rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--grn-tx);">●</span>Friend's recommendation brought initial hope</li>
+            <li style="font-size:.875rem;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--grn-tx);">●</span>Role-based interface speeds up navigation dramatically</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── LIGHTBOX OVERLAY ───────────────────────────────────────────── -->
+<div class="lb-overlay" id="lb-overlay" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+  <img id="lb-img" src="" alt=""/>
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<script>
+// Progress bar
+const pb = document.getElementById('pb');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  pb.style.width = (scrollTop / docHeight * 100) + '%';
+});
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+// Fade in
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }});
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+// Role tabs
+document.querySelectorAll('.role-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.role-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.role).classList.add('active');
+  });
+});
+
+// Wireframe carousel
+(function(){
+  const track = document.getElementById('wf-track');
+  if(!track) return;
+  const slides = track.querySelectorAll('.wf-slide');
+  const dotsEl = document.getElementById('wf-dots');
+  const prevBtn = document.getElementById('wf-prev');
+  const nextBtn = document.getElementById('wf-next');
+  let current = 0;
+  const vis = () => window.innerWidth < 640 ? 1 : window.innerWidth < 900 ? 2 : 3;
+  let v = vis();
+  const total = () => Math.ceil(slides.length / v);
+
+  function buildDots(){
+    dotsEl.innerHTML = '';
+    for(let i = 0; i < total(); i++){
+      const d = document.createElement('div');
+      d.className = 'wf-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    }
+  }
+  function goTo(idx){
+    v = vis();
+    current = Math.max(0, Math.min(idx, total() - 1));
+    const sw = slides[0].offsetWidth + 24;
+    track.style.transform = `translateX(-${current * v * sw}px)`;
+    dotsEl.querySelectorAll('.wf-dot').forEach((d,i) => d.classList.toggle('active', i === current));
+  }
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  buildDots();
+  window.addEventListener('resize', () => { v = vis(); buildDots(); goTo(0); });
+})();
+
+// Lightbox
+function openLightbox(src, caption) {
+  const overlay = document.getElementById('lb-overlay');
+  const img = document.getElementById('lb-img');
+  const cap = document.getElementById('lb-caption');
+  img.src = src;
+  img.alt = caption;
+  cap.textContent = caption;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lb-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Modals
+function openModal(id){
+  const m = document.getElementById(id);
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOnOverlay(e, id){
+  if(e.target === document.getElementById(id)) closeModal(id);
+}
+
+// ESC key closes both lightbox and modals
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') {
+    closeLightbox();
+    document.querySelectorAll('.modal-overlay.open').forEach(m => {
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+</script>
+</body>
+</html>
