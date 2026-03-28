@@ -387,7 +387,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
     </div>
 
     <h1>BollyStep</h1>
-    <p class="hero-sub">Helping South Asian wedding groups coordinate and learn dances — asynchronously.</p>
+    <p class="hero-sub">My capstone. Three weeks, three user types, and one big assumption I had to throw out early.</p>
 
     <div class="hero-strip">
       <div class="h-stat"><span class="sl">Role</span><span class="sv">UX Designer</span></div>
@@ -421,8 +421,12 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">01 — Final Design Preview</span>
-      <h2>A glimpse of what we built.</h2>
-      <p>Role-based navigation, simplified onboarding, and an explore-first experience — designed to reduce drop-off and build trust.</p>
+      <h2>Where I ended up.</h2>
+      <p>Role-based navigation, a real sign-up flow, and an explore-first experience. It took two rounds of testing and a few wrong turns to get here.</p>
+      <div style="margin:1.5rem 0 1.75rem;background:var(--cream);border-left:3px solid var(--turmeric);border-radius:0 var(--r8) var(--r8) 0;padding:1rem 1.25rem;max-width:640px;">
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--turmeric);margin-bottom:.4rem;">What I assumed going in</div>
+        <p style="font-size:.88rem;font-style:italic;color:var(--warm-mid);margin:0;max-width:none;">Navigation was the main problem — fix the menu, fix the site. I was wrong. Users didn't know if the platform was even active. Trust came first. Navigation came second.</p>
+      </div>
     </div>
     <div class="preview-grid">
       <div class="preview-item fade">
@@ -445,8 +449,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
     <div class="problem-split">
       <div>
         <span class="lbl">02 — The Problem</span>
-        <h2>Coordination chaos, broken sign-up, zero trust.</h2>
-        <p class="lead" style="margin-top:.8rem;">Users struggled to coordinate group dances across schedules and time zones — and the platform made it worse with a confusing experience.</p>
+        <h2>I thought navigation was the problem. It wasn't.</h2>
+        <p class="lead" style="margin-top:.8rem;">When I first looked at BollyStep, I assumed it was a nav problem — too many links, no clear hierarchy. But when I actually sat with users, something different came up: they didn't trust the platform was even real. That reframed everything.</p>
 
         <div class="pain-list">
           <div class="pain-item fade">
@@ -482,7 +486,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 
       <div class="fade">
         <div class="quote-pull">
-          <blockquote>The platform added friction at every turn — unclear navigation, no pricing transparency, and a broken sign-up that sent users to a contact form. Result: low trust and high drop-off before onboarding even began.</blockquote>
+          <blockquote>My first instinct was to fix the navigation. But every interview kept coming back to trust: "How do I know this is legit? Why can't I just sign up?" The broken sign-up wasn't a bug — it was the loudest signal of a platform that didn't feel real.</blockquote>
         </div>
         <div style="margin-top:1.75rem;display:flex;flex-direction:column;gap:.75rem;">
           <div style="font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--turmeric);margin-bottom:.25rem;">How Might We…</div>
@@ -515,8 +519,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div style="max-width:780px;">
       <span class="lbl">02b — Goal</span>
-      <h2>Clear paths for three distinct roles.</h2>
-      <p class="lead" style="margin-top:.8rem;">Simplify onboarding, clarify the platform's value early, create separate experiences for Dancers, Organizers, and Choreographers — and enable users to confidently create and manage dance events.</p>
+      <h2>Give each role a reason to stay.</h2>
+      <p class="lead" style="margin-top:.8rem;">The goal wasn't just to fix navigation — it was to make sure that within seconds of landing, each type of user could see themselves in the product and take one clear next step.</p>
     </div>
     <div class="g3" style="margin-top:1.5rem;">
       <div class="fade" style="background:#fff;border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
@@ -545,17 +549,17 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">03 — Research</span>
-      <h2>Three methods. One clear picture.</h2>
-      <p>Used interviews, heuristic evaluation, and content auditing to triangulate what was broken and why.</p>
+      <h2>Three methods. One finding I didn't expect.</h2>
+      <p>I ran interviews, a heuristic evaluation, and a content audit — thinking I'd confirm the nav problems I'd already spotted. Instead, they kept pointing at something deeper: the platform didn't feel trustworthy enough to even try.</p>
     </div>
 
     <div class="g3">
       <div class="r-card fade">
         <div class="r-icon">🎙️</div>
         <h3>User Interviews</h3>
-        <p>6 participants across all three roles. Revealed coordination challenges and platform confusion as the core barriers.</p>
+        <p>Spoke with 6 people across all three roles. I went in thinking I'd hear about navigation. I mostly heard about trust — and that shift surprised me.</p>
         <span class="r-stat">6</span>
-        <p style="font-size:.75rem;margin-top:.2rem;">participants interviewed across all roles</p>
+        <p style="font-size:.75rem;margin-top:.2rem;">participants across organizers, dancers &amp; choreographers</p>
       </div>
       <div class="r-card fade d1">
         <div class="r-icon">🔍</div>
@@ -564,7 +568,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           <img src="images/bollystep/Heru Eval.png" alt="Heuristic Evaluation findings"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p>Evaluated against Nielsen's 10 heuristics — major issues in navigation, missing trust signals, and unclear flows.</p>
+        <p>Evaluated against Nielsen's 10 heuristics. The score was low — but the more useful outcome was that it gave me a defensible list of problems to bring into research, not just opinions.</p>
       </div>
       <div class="r-card fade d2">
         <div class="r-icon">📋</div>
@@ -573,7 +577,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           <img src="images/bollystep/Content audit.png" alt="Content audit findings"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p>Reviewed all landing and client-facing pages. Found dense copy, unclear messaging, and poor content hierarchy.</p>
+        <p>Reviewed every landing and client-facing page. Dense copy, unclear hierarchy — and nothing that answered the first question most users had: "Is this actually for me?"</p>
       </div>
     </div>
 
@@ -625,7 +629,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">04 — User Understanding</span>
-      <h2>Meet Sanjana — our primary user.</h2>
+      <h2>Sanjana — the person I kept designing for.</h2>
     </div>
 
     <div class="persona fade">
@@ -639,8 +643,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
         <button class="p-open-btn" onclick="openModal('personaModal')">View Full Persona →</button>
       </div>
       <div class="p-details">
-        <h3>The overwhelmed wedding planner</h3>
-        <p class="p-bio">Sanjana is planning her wedding in 3 months. She needs 12 family members — spread across 4 cities and 3 time zones — to learn a coordinated Bollywood dance routine. She has no professional dance training and is managing everything via WhatsApp.</p>
+        <h3>Coordinating a wedding dance over WhatsApp</h3>
+        <p class="p-bio">Sanjana is planning her wedding in 3 months. She needs 12 family members — spread across 4 cities and 3 time zones — to learn a coordinated Bollywood routine. She has no dance background, no budget to hire someone in person, and is managing everything through WhatsApp voice notes. She found BollyStep through a friend. When she landed on the site, she couldn't tell if it was even still active.</p>
         <div class="p-attrs">
           <div class="p-attr"><div class="al">Goal</div><div class="av">Coordinate group dance with minimal stress</div></div>
           <div class="p-attr"><div class="al">Frustration</div><div class="av">Platform doesn't explain how it helps her</div></div>
@@ -653,7 +657,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 
     <!-- Journey Map -->
     <div class="journey fade">
-      <h3>Sanjana's User Journey — Friction Points</h3>
+      <h3>Where Sanjana's experience broke down</h3>
       <div class="lb-wrap" onclick="openLightbox('images/bollystep/User spotlight.png','Sanjana\'s User Journey — Friction Points')">
         <img src="images/bollystep/User spotlight.png" alt="User journey map showing friction points"/>
         <span class="lb-hint">Click to expand</span>
@@ -670,46 +674,46 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">05 — Key Insights</span>
-      <h2>Five barriers. Five design decisions.</h2>
+      <h2>Five things research actually told me.</h2>
     </div>
 
     <div class="g3" style="margin-bottom:1.25rem;">
       <div class="i-card fade">
         <div class="i-icon">📝</div>
-        <h4>Expected instant sign-up</h4>
-        <p>Contact form felt like a wall. Users wanted direct account creation with no friction.</p>
+        <h4>The sign-up was actually a contact form</h4>
+        <p>Users clicked "Join Now" expecting an account. They got a form asking for event details. Most just left.</p>
         <div class="i-num">01</div>
       </div>
       <div class="i-card fade d1">
         <div class="i-icon">🗺️</div>
-        <h4>Navigation felt overwhelming</h4>
-        <p>Too many options, no clear path for any specific user type or intent.</p>
+        <h4>Navigation that worked for no one</h4>
+        <p>One nav bar, three completely different users. Nobody could find what was relevant to them — not because the menu was long, but because it wasn't built for anyone specific.</p>
         <div class="i-num">02</div>
       </div>
       <div class="i-card fade d2">
         <div class="i-icon">👤</div>
-        <h4>Roles were invisible</h4>
-        <p>Dancers, Organizers, Choreographers had no distinct experience at all.</p>
+        <h4>Three roles, one blurry experience</h4>
+        <p>A dancer and a choreographer have nothing in common — but the platform treated them identically. Neither felt like the product was meant for them.</p>
         <div class="i-num">03</div>
       </div>
       <div class="i-card fade d3">
         <div class="i-icon">💰</div>
-        <h4>No pricing, no trust</h4>
-        <p>Hidden pricing and no previews stopped users from committing to the platform.</p>
+        <h4>No pricing meant no trust</h4>
+        <p>This was the one I underestimated going in. Hiding pricing didn't create intrigue — it made people assume the worst and leave before they'd seen anything.</p>
         <div class="i-num">04</div>
       </div>
       <div class="i-card fade d4" style="grid-column:span 2;">
         <div class="i-icon">📅</div>
-        <h4>Coordination was the core pain</h4>
-        <p>Managing group dances across time zones, schedules, and skill levels was the fundamental challenge — but the existing platform barely addressed it at all.</p>
+        <h4>The real problem was coordination — and the platform barely touched it</h4>
+        <p>Managing a group dance across time zones and skill levels via WhatsApp is genuinely hard. BollyStep could have solved that. It just never surfaced that it could.</p>
         <div class="i-num">05</div>
       </div>
     </div>
 
     <!-- Decision Table -->
     <div class="fade">
-      <h3 style="margin-bottom:.4rem;">Insight → Design Decision</h3>
-      <p style="margin-bottom:.5rem;">The golden thread from research to solution.</p>
+      <h3 style="margin-bottom:.4rem;">From insight to decision</h3>
+      <p style="margin-bottom:.5rem;">Each finding pushed me toward a specific design choice. Here's the thread.</p>
       <table class="d-table">
         <thead><tr><th>Insight</th><th>Design Decision</th><th>Impact</th></tr></thead>
         <tbody>
@@ -731,7 +735,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">06 — Site Architecture</span>
-      <h2>From one muddled structure to three clear paths.</h2>
+      <h2>Untangling one structure into three clear paths.</h2>
     </div>
 
     <div class="g2" style="align-items:start;gap:2rem;">
@@ -770,7 +774,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">06b — User Flows & Ideation</span>
-      <h2>Mapping friction, then sketching solutions.</h2>
+      <h2>Mapping the friction, then sketching through it.</h2>
     </div>
 
     <div class="g2" style="gap:1.5rem;">
@@ -780,7 +784,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           <img src="images/bollystep/User flow.png" alt="User flow from discovery to event creation" style="max-height:180px;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p style="font-size:.85rem;">Mapped all critical decision points and friction opportunities across the three user roles — identifying exactly where the existing flow caused users to drop off.</p>
+        <p style="font-size:.85rem;">Mapped decision points across all three roles to find exactly where users were dropping. Seeing the whole flow laid out made it obvious how many dead ends the existing site had baked in.</p>
       </div>
       <div class="fade d1" style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
         <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1.05rem;"><span>✏️</span> Ideation — Design Studio</h3>
@@ -798,7 +802,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
             <span class="lb-hint">Click to expand</span>
           </div>
         </div>
-        <p style="font-size:.85rem;">Rapid sketching before wireframing — explored multiple navigation structures and onboarding concepts to find the most intuitive approach.</p>
+        <p style="font-size:.85rem;">I sketched before I opened Figma. Some ideas were bad — which is exactly the point. Getting them out of my head and onto paper made it easier to see what was worth pursuing and what wasn't.</p>
       </div>
     </div>
   </div>
@@ -811,8 +815,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">07 — Mid-Fi Wireframes</span>
-      <h2>Testing structure before visual polish.</h2>
-      <p>Mid-fidelity wireframes validated layout, navigation flow, and content hierarchy with real users before committing to high-fidelity design.</p>
+      <h2>Structure first, visual polish later.</h2>
+      <p>I learned this the hard way on an earlier project — going high-fidelity too soon means users give feedback on the visuals, not the flow. Mid-fi kept the conversation focused on what mattered.</p>
     </div>
 
     <div class="wf-carousel">
@@ -854,7 +858,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">08 — Final Design</span>
-      <h2>Three focused design decisions.</h2>
+      <h2>Three decisions that changed the most.</h2>
     </div>
 
     <div class="role-tabs">
@@ -867,7 +871,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div>
         <span class="lbl">Design Decision 1</span>
         <h3>Explore before you commit</h3>
-        <p style="margin:.75rem 0 1.1rem;max-width:none;">Dancers receive link + code → access tutorials, track progress, use looping + speed control. Preview videos with mirroring + speed control.</p>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">The biggest request from dancer interviews was simple: let me see what I'm getting before I commit. So I made browsing the default — no sign-up wall, no contact form. Preview, then decide.</p>
         <ul class="role-features">
           <li>Browse 120+ dance routines by occasion & style</li>
           <li>Preview video with mirroring and speed control</li>
@@ -883,7 +887,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div>
         <span class="lbl">Design Decision 2</span>
         <h3>Manage everything in one place</h3>
-        <p style="margin:.75rem 0 1.1rem;max-width:none;">Organizers get a dedicated dashboard to invite dancers, assign routines, track progress, and communicate — replacing fragmented WhatsApp coordination with one streamlined tool.</p>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">Organizers like Sanjana were running group dances through WhatsApp voice notes. The dashboard gives them one place to invite, assign, and track — so they stop chasing people across five different apps.</p>
         <ul class="role-features">
           <li>Invite dancers via email or shareable link</li>
           <li>Assign routines and track individual learning progress</li>
@@ -901,7 +905,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div>
         <span class="lbl">Design Decision 3</span>
         <h3>Apply, upload, and build your profile</h3>
-        <p style="margin:.75rem 0 1.1rem;max-width:none;">Choreographers have their own dedicated onboarding pathway — a clear "Apply to be a Choreographer" CTA with a streamlined application and profile creation flow replacing the opaque contact form.</p>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">Choreographers had no path at all in the old site — just a contact form everyone else used too. This gives them their own application flow and a profile that shows their work. It's a small thing that signals: you belong here.</p>
         <ul class="role-features">
           <li>Dedicated application with clear expectations upfront</li>
           <li>Upload routines with metadata and difficulty levels</li>
@@ -914,8 +918,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
     </div>
 
     <div class="proto-cta">
-      <h3 style="margin-bottom:.5rem;">Explore all three role experiences end-to-end</h3>
-      <p style="margin:0 auto 1.5rem;">The interactive Figma prototype walks through sign-up, dashboard, and core task flows for each user type.</p>
+      <h3 style="margin-bottom:.5rem;">See all three experiences in the prototype</h3>
+      <p style="margin:0 auto 1.5rem;">Sign-up, dashboard, and core task flows — one for each role.</p>
       <a href="https://www.figma.com/proto/9Hsn3A5eJ7N5shMZBcPzJf/BollyStepxGA-Deliverable?node-id=1635-10473&t=o3dDOLRvtyEl5bbQ-0&scaling=scale-down&content-scaling=fixed&page-id=154%3A54049&starting-point-node-id=1635%3A10473&show-proto-sidebar=1" target="_blank" class="btn btn-gold">View Full Prototype ↗</a>
     </div>
   </div>
@@ -928,7 +932,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">09 — Before / After</span>
-      <h2>What changed, and why.</h2>
+      <h2>The changes that made the biggest difference.</h2>
     </div>
 
     <div class="ba fade">
@@ -940,12 +944,12 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
         <div class="ba-panel">
           <div class="ba-lbl before">Before</div>
           <img src="images/bollystep/Sign up flow before .png" alt="Old sign-up — contact form"/>
-          <p>Users hit a contact form asking for name, email, and event details — with no clear sign-up path. Most dropped off here entirely.</p>
+          <p>Users clicked "Join Now" and hit a contact form asking for their event details. It felt like submitting a request, not signing up. Most didn't get past this.</p>
         </div>
         <div class="ba-panel">
           <div class="ba-lbl after">After</div>
           <img src="images/bollystep/Sp 3.png" alt="Redesigned sign-up — direct account creation"/>
-          <p>Direct email + password sign-up. No NDA barrier. Marketing site and platform unified into one seamless flow.</p>
+          <p>Email and password. Done. No NDA, no contact form, no guessing whether someone would email you back.</p>
         </div>
       </div>
     </div>
@@ -959,12 +963,12 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
         <div class="ba-panel">
           <div class="ba-lbl before">Before</div>
           <img src="images/bollystep/beforehomepage.png" alt="Old navigation"/>
-          <p>Generic nav with "About", "Pricing", "Join Now" — no indication of who the platform is for or what it does for each role.</p>
+          <p>"About", "Pricing", "Join Now" — fine for a generic site, but none of it tells a dancer or a choreographer that this place is for them. Everyone I spoke to felt like a visitor, not a user.</p>
         </div>
         <div class="ba-panel">
           <div class="ba-lbl after">After</div>
           <img src="images/bollystep/home page nav after.png" alt="New role-based navigation"/>
-          <p>Clear role-based navigation: Organizers · Dancers · Choreographers. Each leads to a tailored page with relevant content and CTAs.</p>
+          <p>Organizers · Dancers · Choreographers. Three words that answer the question "is this for me?" before anyone has to scroll.</p>
         </div>
       </div>
     </div>
@@ -978,8 +982,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">10 — Usability Testing</span>
-      <h2>Two rounds. Meaningful gains.</h2>
-      <p>Round 1 on the existing site. Round 2 on mid-fi prototype. Iterated to high-fidelity based on findings.</p>
+      <h2>Two rounds. The gap between them is where the real work was.</h2>
+      <p>Round 1 was on the existing site — I needed to see how bad it actually was with real users before I could argue for changes. Round 2 was on my mid-fi prototype. The improvement was bigger than I expected, which made me trust the research more.</p>
     </div>
 
     <div class="g2" style="align-items:start;gap:1.5rem;margin-bottom:1.5rem;">
@@ -1018,7 +1022,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           <img src="images/bollystep/Metrics.png" alt="HEART metrics framework — goals, signals and metrics" style="border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin:.75rem 0;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p style="font-size:.82rem;">Quantified impact across usability, adoption, and user satisfaction benchmarks using the HEART framework.</p>
+        <p style="font-size:.82rem;">Tracked impact across usability, adoption, and satisfaction using the HEART framework — useful for making the outcomes legible beyond just "it felt better".</p>
       </div>
       <div class="fade d1" style="background:var(--cream);border-radius:var(--r16);padding:1.25rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
         <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1rem;"><span>🚀</span> Next Steps & Recommendations</h3>
@@ -1026,7 +1030,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           <img src="images/bollystep/Next steps.png" alt="Next steps — API integrations and post-launch roadmap" style="border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin:.75rem 0;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p style="font-size:.82rem;">Strategic recommendations for post-launch iterations and feature prioritization — including API integrations and coordination tooling.</p>
+        <p style="font-size:.82rem;">Recommendations for what comes after — what I'd prioritise in a next sprint, and what I'd need to learn more about before designing it.</p>
       </div>
     </div>
 
@@ -1067,8 +1071,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">10b — Style Guide</span>
-      <h2>Visual language that tells the story.</h2>
-      <p>A cohesive design language rooted in South Asian warmth — colours, typography, and iconography that feel culturally grounded and modern.</p>
+      <h2>A visual language that felt like the culture, not just the colours.</h2>
+      <p>I wanted the design to feel warm and South Asian without leaning on clichés. The palette came from research into the emotional tone users associated with weddings and celebration — not from picking colours that "looked Indian".</p>
     </div>
     <div class="fade" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh2);">
       <div class="lb-wrap" onclick="openLightbox('images/bollystep/styleguide.png','BollyStep Style Guide')">
@@ -1086,8 +1090,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">10c — Design System / Components</span>
-      <h2>A reusable component library.</h2>
-      <p>Built for scalability — every UI element documented with states, variants, and usage guidelines so future iterations can move faster.</p>
+      <h2>Building components so the next iteration doesn't start from scratch.</h2>
+      <p>This was new for me — I'd never documented a component library before this project. It took longer than I expected, but by the end I understood why it matters: every decision is written down, so future changes are conversations, not guesswork.</p>
     </div>
     <div class="g2" style="gap:1.25rem;">
       <div class="fade" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
@@ -1125,46 +1129,46 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="sec-hd">
       <span class="lbl">11 — Reflection</span>
-      <h2>What I learned building this.</h2>
+      <h2>What I'd tell myself at the start of this project.</h2>
     </div>
 
     <div class="g3" style="margin-bottom:1.5rem;">
       <div class="ref-card fade">
         <div class="ref-icon">🎭</div>
-        <h4>Role-first design is underused</h4>
-        <p>Treating role differentiation as a first-class design constraint unlocked the biggest usability gains. This should be the default for any multi-role product.</p>
+        <h4>Start with who, before what</h4>
+        <p>I went in thinking about navigation structure. The biggest unlock was stepping back and asking: who is actually here, and what do they need in the first 30 seconds? Everything else flowed from answering that first.</p>
       </div>
       <div class="ref-card fade d1">
         <div class="ref-icon">🛡️</div>
-        <h4>Trust signals are a structural problem</h4>
-        <p>Missing pricing and social proof aren't just copy issues — they're IA problems requiring intentional placement throughout the entire user journey.</p>
+        <h4>Trust isn't a copy problem — it's a structure problem</h4>
+        <p>I kept thinking the trust issues were about wording. They weren't. Pricing hidden three clicks deep doesn't become trustworthy with better language. It needs to be in the right place — which is an IA decision, not a writing one.</p>
       </div>
       <div class="ref-card fade d2">
         <div class="ref-icon">⚡</div>
-        <h4>Move fast, but anchor to data</h4>
-        <p>Three weeks forced ruthless prioritization. Heuristic evaluation gave us a defensible backlog faster than any stakeholder assumption list.</p>
+        <h4>Three weeks is not very long</h4>
+        <p>It forced me to make calls I wasn't confident about and move anyway. That was uncomfortable. But heuristic evaluation gave me something concrete to point at when I had to justify a decision — which helped a lot when I wasn't sure of my own instincts yet.</p>
       </div>
       <div class="ref-card fade d3">
         <div class="ref-icon">🔗</div>
-        <h4>The invite flow is often forgotten</h4>
-        <p>Most Dancers entered via a forwarded link — not the homepage. Always map the full entry surface, not just the primary marketing page.</p>
+        <h4>Most dancers never saw the homepage</h4>
+        <p>They came in through a forwarded link from the organizer. I'd spent most of my time designing the homepage. This was a useful reminder that the front door isn't always where people actually enter — and I should have mapped that earlier.</p>
       </div>
       <div class="ref-card fade d4">
         <div class="ref-icon">🌏</div>
-        <h4>Cultural context matters deeply</h4>
-        <p>South Asian weddings carry deep emotional stakes around performance and family. Future iterations should hold space for those cultural delight moments.</p>
+        <h4>I didn't go deep enough on the cultural layer</h4>
+        <p>South Asian weddings carry a lot of emotion — performance anxiety, family pressure, wanting to do something meaningful together. I solved the functional problems. The emotional ones — the delight moments, the sense of occasion — I left on the table. That's what I'd focus on next.</p>
       </div>
       <div class="ref-card fade d5">
         <div class="ref-icon">🔮</div>
-        <h4>What I'd explore next</h4>
-        <p>In-app rehearsal mode with sync playback, mobile-native experience, and a post-wedding reflection feature to close the emotional loop.</p>
+        <h4>If I had another sprint</h4>
+        <p>I'd design a rehearsal mode where the group can practice together in real time — even across time zones. That's the thing Sanjana actually needed, and a static video library only gets you halfway there. That's where the real coordination problem lives.</p>
       </div>
     </div>
 
     <!-- Final CTA -->
     <div class="final-cta fade">
-      <h2>Ready to explore the full prototype?</h2>
-      <p>The interactive Figma prototype walks through all three role experiences — sign-up, dashboard, and core task flows.</p>
+      <h2>Want to see how it all flows together?</h2>
+      <p>The Figma prototype covers sign-up, the dashboard, and the core task flows for all three roles. It's the clearest way to see the decisions in context.</p>
       <div class="final-cta-btns">
         <a href="https://www.figma.com/proto/9Hsn3A5eJ7N5shMZBcPzJf/BollyStepxGA-Deliverable?node-id=1635-10473&t=o3dDOLRvtyEl5bbQ-0&scaling=scale-down&content-scaling=fixed&page-id=154%3A54049&starting-point-node-id=1635%3A10473&show-proto-sidebar=1" target="_blank" class="btn btn-gold">View Prototype ↗</a>
         <a href="index.html" class="btn btn-ghost">← All Projects</a>
