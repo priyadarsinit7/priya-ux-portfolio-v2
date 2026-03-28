@@ -127,7 +127,25 @@ em { color: var(--accent); font-style: italic; }
 .tools-wrap h4 { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
 .tools-pills { display: flex; flex-wrap: wrap; gap: 7px; }
 
-/* ── CONTACT CTA ── */
+/* ── HONEST PROJECT NOTE ── */
+.pcard-honest { background: var(--accent-light); border-left: 3px solid rgba(200,90,42,0.25); border-radius: 0 4px 4px 0; padding: 0.65rem 0.9rem; margin-bottom: 1.25rem; }
+.pcard-honest-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 3px; }
+.pcard-honest p { font-size: 0.82rem; font-style: italic; color: var(--ink-muted); line-height: 1.6; margin: 0; }
+
+/* ── LEARNINGS ── */
+#learnings { background: var(--white); border-top: 1px solid var(--cream-dark); border-bottom: 1px solid var(--cream-dark); }
+.learnings-inner { max-width: var(--max); margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+.learnings-left h2 { margin-bottom: 1rem; }
+.learnings-left p { font-size: 0.97rem; font-weight: 300; color: var(--ink-muted); line-height: 1.9; }
+.learnings-right { padding: 90px 0; }
+.reflection-entry { margin-bottom: 2.25rem; padding-bottom: 2.25rem; border-bottom: 1px solid var(--cream-dark); }
+.reflection-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.reflection-assumed { font-size: 0.9rem; color: var(--ink-faint); line-height: 1.7; margin-bottom: 0.7rem; font-style: italic; padding-left: 0.9rem; border-left: 2px solid var(--cream-dark); }
+.reflection-shift { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; display: block; margin-bottom: 0.45rem; }
+.reflection-real { font-size: 0.93rem; color: var(--ink-muted); line-height: 1.8; }
+.reflection-real strong { font-weight: 500; color: var(--ink); }
+
+@media (max-width: 860px) { .learnings-inner { grid-template-columns: 1fr; gap: 0; } .learnings-right { padding: 0 0 60px; } }
 #cta { background: var(--ink); padding: 100px 2rem; text-align: center; }
 #cta h2 { font-family: var(--serif); font-size: clamp(2.2rem,4vw,3.5rem); color: var(--white); letter-spacing: -0.02em; margin-bottom: 1.5rem; }
 #cta p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.8; }
@@ -160,15 +178,15 @@ em { color: var(--accent); font-style: italic; }
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">UX Designer · Sunnyvale, CA</div>
-      <h1 class="hero-title">Designing <em>experiences</em><br/>that feel<br/>human.</h1>
-      <p class="hero-sub">Entry-level UX/Product Designer trained at General Assembly. I translate user research into intuitive digital products — with empathy, iteration, and purpose.</p>
+      <h1 class="hero-title">Figuring out <em>people,</em><br/>one design<br/>at a time.</h1>
+      <p class="hero-sub">Hi, I'm Priya — a fresh UX grad from General Assembly (March 2026). Before this, I spent years teaching. Learning to design made me realise that my best teaching moments were the ones where I stopped talking and watched what confused people. Turns out that's called user research. I just didn't have a name for it yet.</p>
       <div class="hero-actions">
-        <a href="#work" class="btn">View My Work →</a>
-        <a href="contact.html" class="btn btn-ghost">Let's Talk</a>
+        <a href="#work" class="btn">See My Projects →</a>
+        <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
       </div>
       <div class="hero-stats">
-        <div style="display:flex;flex-direction:column;gap:4px;"><span class="stat-num">3</span><span class="stat-lbl">Projects</span></div>
-        <div style="display:flex;flex-direction:column;gap:4px;"><span class="stat-num">Mar '26</span><span class="stat-lbl">Grad</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px;"><span class="stat-num">3</span><span class="stat-lbl">Case Studies</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px;"><span class="stat-num">3 mo.</span><span class="stat-lbl">GA Bootcamp</span></div>
         <div class="hero-stat-badge">
           <a href="https://badges.parchment.com/public/assertions/GvtYFsELTDyqQCZPV1tcXA?identity__email=tpriyadarsini25@gmail.com" target="_blank" rel="noopener" aria-label="Verify General Assembly UX Design Bootcamp credential">
             <img src="images/ga-badge.png" alt="General Assembly UX Design Bootcamp Badge" class="ga-badge-img" />
@@ -305,7 +323,7 @@ em { color: var(--accent); font-style: italic; }
         </svg>
         <div class="portrait-badge">
           <strong>Priya T.</strong>
-          <span>UX / Product Designer · General Assembly</span>
+          <span>UX Designer · General Assembly, Mar 2026</span>
         </div>
       </div>
     </div>
@@ -318,7 +336,7 @@ em { color: var(--accent); font-style: italic; }
     <div class="work-header">
       <div>
         <div class="eyebrow">Selected Work</div>
-        <h2 class="section-title">Projects that <em>solve real problems.</em></h2>
+        <h2 class="section-title">Three projects.<br/><em>A lot of iteration.</em></h2>
       </div>
       <a href="about.html" class="btn btn-ghost" style="font-size:0.82rem;">About Me →</a>
     </div>
@@ -332,8 +350,12 @@ em { color: var(--accent); font-style: italic; }
         <div class="pcard-info">
           <div class="pcard-type">Website Redesign · 3 Weeks</div>
           <h3 class="pcard-title">BollyStep — Dance Coordination Platform</h3>
-          <p class="pcard-desc">Redesigned onboarding, navigation, and structure for a South Asian dance platform to reduce friction and build trust across three user roles: Organizers, Dancers, and Choreographers.</p>
-          <span class="pcard-link">View Case Study <span class="arrow-circle">→</span></span>
+          <p class="pcard-desc">A South Asian dance platform where organizers, dancers, and choreographers all needed the same site — but had completely different goals. I redesigned onboarding and navigation to stop the confusion.</p>
+          <div class="pcard-honest">
+            <span class="pcard-honest-label">What surprised me</span>
+            <p>I assumed navigation was the main problem. User interviews told me it was actually trust — people didn't know if the platform was even active. That changed where I started.</p>
+          </div>
+          <span class="pcard-link">Read Case Study <span class="arrow-circle">→</span></span>
         </div>
       </a>
 
@@ -345,8 +367,12 @@ em { color: var(--accent); font-style: italic; }
         <div class="pcard-info">
           <div class="pcard-type">Native Mobile App · 3 Weeks</div>
           <h3 class="pcard-title">Food4U — Surplus Food Redistribution</h3>
-          <p class="pcard-desc">Designed a real-time mobile platform enabling restaurants to donate surplus food in seconds, connecting them with local organizations to reduce food waste and feed communities.</p>
-          <span class="pcard-link">View Case Study <span class="arrow-circle">→</span></span>
+          <p class="pcard-desc">Restaurants have maybe 30 minutes before surplus food goes to waste. I designed a mobile app for staff to post donations quickly — and for local organisations to claim them in real time.</p>
+          <div class="pcard-honest">
+            <span class="pcard-honest-label">What I'd do differently</span>
+            <p>I underestimated how different the restaurant-side and recipient-side flows needed to be. My first prototype tried to serve both in one UI. It didn't work — and that was a good lesson.</p>
+          </div>
+          <span class="pcard-link">Read Case Study <span class="arrow-circle">→</span></span>
         </div>
       </a>
 
@@ -358,10 +384,42 @@ em { color: var(--accent); font-style: italic; }
         <div class="pcard-info">
           <div class="pcard-type">E-Commerce Redesign · 3 Weeks</div>
           <h3 class="pcard-title">Mayura Roots — Cultural Products Marketplace</h3>
-          <p class="pcard-desc">Redesigned navigation and information architecture for a traditional Indian products marketplace to feel like exploring a cultural marketplace — not just browsing products.</p>
-          <span class="pcard-link">View Case Study <span class="arrow-circle">→</span></span>
+          <p class="pcard-desc">Traditional Indian products that don't fit neatly into Western e-commerce categories. I reworked the information architecture so browsing felt intuitive — even if you don't know the exact name of what you're looking for.</p>
+          <div class="pcard-honest">
+            <span class="pcard-honest-label">What I learned</span>
+            <p>Card sorting with users who had different cultural familiarity completely changed how I thought about categorisation. There's no single "right" mental model here.</p>
+          </div>
+          <span class="pcard-link">Read Case Study <span class="arrow-circle">→</span></span>
         </div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THE BOOTCAMP ACTUALLY TAUGHT ME -->
+<section id="learnings">
+  <div class="learnings-inner">
+    <div class="learnings-left fade-up" style="padding: 90px 0;">
+      <div class="eyebrow">Honest Reflection</div>
+      <h2 class="section-title">What the bootcamp<br/><em>actually</em> taught me.</h2>
+      <p>Not the curriculum version. The things I walked in believing, and what quietly shifted after sitting with real users for the first time.</p>
+    </div>
+    <div class="learnings-right fade-up">
+      <div class="reflection-entry">
+        <p class="reflection-assumed">"Good design is about making things look clean. If it's polished, the problem is solved."</p>
+        <span class="reflection-shift">↓ what changed</span>
+        <p class="reflection-real">People don't notice good design — they just don't get frustrated. My most visually plain prototype tested better than my prettiest one. <strong>That was humbling, and it reordered a lot of things for me.</strong></p>
+      </div>
+      <div class="reflection-entry">
+        <p class="reflection-assumed">"My teaching background will help me understand users. I'm used to reading a room."</p>
+        <span class="reflection-shift">↓ what changed</span>
+        <p class="reflection-real">Teaching is about guiding. Research is about getting out of the way. I had to unlearn the instinct to explain and <strong>just watch what people actually did</strong> — even when it was uncomfortable to stay quiet.</p>
+      </div>
+      <div class="reflection-entry">
+        <p class="reflection-assumed">"I'll know when to push back on design constraints. I have some technical context."</p>
+        <span class="reflection-shift">↓ what changed</span>
+        <p class="reflection-real">Designing within constraints is a conversation, not a checklist. <strong>I'm still learning when to push and when to adapt</strong> — and I think I'll be learning that for a long time.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -372,9 +430,9 @@ em { color: var(--accent); font-style: italic; }
     <div class="teaser-grid fade-up">
       <div class="teaser-text">
         <div class="eyebrow">About</div>
-        <h2 class="section-title">Designer. Researcher.<br/><em>Former educator.</em></h2>
-        <p>I'm Priya — a UX Designer who recently completed the General Assembly UX Design Bootcamp (March 2026). My background in software development (MCA) and years of teaching sharpen my ability to observe behavior, translate complexity, and design with empathy.</p>
-        <p>I believe great design starts with listening — to users, data, and the spaces in between where frustration quietly lives.</p>
+        <h2 class="section-title">Teacher, now<br/><em>designer.</em></h2>
+        <p>I spent years teaching before I found UX. In the classroom, the moments that stuck were never the prepared lessons — they were the looks on students' faces when something I said made no sense. <strong>That gap between what I intended and what landed</strong> is exactly what UX design tries to close.</p>
+        <p>Coming into design from teaching gave me something I think matters more than any tool right now: genuine curiosity about why people do what they do, and patience with the parts that don't make sense yet. I graduated from General Assembly's UX bootcamp in March 2026 and I'm actively looking for my first UX role.</p>
         <a href="about.html" class="btn">Read My Story →</a>
       </div>
       <div class="tools-wrap">
@@ -396,8 +454,8 @@ em { color: var(--accent); font-style: italic; }
 <!-- CTA -->
 <section id="cta">
   <div class="container">
-    <h2>Got a project? <em style="color:var(--accent);">Let's talk!</em></h2>
-    <p>I'm actively looking for UX Designer, Product Designer, or UX Research Intern roles. Let's build something impactful together.</p>
+    <h2>Open to <em style="color:#e8896a;">opportunities.</em></h2>
+    <p>Looking for UX Designer, Product Designer, or UX Research Intern roles — somewhere I can learn fast, ask lots of questions, and do meaningful work from day one.</p>
     <a href="contact.html" class="btn" style="background:var(--accent);">Get In Touch →</a>
   </div>
 </section>
