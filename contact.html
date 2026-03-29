@@ -46,8 +46,9 @@ footer a { color: var(--accent); text-decoration: none; }
 
 .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
 section { padding: 90px 0; }
-.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-.fade-up.visible { opacity: 1; transform: none; }
+.fade-up { opacity: 1; transform: none; transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.will-animate { opacity: 0; transform: translateY(24px); }
+.fade-up.will-animate.visible { opacity: 1; transform: none; }
 
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
 .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
@@ -72,41 +73,41 @@ em { color: var(--accent); font-style: italic; }
 
 </style>
 <style>
-#contact-hero { min-height: 100vh; display: flex; align-items: center; background: var(--ink); padding: 100px 2rem 80px; position: relative; overflow: hidden; }
-.contact-blob { position: absolute; top: -10%; right: -5%; width: 50vw; max-width: 600px; aspect-ratio: 1; background: radial-gradient(ellipse at 60% 40%, rgba(200,90,42,0.18) 0%, transparent 65%); border-radius: 50%; pointer-events: none; }
+#contact-hero { min-height: 100vh; display: flex; align-items: center; background: var(--cream); padding: 100px 2rem 80px; position: relative; overflow: hidden; }
+.contact-blob { position: absolute; top: -10%; right: -5%; width: 50vw; max-width: 600px; aspect-ratio: 1; background: radial-gradient(ellipse at 60% 40%, rgba(200,90,42,0.10) 0%, transparent 65%); border-radius: 50%; pointer-events: none; }
 .contact-grid { max-width: var(--max); margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1.3fr; gap: 6rem; align-items: start; }
-.contact-left h1 { font-family: var(--serif); font-size: clamp(2.8rem,5vw,4.2rem); line-height: 1.1; letter-spacing: -0.025em; color: var(--white); margin-bottom: 1.5rem; }
-.contact-left p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.9; margin-bottom: 2.5rem; max-width: 420px; }
+.contact-left h1 { font-family: var(--serif); font-size: clamp(2.8rem,5vw,4.2rem); line-height: 1.1; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 1.5rem; }
+.contact-left p { font-size: 1rem; font-weight: 300; color: var(--ink-muted); line-height: 1.9; margin-bottom: 2.5rem; max-width: 420px; }
 .c-links { display: flex; flex-direction: column; gap: 0.85rem; }
-.c-link { display: flex; align-items: center; gap: 14px; font-size: 0.9rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color var(--t); }
-.c-link:hover { color: var(--white); }
-.c-icon { width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; transition: background var(--t); }
-.c-link:hover .c-icon { background: var(--accent); }
+.c-link { display: flex; align-items: center; gap: 14px; font-size: 0.9rem; color: var(--ink-muted); text-decoration: none; transition: color var(--t); }
+.c-link:hover { color: var(--ink); }
+.c-icon { width: 38px; height: 38px; background: var(--white); border: 1px solid var(--cream-dark); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; transition: background var(--t), border-color var(--t); }
+.c-link:hover .c-icon { background: var(--accent-light); border-color: var(--accent); }
 .c-link .c-text { display: flex; flex-direction: column; gap: 1px; }
-.c-link .c-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-.c-link .c-val { font-size: 0.87rem; }
+.c-link .c-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+.c-link .c-val { font-size: 0.87rem; color: var(--ink); }
 
-.contact-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 2.5rem; }
-.form-title { font-family: var(--serif); font-size: 1.5rem; color: var(--white); margin-bottom: 2rem; }
+.contact-form { background: var(--white); border: 1px solid var(--cream-dark); border-radius: 14px; padding: 2.5rem; }
+.form-title { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); margin-bottom: 2rem; }
 .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.1rem; }
 .f-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1.1rem; }
-.f-field label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.f-field label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
 .f-field input, .f-field textarea, .f-field select {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  padding: 11px 14px; font-family: var(--sans); font-size: 0.9rem; color: var(--white);
+  background: var(--cream); border: 1px solid var(--cream-dark);
+  padding: 11px 14px; font-family: var(--sans); font-size: 0.9rem; color: var(--ink);
   border-radius: var(--radius); outline: none; resize: none; transition: border-color var(--t), background var(--t);
 }
-.f-field input::placeholder, .f-field textarea::placeholder { color: rgba(255,255,255,0.18); }
-.f-field input:focus, .f-field textarea:focus, .f-field select:focus { border-color: var(--accent); background: rgba(255,255,255,0.07); }
-.f-field select option { background: #2a2623; color: var(--white); }
+.f-field input::placeholder, .f-field textarea::placeholder { color: var(--ink-faint); }
+.f-field input:focus, .f-field textarea:focus, .f-field select:focus { border-color: var(--accent); background: var(--white); }
+.f-field select option { background: var(--white); color: var(--ink); }
 .f-submit { width: 100%; background: var(--accent); color: var(--white); border: none; padding: 14px; font-family: var(--sans); font-size: 0.9rem; font-weight: 500; border-radius: var(--radius); cursor: pointer; transition: background var(--t), transform var(--t); margin-top: 0.5rem; letter-spacing: 0.02em; }
 .f-submit:hover { background: #a84820; transform: translateY(-1px); }
 .f-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
 
 .success-msg { display: none; text-align: center; padding: 2rem; }
 .success-msg .s-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
-.success-msg h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem; }
-.success-msg p { font-size: 0.9rem; color: rgba(255,255,255,0.5); }
+.success-msg h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); margin-bottom: 0.5rem; }
+.success-msg p { font-size: 0.9rem; color: var(--ink-muted); }
 
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -115,8 +116,8 @@ em { color: var(--accent); font-style: italic; }
 </style>
 </head>
 <body>
-<nav style="background:rgba(26,24,21,0.92); border-color:rgba(255,255,255,0.07);">
-  <a href="index.html" class="nav-logo" style="color:var(--white);">Priya T.</a>
+<nav>
+  <a href="index.html" class="nav-logo">Priya T.</a>
   <ul class="nav-links">
     <li><a href="index.html">Work</a></li>
     <li><a href="about.html">About</a></li>
@@ -129,13 +130,13 @@ em { color: var(--accent); font-style: italic; }
   <div class="contact-blob"></div>
   <div class="contact-grid">
     <div class="contact-left">
-      <div class="eyebrow" style="color:var(--accent);">Get In Touch</div>
-      <h1>Got a project? <em>Let's talk!</em></h1>
-      <p>I'm actively looking for UX Designer, Product Designer, or UX Research Intern roles. I'm also open to freelance collaborations and interesting design conversations.</p>
+      <div class="eyebrow">Contact</div>
+      <h1>Open to <em>opportunities.</em></h1>
+      <p>I'm actively looking for UX Designer, Product Designer, or UX Research Intern roles — somewhere I can learn fast, ask lots of questions, and do meaningful work from day one. If that sounds like a fit, I'd love to hear from you.</p>
       <div class="c-links">
-        <a href="mailto:tpriyadarsini25@gmail.com" class="c-link">
+        <a href="/cdn-cgi/l/email-protection#5b2f2b2932223a3f3a2928323532696e1b3c363a323775383436" class="c-link">
           <span class="c-icon">✉</span>
-          <span class="c-text"><span class="c-label">Email</span><span class="c-val">tpriyadarsini25@gmail.com</span></span>
+          <span class="c-text"><span class="c-label">Email</span><span class="c-val"><span class="__cf_email__" data-cfemail="2054505249594144415253494e49121560474d41494c0e434f4d">[email&#160;protected]</span></span></span>
         </a>
         <a href="tel:+14085487046" class="c-link">
           <span class="c-icon">☎</span>
@@ -154,7 +155,7 @@ em { color: var(--accent); font-style: italic; }
 
     <div class="contact-form">
       <div id="form-wrap">
-        <h3 class="form-title">Send a message</h3>
+        <h3 class="form-title">Drop me a message</h3>
         <form onsubmit="handleSubmit(event)">
           <div class="f-row">
             <div class="f-field"><label>First Name</label><input type="text" placeholder="Jane" required/></div>
@@ -173,24 +174,24 @@ em { color: var(--accent); font-style: italic; }
               <option>Something else</option>
             </select>
           </div>
-          <div class="f-field"><label>Message</label><textarea rows="5" placeholder="Tell me about your project, role, or just say hello..."></textarea></div>
+          <div class="f-field"><label>Message</label><textarea rows="5" placeholder="Tell me about the role, project, or just say hello — I read everything."></textarea></div>
           <button type="submit" class="f-submit" id="submitBtn">Send Message →</button>
         </form>
       </div>
       <div class="success-msg" id="success">
         <span class="s-icon">✓</span>
-        <h3>Message sent!</h3>
-        <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
+        <h3>Got it — thank you.</h3>
+        <p>I'll get back to you within 24 hours.</p>
       </div>
     </div>
   </div>
 </section>
 
-<footer style="background:#111;">
+<footer>
   <p>Designed &amp; built by <a href="index.html">Priya T.</a> · UX Designer · Sunnyvale, CA · 2026</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Scroll-triggered fade-up animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -198,6 +199,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.classList.add('will-animate');
   el.style.transitionDelay = (i * 0.05) + 's';
   observer.observe(el);
 });
@@ -215,14 +217,4 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 <script>
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('success').style.display = 'block';
-  }, 1000);
-}
-</script>
-</body>
-</html>
+  const btn = document.getElementById('submi

@@ -46,8 +46,9 @@ footer a { color: var(--accent); text-decoration: none; }
 
 .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
 section { padding: 90px 0; }
-.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-.fade-up.visible { opacity: 1; transform: none; }
+.fade-up { opacity: 1; transform: none; transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.will-animate { opacity: 0; transform: translateY(24px); }
+.fade-up.will-animate.visible { opacity: 1; transform: none; }
 
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
 .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
@@ -137,7 +138,7 @@ em { color: var(--accent); font-style: italic; }
       <div>
         <div class="eyebrow">Resume</div>
         <h1>Experience &amp;<br/><em>Education</em></h1>
-        <p>UX/Product Designer trained at General Assembly. Background in software development and education — bringing analytical thinking and deep empathy to every project.</p>
+        <p>Fresh UX grad from General Assembly (March 2026). Background in teaching — which shaped how I observe people, adapt to their needs, and communicate clearly. Looking for my first UX or product design role.</p>
       </div>
       <a href="Priya_UX_Designer_Resume__1_.pdf" class="btn" download>↓ Download PDF Resume</a>
     </div>
@@ -152,7 +153,7 @@ em { color: var(--accent); font-style: italic; }
       <div class="r-sidebar fade-up">
         <div class="r-card">
           <h4>Contact</h4>
-          <div class="info-row"><span>Email</span><span style="color:var(--accent);font-size:0.76rem;">tpriyadarsini25@gmail.com</span></div>
+          <div class="info-row"><span>Email</span><span style="color:var(--accent);font-size:0.76rem;"><a href="mailto:tpriyadarsini25@gmail.com" style="color:var(--accent);text-decoration:none;">tpriyadarsini25@gmail.com</a></span></div>
           <div class="info-row"><span>Phone</span><span>+1 (408) 548-7046</span></div>
           <div class="info-row"><span>Location</span><span>Sunnyvale, CA</span></div>
           <div class="info-row"><span>Work Auth</span><span>H4 EAD</span></div>
@@ -197,10 +198,10 @@ em { color: var(--accent); font-style: italic; }
             <h3>UX/UI Designer — Capstone</h3>
             <div class="company">BollyStep · Remote</div>
             <ul>
-              <li>Collaborated with a UX team to redesign the BollyStep website, improving usability, navigation, and visual hierarchy</li>
-              <li>Conducted user research and synthesized insights to identify friction points in the user journey</li>
-              <li>Created user flows, wireframes, and high-fidelity prototypes using Figma and FigJam</li>
-              <li>Iterated solutions based on usability testing feedback to improve accessibility and interaction design</li>
+              <li>Led the UX redesign of the BollyStep marketing site as my capstone — focused on navigation, onboarding, and trust signals across three distinct user roles</li>
+              <li>Ran user interviews, heuristic evaluation, and content audit; found that trust, not navigation, was the primary drop-off cause — which changed the direction of the project</li>
+              <li>Built user flows, mid-fi wireframes, and a high-fidelity Figma prototype; iterated based on two rounds of usability testing</li>
+              <li>SUS score improved from 52 to 87 between Round 1 and Round 2 testing</li>
             </ul>
           </div>
         </div>
@@ -211,14 +212,14 @@ em { color: var(--accent); font-style: italic; }
             <h3>UX/UI Designer — Bootcamp Projects</h3>
             <div class="company">General Assembly · Remote</div>
             <ul>
-              <li><strong>Food4U:</strong> Designed a mobile platform connecting restaurants with local organizations to reduce food waste; created simplified workflows enabling restaurants to quickly post surplus food items</li>
-              <li><strong>Mayura Roots:</strong> Performed heuristic evaluation and content audit; redesigned site IA and navigation for improved product discoverability</li>
-              <li><strong>Ruchi Kitchen:</strong> Conducted user interviews; designed a multi-mode Recipe Play feature (Video, Audio, Step-by-Step) improving hands-free cooking usability</li>
+              <li><strong>Food4U:</strong> Designed a two-sided mobile app connecting restaurants with local food organisations to redistribute surplus food. Ran surveys, interviews, and competitive analysis; separated restaurant and organisation flows after first prototype failed to serve both in one UI</li>
+              <li><strong>Mayura Roots:</strong> Redesigned navigation and IA for a traditional Indian e-commerce site. Card sorting revealed users think by occasion, not product type — which replaced my original nav structure entirely</li>
+              <li><strong>Ruchi Kitchen:</strong> Ran user interviews and designed a multi-mode Recipe Play feature (Video, Audio, Step-by-Step) for hands-free cooking usability</li>
             </ul>
           </div>
         </div>
 
-        <div class="section-label" style="margin-top:3rem;">Teaching &amp; Human-Centered Experience</div>
+        <div class="section-label" style="margin-top:3rem;">Teaching Experience</div>
 
         <div class="exp-item">
           <div class="exp-date">Aug 2025<br/>— Nov 2025</div>
@@ -226,9 +227,9 @@ em { color: var(--accent); font-style: italic; }
             <h3>Preschool Teacher</h3>
             <div class="company">Kiddie Academy of Cupertino · Cupertino, CA</div>
             <ul>
-              <li>Observed behavioral patterns and adapted activities to individual needs — deepened user empathy and observation skills</li>
-              <li>Designed engaging learning experiences supporting cognitive, emotional, and social development</li>
-              <li>Collaborated with educators and parents to support developmental progress</li>
+              <li>Watched how young children navigated confusion and frustration before they had the words to describe it — which sharpened my instinct for reading non-verbal behaviour in research sessions</li>
+              <li>Adapted teaching approach daily to individual learning needs across a group with very different starting points — an early lesson in designing for more than one user type</li>
+              <li>Collaborated with parents and educators to track progress and adjust plans based on observed outcomes rather than assumptions</li>
             </ul>
           </div>
         </div>
@@ -239,9 +240,9 @@ em { color: var(--accent); font-style: italic; }
             <h3>Preschool Teacher</h3>
             <div class="company">International Child Resource Institute · Stanford, CA</div>
             <ul>
-              <li>Planned and facilitated educational activities supporting cognitive and social development</li>
-              <li>Observed learning behaviors and adapted strategies to meet individual needs</li>
-              <li>Maintained an inclusive classroom aligned with early childhood education standards</li>
+              <li>Planned and facilitated structured learning activities for a classroom with a wide range of ages and abilities — required constant re-evaluation of what was and wasn't working</li>
+              <li>Observed learning behaviours closely and adjusted approaches mid-session when something wasn't landing</li>
+              <li>Maintained an inclusive, consistent environment where children with different needs could participate</li>
             </ul>
           </div>
         </div>
@@ -252,8 +253,8 @@ em { color: var(--accent); font-style: italic; }
             <h3>Support Teacher</h3>
             <div class="company">ChildCare Careers · San Jose, CA</div>
             <ul>
-              <li>Assisted lead teachers in implementing structured educational activities</li>
-              <li>Supervised children ensuring safe, engaging play and learning experiences</li>
+              <li>Supported lead teachers across multiple settings, adapting quickly to different classroom cultures and expectations</li>
+              <li>Maintained safe, engaged learning environments during activity and free-play sessions</li>
             </ul>
           </div>
         </div>
@@ -264,8 +265,8 @@ em { color: var(--accent); font-style: italic; }
             <h3>Computer Science Teacher</h3>
             <div class="company">VVNKM CBSE School · India</div>
             <ul>
-              <li>Taught coding fundamentals and digital literacy to secondary school students</li>
-              <li>Designed interactive lessons integrating educational technology tools</li>
+              <li>Taught coding fundamentals and digital literacy to secondary school students — learned quickly that how you explain something matters as much as what you explain</li>
+              <li>Designed lessons that integrated technology in ways students found relevant, not just instructional</li>
             </ul>
           </div>
         </div>
@@ -308,7 +309,7 @@ em { color: var(--accent); font-style: italic; }
 <footer>
   <p>Designed &amp; built by <a href="index.html">Priya T.</a> · UX Designer · Sunnyvale, CA · 2026</p>
 </footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Scroll-triggered fade-up animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -316,19 +317,11 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.classList.add('will-animate');
   el.style.transitionDelay = (i * 0.05) + 's';
   observer.observe(el);
 });
 // Active nav link
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-links a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-    link.classList.add('active');
-  } else {
-    link.classList.remove('active');
-  }
-});
-</script>
-</body>
-</html>
+ 

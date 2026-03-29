@@ -27,8 +27,9 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); p
 footer a { color: var(--accent); text-decoration: none; }
 .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
 section { padding: 90px 0; }
-.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-.fade-up.visible { opacity: 1; transform: none; }
+.fade-up { opacity: 1; transform: none; transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.will-animate { opacity: 0; transform: translateY(24px); }
+.fade-up.will-animate.visible { opacity: 1; transform: none; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
 .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
 h2.section-title { font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.8rem); line-height: 1.15; letter-spacing: -0.02em; }
@@ -114,8 +115,8 @@ em { color: var(--accent); font-style: italic; }
     <div class="page-hero-inner">
       <div class="page-hero-text">
         <div class="eyebrow">About Me</div>
-        <h1>Hi, I'm Priya — <em>UX Designer</em><br/>based in Sunnyvale, CA.</h1>
-        <p>I design experiences that feel intuitive, empathetic, and grounded in real human needs. I recently completed the General Assembly UX Design Bootcamp (March 2026), and I'm actively looking for UX Designer, Product Designer, or UX Research Intern roles.</p>
+        <h1>Hi, I'm Priya —<br/><em>still figuring it out,</em><br/>one project at a time.</h1>
+        <p>I graduated from General Assembly's UX Design Bootcamp in March 2026. Before that, I spent years teaching. I'm based in Sunnyvale and actively looking for my first UX or product design role — somewhere I can learn properly and do work that genuinely helps people.</p>
       </div>
       <a href="https://badges.parchment.com/public/assertions/GvtYFsELTDyqQCZPV1tcXA?identity__email=tpriyadarsini25@gmail.com" target="_blank" rel="noopener" class="page-hero-badge" aria-label="Verify General Assembly UX Design Bootcamp credential">
         <img src="images/ga-badge.png" alt="General Assembly UX Design Bootcamp Badge" />
@@ -232,7 +233,7 @@ em { color: var(--accent); font-style: italic; }
         <div class="sidebar-info">
           <div class="sidebar-info-row"><span>Location</span><span>Sunnyvale, CA</span></div>
           <div class="sidebar-info-row"><span>Work Auth</span><span>H4 EAD · US Auth</span></div>
-          <div class="sidebar-info-row"><span>Email</span><span style="color:var(--accent);font-size:0.78rem;">tpriyadarsini25@gmail.com</span></div>
+          <div class="sidebar-info-row"><span>Email</span><span style="color:var(--accent);font-size:0.78rem;"><a href="mailto:tpriyadarsini25@gmail.com" style="color:var(--accent);text-decoration:none;">tpriyadarsini25@gmail.com</a></span></div>
           <div class="sidebar-info-row"><span>Languages</span><span>English, Tamil</span></div>
           <div class="sidebar-info-row"><span>Availability</span><span style="color:#4a7c6b;">Open to Roles</span></div>
         </div>
@@ -240,12 +241,12 @@ em { color: var(--accent); font-style: italic; }
       </div>
 
       <div class="about-body fade-up">
-        <h2>Designer, researcher,<br/>former educator.</h2>
-        <p>I came to UX design through an unusual path — I spent years as a preschool and computer science teacher before pivoting to design. Those roles gave me something most designers have to learn over time: how to truly observe people, adapt to their individual needs, and communicate complexity in clear, accessible ways.</p>
-        <p>My MCA background in software development rounds out my analytical thinking — I understand how products are built, which helps me design within real constraints and collaborate more meaningfully with engineers.</p>
-        <div class="pull-quote">"I believe great design starts with listening — to users, to data, and to the spaces in between where frustration quietly lives."</div>
-        <p>For my capstone project, I worked on BollyStep — a platform to help users like Sanjana, who wanted to organize a Bollywood dance performance for her wedding. She struggled with coordinating choreography across different schedules, time zones, and experience levels. I redesigned the platform to help users learn dances asynchronously while streamlining navigation, onboarding, and trust — reducing friction from discovery to event creation.</p>
-        <p>I'm excited to apply my skills to projects that bridge the gap between user needs and business goals. I believe in an empathetic, collaborative, and iterative approach to design — and I'm just getting started.</p>
+        <h2>Teacher, now<br/>designer.</h2>
+        <p>I spent years teaching before I found UX. In the classroom, the moments that stayed with me weren't the planned lessons — they were the looks on students' faces when something I said made no sense at all. <strong>That gap between what I intended and what landed</strong> is exactly what UX design tries to close. I just didn't have a name for it yet.</p>
+        <p>Coming into design from teaching gave me something I think matters more than any tool right now: genuine curiosity about why people do what they do, patience with confusion, and the habit of watching behaviour instead of asking for opinions. I unlearned a lot of the instinct to explain and guide — research taught me to get out of the way and just listen.</p>
+        <div class="pull-quote">"My most visually plain prototype tested better than my prettiest one. That was humbling — and it reordered a lot of things for me."</div>
+        <p>I have an MCA, so I understand a bit about how digital products are built. But that's not what drives my design instinct. What drives it is asking why something feels wrong to the person using it — and then being willing to throw out my first answer when the research says it's wrong.</p>
+        <p>I'm early. I have three case studies, a lot of honest reflection on what I got wrong in each one, and a genuine desire to keep learning on a real team. If that sounds like someone you'd want to work with, I'd love to talk.</p>
         <div class="about-divider"></div>
         <div class="skills-section">
           <h3>Skills &amp; Methods</h3>
@@ -284,28 +285,28 @@ em { color: var(--accent); font-style: italic; }
 
 <section id="values">
   <div class="container">
-    <div class="eyebrow">How I Work</div>
-    <h2 class="section-title">Design principles<br/>I <em>actually believe in.</em></h2>
+    <div class="eyebrow">How I Think</div>
+    <h2 class="section-title">Things I've actually<br/><em>started to believe.</em></h2>
     <div class="values-grid fade-up">
       <div class="value-card">
         <span class="v-icon">👂</span>
-        <h4>Listen first, design second</h4>
-        <p>Every design decision should trace back to something a real user said, did, or felt. I start with research — not assumptions.</p>
+        <h4>Get out of the way and listen</h4>
+        <p>My teaching instinct was to guide and explain. Research taught me that's often the wrong move. The most useful thing I can do in an interview is stay quiet long enough to hear what someone actually thinks.</p>
       </div>
       <div class="value-card">
         <span class="v-icon">🔄</span>
-        <h4>Iterate, don't over-polish</h4>
-        <p>The best design is never done. I test early, gather feedback, and improve — rather than waiting for perfection that never arrives.</p>
+        <h4>Test ugly things early</h4>
+        <p>My prettiest prototype didn't test best. Going high-fidelity too soon means people give feedback on the visuals, not the flow. I'd rather show something rough and learn something real than show something polished and learn nothing.</p>
       </div>
       <div class="value-card">
         <span class="v-icon">🤝</span>
-        <h4>Collaborate across silos</h4>
-        <p>Great products come from designers, engineers, and stakeholders working together — not in isolation. I make that collaboration easier.</p>
+        <h4>Design is a conversation, not a handoff</h4>
+        <p>Constraints are better understood through conversation than assumption. I'm still learning when to push back and when to adapt — but I know the answer comes from talking to the people who'll build it, not guessing on my own.</p>
       </div>
       <div class="value-card">
         <span class="v-icon">🎯</span>
-        <h4>Simplicity is the goal</h4>
-        <p>Reducing friction, clarifying hierarchy, and removing cognitive load are design acts of respect — for users and for their time.</p>
+        <h4>Good design goes unnoticed</h4>
+        <p>People don't notice when something works well. They just don't get frustrated. That's the goal — not that someone says "I love this UI", but that they complete their task without once thinking about the interface.</p>
       </div>
     </div>
   </div>
@@ -315,11 +316,12 @@ em { color: var(--accent); font-style: italic; }
   <p>Designed &amp; built by <a href="index.html">Priya T.</a> · UX Designer · Sunnyvale, CA · 2026</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.classList.add('will-animate');
   el.style.transitionDelay = (i * 0.05) + 's';
   observer.observe(el);
 });
@@ -330,13 +332,4 @@ requestAnimationFrame(() => {
     if (rect.top < window.innerHeight) el.classList.add('visible');
   });
 });
-const currentPage = window.location.pathname.split('/').pop() || 'about.html';
-document.querySelectorAll('.nav-links a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage) {
-    link.classList.add('active');
-  } else {
-    link.classList.remove('active');
-  }
-});
-</script>
+const currentPage = window.location.pathname.split('/').pop() || 'about.htm
