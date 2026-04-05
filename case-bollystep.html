@@ -3,38 +3,38 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>BollyStep — Case Study · Priya T</title>
+<title>BollyStep - Case Study · Priya T</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  /* Palette — warm, South Asian, cultural */
-  --ink:        #1a1109;
-  --bark:       #2e1b0e;
-  --terracotta: #c4520a;
-  --turmeric:   #d4920e;
-  --saffron:    #e8a820;
-  --rose-dust:  #c4786b;
-  --crimson:    #8b2020;
-  --parchment:  #faf5ec;
-  --cream:      #f5ede0;
-  --sand:       #ede0cc;
-  --rule:       #ddd0bc;
-  --warm-mid:   #7a6550;
-  --warm-lt:    #b09878;
+  /* Palette - teal-forward */
+  --ink:        #121f27;
+  --bark:       #122630;
+  --terracotta: #1f8c9d;
+  --turmeric:   #3a9fb8;
+  --saffron:    #7cc7d5;
+  --rose-dust:  #6e9aa6;
+  --crimson:    #14586f;
+  --parchment:  #eef7f8;
+  --cream:      #e8f1f3;
+  --sand:       #dce9ec;
+  --rule:       #cbdde1;
+  --warm-mid:   #5a7d8b;
+  --warm-lt:    #8cb1bd;
   /* semantic */
-  --red-bg: #fff1ef; --red-bd: #f4a39a; --red-tx: #9b1c1c;
-  --grn-bg: #f0faf4; --grn-bd: #86efac; --grn-tx: #166534;
+  --red-bg: #edf8fb; --red-bd: #9ed4e1; --red-tx: #1c5f6b;
+  --grn-bg: #eef7f8; --grn-bd: #7cc7d5; --grn-tx: #125861;
   /* type */
   --fd: 'Playfair Display', Georgia, serif;
   --fb: 'Plus Jakarta Sans', system-ui, sans-serif;
   /* radii */
   --r3:3px; --r8:8px; --r16:16px; --r24:24px; --r999:999px;
   /* shadows */
-  --sh1: 0 2px 8px rgba(26,17,9,.07);
-  --sh2: 0 8px 32px rgba(26,17,9,.12);
-  --sh3: 0 24px 64px rgba(26,17,9,.18);
+  --sh1: 0 2px 8px rgba(18,31,39,.07);
+  --sh2: 0 8px 32px rgba(18,31,39,.12);
+  --sh3: 0 24px 64px rgba(18,31,39,.18);
   /* layout */
   --max: 1120px;
 }
@@ -94,16 +94,16 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 
 /* ── HERO ────────────────────────────────────── */
 .hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
-.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 2.5rem 5rem;background:linear-gradient(160deg,#110800 0%,#2e1200 35%,#6b2800 65%,#a84208 100%);}
-.hero-left::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:1;pointer-events:none;}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 2.5rem 5rem;background:linear-gradient(160deg,#06161d 0%,#0f303f 35%,#196074 65%,#1f8c9d 100%);}
+.hero-left::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4H6zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:1;pointer-events:none;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2rem;}
 .hero-tag{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .85rem;border-radius:var(--r999);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:.7rem;font-weight:600;letter-spacing:.04em;}
 .hero-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--saffron);flex-shrink:0;}
 .hero h1{color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4);margin-bottom:.6rem;}
-.hero-sub{font-family:var(--fd);font-size:clamp(1rem,1.8vw,1.3rem);font-style:italic;color:rgba(255,255,255,.65);max-width:42ch;margin-bottom:2.25rem;line-height:1.55;}
-.hero-strip{display:flex;flex-wrap:wrap;gap:2rem;padding:1.4rem 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:2.25rem;}
+.hero-sub{font-family:var(--fd);font-size:clamp(1rem,1.8vw,1.3rem);font-style:italic;color:rgba(255,255,255,.75);max-width:42ch;margin-bottom:2.25rem;line-height:1.55;}
+.hero-strip{display:flex;flex-wrap:wrap;gap:2rem;padding:1.4rem 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:2.25rem;}
 .h-stat .sl{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron);display:block;margin-bottom:.2rem;}
-.h-stat .sv{font-size:.875rem;color:rgba(255,255,255,.88);font-weight:500;}
+.h-stat .sv{font-size:.875rem;color:rgba(255,255,255,.9);font-weight:500;}
 .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;position:relative;z-index:3;}
 
 .hero-right{position:relative;background:var(--cream);display:flex;align-items:center;justify-content:center;padding:6rem 3rem 3rem;}
@@ -421,21 +421,21 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="sneak">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">01 — Final Design Preview</span>
+      <span class="lbl">01 - Final Design Preview</span>
       <h2>Where I ended up.</h2>
       <p>Role-based navigation, a real sign-up flow, and an explore-first experience. It took two rounds of testing and a few wrong turns to get here.</p>
       <div style="margin:1.5rem 0 1.75rem;background:var(--cream);border-left:3px solid var(--turmeric);border-radius:0 var(--r8) var(--r8) 0;padding:1rem 1.25rem;max-width:640px;">
         <div style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--turmeric);margin-bottom:.4rem;">What I assumed going in</div>
-        <p style="font-size:.88rem;font-style:italic;color:var(--warm-mid);margin:0;max-width:none;">Navigation was the main problem — fix the menu, fix the site. I was wrong. Users didn't know if the platform was even active. Trust came first. Navigation came second.</p>
+        <p style="font-size:.88rem;font-style:italic;color:var(--warm-mid);margin:0;max-width:none;">Navigation looked like the problem. It wasn't. Users didn't know if the platform was even active. Trust came first. Navigation came second.</p>
       </div>
     </div>
     <div class="preview-grid">
       <div class="preview-item fade">
-        <img src="images/bollystep/P4 Sneak 1.png" alt="BollyStep redesign — homepage concept"/>
-        <div class="preview-cap">Homepage redesign — role entry points</div>
+        <img src="images/bollystep/P4 Sneak 1.png" alt="BollyStep redesign - homepage concept"/>
+        <div class="preview-cap">Homepage redesign - role entry points</div>
       </div>
       <div class="preview-item fade d1">
-        <img src="images/bollystep/Sneak peak 2.png" alt="BollyStep redesign — navigation concept"/>
+        <img src="images/bollystep/Sneak peak 2.png" alt="BollyStep redesign - navigation concept"/>
         <div class="preview-cap">Role-based navigation & onboarding</div>
       </div>
     </div>
@@ -449,23 +449,23 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="problem-split">
       <div>
-        <span class="lbl">02 — The Problem</span>
+        <span class="lbl">02 - The Problem</span>
         <h2>I thought navigation was the problem. It wasn't.</h2>
-        <p class="lead" style="margin-top:.8rem;">When I first looked at BollyStep, I assumed it was a nav problem — too many links, no clear hierarchy. But when I actually sat with users, something different came up: they didn't trust the platform was even real. That reframed everything.</p>
+        <p class="lead" style="margin-top:.8rem;">When I first looked at BollyStep, I assumed it was a nav problem - too many links, no clear hierarchy. But when I actually sat with users, something different came up: they didn't trust the platform was even real. That reframed everything.</p>
 
         <div class="pain-list">
           <div class="pain-item fade">
             <div class="pain-icon">📝</div>
             <div class="pain-text">
               <h4>Broken sign-up flow</h4>
-              <p>Users expected instant account creation but got redirected to a contact form — with no clear path forward.</p>
+              <p>Users expected instant account creation but got redirected to a contact form - with no clear path forward.</p>
             </div>
           </div>
           <div class="pain-item fade d1">
             <div class="pain-icon">🗺️</div>
             <div class="pain-text">
               <h4>Overwhelming navigation</h4>
-              <p>No clear hierarchy — users couldn't find where to go or understand what the platform offered them.</p>
+              <p>No clear hierarchy - users couldn't find where to go or understand what the platform offered them.</p>
             </div>
           </div>
           <div class="pain-item fade d2">
@@ -487,7 +487,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 
       <div class="fade">
         <div class="quote-pull">
-          <blockquote>My first instinct was to fix the navigation. But every interview kept coming back to trust: "How do I know this is legit? Why can't I just sign up?" The broken sign-up wasn't a bug — it was the loudest signal of a platform that didn't feel real.</blockquote>
+          <blockquote>My first instinct was to fix the navigation. But every interview kept coming back to trust: "How do I know this is legit? Why can't I just sign up?" The broken sign-up wasn't a bug - it was the loudest signal of a platform that didn't feel real.</blockquote>
         </div>
         <div style="margin-top:1.75rem;display:flex;flex-direction:column;gap:.75rem;">
           <div style="font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--turmeric);margin-bottom:.25rem;">How Might We…</div>
@@ -519,9 +519,9 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="goal">
   <div class="wrap">
     <div style="max-width:780px;">
-      <span class="lbl">02b — Goal</span>
+      <span class="lbl">02b - Goal</span>
       <h2>Give each role a reason to stay.</h2>
-      <p class="lead" style="margin-top:.8rem;">The goal wasn't just to fix navigation — it was to make sure that within seconds of landing, each type of user could see themselves in the product and take one clear next step.</p>
+      <p class="lead" style="margin-top:.8rem;">The goal wasn't just to fix navigation - it was to make sure that within seconds of landing, each type of user could see themselves in the product and take one clear next step.</p>
     </div>
     <div class="g3" style="margin-top:1.5rem;">
       <div class="fade" style="background:#fff;border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
@@ -532,12 +532,12 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div class="fade d1" style="background:#fff;border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
         <div style="font-size:2rem;margin-bottom:.75rem;">📋</div>
         <h3 style="font-size:1.1rem;margin-bottom:.4rem;">Organizers</h3>
-        <p style="font-size:.85rem;">Manage group dances, invite participants, track progress — all in one streamlined dashboard.</p>
+        <p style="font-size:.85rem;">Manage group dances, invite participants, track progress - all in one streamlined dashboard.</p>
       </div>
       <div class="fade d2" style="background:#fff;border-radius:var(--r16);padding:1.75rem;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
         <div style="font-size:2rem;margin-bottom:.75rem;">🎭</div>
         <h3 style="font-size:1.1rem;margin-bottom:.4rem;">Choreographers</h3>
-        <p style="font-size:.85rem;">Apply, upload routines, and build a professional profile — with a dedicated onboarding pathway.</p>
+        <p style="font-size:.85rem;">Apply, upload routines, and build a professional profile - with a dedicated onboarding pathway.</p>
       </div>
     </div>
   </div>
@@ -549,16 +549,16 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="research">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">03 — Research</span>
+      <span class="lbl">03 - Research</span>
       <h2>Three methods. One finding I didn't expect.</h2>
-      <p>I ran interviews, a heuristic evaluation, and a content audit — thinking I'd confirm the nav problems I'd already spotted. Instead, they kept pointing at something deeper: the platform didn't feel trustworthy enough to even try.</p>
+      <p>I ran interviews, a heuristic evaluation, and a content audit - thinking I'd confirm the nav problems I'd already spotted. Instead, they kept pointing at something deeper: the platform didn't feel trustworthy enough to even try.</p>
     </div>
 
     <div class="g3">
       <div class="r-card fade">
         <div class="r-icon">🎙️</div>
         <h3>User Interviews</h3>
-        <p>Spoke with 6 people across all three roles. I went in thinking I'd hear about navigation. I mostly heard about trust — and that shift surprised me.</p>
+        <p>Spoke with 6 people across all three roles. I went in thinking I'd hear about navigation. I mostly heard about trust - and that shift surprised me.</p>
         <span class="r-stat">6</span>
         <p style="font-size:.75rem;margin-top:.2rem;">participants across organizers, dancers &amp; choreographers</p>
       </div>
@@ -569,23 +569,23 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           <img src="images/bollystep/Heru Eval.png" alt="Heuristic Evaluation findings"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p>Evaluated against Nielsen's 10 heuristics. The score was low — but the more useful outcome was that it gave me a defensible list of problems to bring into research, not just opinions.</p>
+        <p>Evaluated against Nielsen's 10 heuristics. The score was low - but the more useful outcome was that it gave me a defensible list of problems to bring into research, not just opinions.</p>
       </div>
       <div class="r-card fade d2">
         <div class="r-icon">📋</div>
         <h3>Content Audit</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Content audit.png','Content Audit — High Priority Issues')">
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Content audit.png','Content Audit - High Priority Issues')">
           <img src="images/bollystep/Content audit.png" alt="Content audit findings"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p>Reviewed every landing and client-facing page. Dense copy, unclear hierarchy — and nothing that answered the first question most users had: "Is this actually for me?"</p>
+        <p>Reviewed every landing and client-facing page. Dense copy, unclear hierarchy - and nothing that answered the first question most users had: "Is this actually for me?"</p>
       </div>
     </div>
 
     <!-- Affinity Map -->
     <div class="affinity fade" style="margin-top:1.25rem;">
-      <h3 style="margin-bottom:1rem;">Affinity Map — 4 Key Themes</h3>
-      <div class="lb-wrap" onclick="openLightbox('images/bollystep/affinity map.png','Affinity Map — 4 Key Research Themes')">
+      <h3 style="margin-bottom:1rem;">Affinity Map - 4 Key Themes</h3>
+      <div class="lb-wrap" onclick="openLightbox('images/bollystep/affinity map.png','Affinity Map - 4 Key Research Themes')">
         <img src="images/bollystep/affinity map.png" alt="Affinity map showing themes from user research"/>
         <span class="lb-hint">Click to expand</span>
       </div>
@@ -629,13 +629,13 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="persona">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">04 — User Understanding</span>
-      <h2>Sanjana — the person I kept designing for.</h2>
+      <span class="lbl">04 - User Understanding</span>
+      <h2>Sanjana - the person I kept designing for.</h2>
     </div>
 
     <div class="persona fade">
       <div class="p-avatar">
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Spotli perso.png','Sanjana — Persona Spotlight')" style="border-radius:var(--r16);border:2px solid var(--rule);">
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Spotli perso.png','Sanjana - Persona Spotlight')" style="border-radius:var(--r16);border:2px solid var(--rule);">
           <img src="images/bollystep/Spotli perso.png" alt="Sanjana persona spotlight"/>
           <span class="lb-hint">Click to expand</span>
         </div>
@@ -645,7 +645,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       </div>
       <div class="p-details">
         <h3>Coordinating a wedding dance over WhatsApp</h3>
-        <p class="p-bio">Sanjana is planning her wedding in 3 months. She needs 12 family members — spread across 4 cities and 3 time zones — to learn a coordinated Bollywood routine. She has no dance background, no budget to hire someone in person, and is managing everything through WhatsApp voice notes. She found BollyStep through a friend. When she landed on the site, she couldn't tell if it was even still active.</p>
+        <p class="p-bio">Sanjana is planning her wedding in 3 months. She needs 12 family members - spread across 4 cities and 3 time zones - to learn a coordinated Bollywood routine. She has no dance background, no budget to hire someone in person, and is managing everything through WhatsApp voice notes. She found BollyStep through a friend. When she landed on the site, she couldn't tell if it was even still active.</p>
         <div class="p-attrs">
           <div class="p-attr"><div class="al">Goal</div><div class="av">Coordinate group dance with minimal stress</div></div>
           <div class="p-attr"><div class="al">Frustration</div><div class="av">Platform doesn't explain how it helps her</div></div>
@@ -659,7 +659,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
     <!-- Journey Map -->
     <div class="journey fade">
       <h3>Where Sanjana's experience broke down</h3>
-      <div class="lb-wrap" onclick="openLightbox('images/bollystep/User spotlight.png','Sanjana\'s User Journey — Friction Points')">
+      <div class="lb-wrap" onclick="openLightbox('images/bollystep/User spotlight.png','Sanjana\'s User Journey - Friction Points')">
         <img src="images/bollystep/User spotlight.png" alt="User journey map showing friction points"/>
         <span class="lb-hint">Click to expand</span>
       </div>
@@ -674,7 +674,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="insights">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">05 — Key Insights</span>
+      <span class="lbl">05 - Key Insights</span>
       <h2>Five things research actually told me.</h2>
     </div>
 
@@ -688,24 +688,24 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div class="i-card fade d1">
         <div class="i-icon">🗺️</div>
         <h4>Navigation that worked for no one</h4>
-        <p>One nav bar, three completely different users. Nobody could find what was relevant to them — not because the menu was long, but because it wasn't built for anyone specific.</p>
+        <p>One nav bar, three completely different users. Nobody could find what was relevant to them - not because the menu was long, but because it wasn't built for anyone specific.</p>
         <div class="i-num">02</div>
       </div>
       <div class="i-card fade d2">
         <div class="i-icon">👤</div>
         <h4>Three roles, one blurry experience</h4>
-        <p>A dancer and a choreographer have nothing in common — but the platform treated them identically. Neither felt like the product was meant for them.</p>
+        <p>A dancer and a choreographer have nothing in common - but the platform treated them identically. Neither felt like the product was meant for them.</p>
         <div class="i-num">03</div>
       </div>
       <div class="i-card fade d3">
         <div class="i-icon">💰</div>
         <h4>No pricing meant no trust</h4>
-        <p>This was the one I underestimated going in. Hiding pricing didn't create intrigue — it made people assume the worst and leave before they'd seen anything.</p>
+        <p>This was the one I underestimated going in. Hiding pricing didn't create intrigue - it made people assume the worst and leave before they'd seen anything.</p>
         <div class="i-num">04</div>
       </div>
       <div class="i-card fade d4" style="grid-column:span 2;">
         <div class="i-icon">📅</div>
-        <h4>The real problem was coordination — and the platform barely touched it</h4>
+        <h4>The real problem was coordination - and the platform barely touched it</h4>
         <p>Managing a group dance across time zones and skill levels via WhatsApp is genuinely hard. BollyStep could have solved that. It just never surfaced that it could.</p>
         <div class="i-num">05</div>
       </div>
@@ -721,8 +721,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           <tr><td>Confusing sign-up → contact form</td><td>Instant sign-up / log in directly from homepage</td><td>Removed #1 drop-off point</td></tr>
           <tr><td>Unclear user roles</td><td>Role-based nav: Organizer · Dancer · Choreographer</td><td>Faster orientation for all users</td></tr>
           <tr><td>Overwhelming content</td><td>Simplified IA, cleaner hierarchy, clear CTAs</td><td>Reduced cognitive load</td></tr>
-          <tr><td>Low trust — no pricing</td><td>Pricing transparency + social proof in funnel</td><td>Higher sign-up intent</td></tr>
-          <tr><td>No content preview</td><td>"Explore before commit" — browse dances first</td><td>Trust built before sign-up</td></tr>
+          <tr><td>Low trust - no pricing</td><td>Pricing transparency + social proof in funnel</td><td>Higher sign-up intent</td></tr>
+          <tr><td>No content preview</td><td>"Explore before commit" - browse dances first</td><td>Trust built before sign-up</td></tr>
         </tbody>
       </table>
     </div>
@@ -735,25 +735,25 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="architecture">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">06 — Site Architecture</span>
+      <span class="lbl">06 - Site Architecture</span>
       <h2>Untangling one structure into three clear paths.</h2>
     </div>
 
     <div class="g2" style="align-items:start;gap:2rem;">
       <div>
-        <h3 style="margin-bottom:1rem;color:var(--red-tx);">Before — One confusing nav for everyone</h3>
+        <h3 style="margin-bottom:1rem;color:var(--red-tx);">Before - One confusing nav for everyone</h3>
         <div class="arch-img-wrap">
-          <img src="images/bollystep/SiteArchOld.png" alt="Old site architecture — flat, role-agnostic navigation"/>
+          <img src="images/bollystep/SiteArchOld.png" alt="Old site architecture - flat, role-agnostic navigation"/>
         </div>
         <ul class="check-list">
-          <li><span class="x">✗</span>Single navigation for all roles — no differentiation</li>
+          <li><span class="x">✗</span>Single navigation for all roles - no differentiation</li>
           <li><span class="x">✗</span>"Join Now" → contact form (not a real sign-up)</li>
           <li><span class="x">✗</span>Marketing site and platform were fully disconnected</li>
           <li><span class="x">✗</span>No choreographer onboarding pathway existed</li>
         </ul>
       </div>
       <div>
-        <h3 style="margin-bottom:1rem;color:var(--grn-tx);">After — Role-based architecture</h3>
+        <h3 style="margin-bottom:1rem;color:var(--grn-tx);">After - Role-based architecture</h3>
         <div class="arch-img-wrap">
           <img src="images/bollystep/Site Arch.png" alt="Redesigned site architecture with dedicated role paths"/>
         </div>
@@ -774,22 +774,22 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="flows">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">06b — User Flows & Ideation</span>
+      <span class="lbl">06b - User Flows & Ideation</span>
       <h2>Mapping the friction, then sketching through it.</h2>
     </div>
 
     <div class="g2" style="gap:1.5rem;">
       <div class="fade" style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
-        <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1.05rem;"><span>🔄</span> User Flow — Discovery to Event Creation</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/User flow.png','User Flow — Discovery to Event Creation')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
+        <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1.05rem;"><span>🔄</span> User Flow - Discovery to Event Creation</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/User flow.png','User Flow - Discovery to Event Creation')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
           <img src="images/bollystep/User flow.png" alt="User flow from discovery to event creation" style="max-height:180px;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
         <p style="font-size:.85rem;">Mapped decision points across all three roles to find exactly where users were dropping. Seeing the whole flow laid out made it obvious how many dead ends the existing site had baked in.</p>
       </div>
       <div class="fade d1" style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
-        <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1.05rem;"><span>✏️</span> Ideation — Design Studio</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Design stu.png','Ideation — Design Studio Sketches')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
+        <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1.05rem;"><span>✏️</span> Ideation - Design Studio</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Design stu.png','Ideation - Design Studio Sketches')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
           <img src="images/bollystep/Design stu.png" alt="Design studio sketches" style="max-height:130px;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
@@ -803,7 +803,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
             <span class="lb-hint">Click to expand</span>
           </div>
         </div>
-        <p style="font-size:.85rem;">I sketched before I opened Figma. Some ideas were bad — which is exactly the point. Getting them out of my head and onto paper made it easier to see what was worth pursuing and what wasn't.</p>
+        <p style="font-size:.85rem;">I sketched before I opened Figma. Some ideas were bad - which is exactly the point. Getting them out of my head and onto paper made it easier to see what was worth pursuing and what wasn't.</p>
       </div>
     </div>
   </div>
@@ -815,16 +815,16 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="wireframes">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">07 — Mid-Fi Wireframes</span>
+      <span class="lbl">07 - Mid-Fi Wireframes</span>
       <h2>Structure first, visual polish later.</h2>
-      <p>I learned this the hard way on an earlier project — going high-fidelity too soon means users give feedback on the visuals, not the flow. Mid-fi kept the conversation focused on what mattered.</p>
+      <p>I learned this the hard way on an earlier project - going high-fidelity too soon means users give feedback on the visuals, not the flow. Mid-fi kept the conversation focused on what mattered.</p>
     </div>
 
     <div class="wf-carousel">
       <div class="wf-track" id="wf-track">
         <div class="wf-slide">
           <div class="wf-slide-img"><img src="images/bollystep/midd fi.png" alt="Homepage wireframe with role entry points"/></div>
-          <div class="wf-slide-cap">Homepage — role entry</div>
+          <div class="wf-slide-cap">Homepage - role entry</div>
         </div>
         <div class="wf-slide">
           <div class="wf-slide-img"><img src="images/bollystep/Dancermidfi.png" alt="Dancer role page wireframe"/></div>
@@ -858,7 +858,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="prototype">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">08 — Final Design</span>
+      <span class="lbl">08 - Final Design</span>
       <h2>Three decisions that changed the most.</h2>
     </div>
 
@@ -872,7 +872,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div>
         <span class="lbl">Design Decision 1</span>
         <h3>Explore before you commit</h3>
-        <p style="margin:.75rem 0 1.1rem;max-width:none;">The biggest request from dancer interviews was simple: let me see what I'm getting before I commit. So I made browsing the default — no sign-up wall, no contact form. Preview, then decide.</p>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">The biggest request from dancer interviews was simple: let me see what I'm getting before I commit. So I made browsing the default - no sign-up wall, no contact form. Preview, then decide.</p>
         <ul class="role-features">
           <li>Browse 120+ dance routines by occasion & style</li>
           <li>Preview video with mirroring and speed control</li>
@@ -880,7 +880,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
         </ul>
       </div>
       <div class="role-panel-img">
-        <img src="images/bollystep/Dancer.png" alt="Dancer role — Explore dance screen"/>
+        <img src="images/bollystep/Dancer.png" alt="Dancer role - Explore dance screen"/>
       </div>
     </div>
 
@@ -888,7 +888,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div>
         <span class="lbl">Design Decision 2</span>
         <h3>Manage everything in one place</h3>
-        <p style="margin:.75rem 0 1.1rem;max-width:none;">Organizers like Sanjana were running group dances through WhatsApp voice notes. The dashboard gives them one place to invite, assign, and track — so they stop chasing people across five different apps.</p>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">Organizers like Sanjana were running group dances through WhatsApp voice notes. The dashboard gives them one place to invite, assign, and track - so they stop chasing people across five different apps.</p>
         <ul class="role-features">
           <li>Invite dancers via email or shareable link</li>
           <li>Assign routines and track individual learning progress</li>
@@ -898,7 +898,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
         </ul>
       </div>
       <div class="role-panel-img">
-        <img src="images/bollystep/Organizer.png" alt="Organizer dashboard — event management"/>
+        <img src="images/bollystep/Organizer.png" alt="Organizer dashboard - event management"/>
       </div>
     </div>
 
@@ -906,7 +906,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div>
         <span class="lbl">Design Decision 3</span>
         <h3>Apply, upload, and build your profile</h3>
-        <p style="margin:.75rem 0 1.1rem;max-width:none;">Choreographers had no path at all in the old site — just a contact form everyone else used too. This gives them their own application flow and a profile that shows their work. It's a small thing that signals: you belong here.</p>
+        <p style="margin:.75rem 0 1.1rem;max-width:none;">Choreographers had no path at all in the old site - just a contact form everyone else used too. This gives them their own application flow and a profile that shows their work. It's a small thing that signals: you belong here.</p>
         <ul class="role-features">
           <li>Dedicated application with clear expectations upfront</li>
           <li>Upload routines with metadata and difficulty levels</li>
@@ -914,13 +914,13 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
         </ul>
       </div>
       <div class="role-panel-img">
-        <img src="images/bollystep/choreographers hi fi.png" alt="Choreographer — Apply and profile screen"/>
+        <img src="images/bollystep/choreographers hi fi.png" alt="Choreographer - Apply and profile screen"/>
       </div>
     </div>
 
     <div class="proto-cta">
       <h3 style="margin-bottom:.5rem;">See all three experiences in the prototype</h3>
-      <p style="margin:0 auto 1.5rem;">Sign-up, dashboard, and core task flows — one for each role.</p>
+      <p style="margin:0 auto 1.5rem;">Sign-up, dashboard, and core task flows - one for each role.</p>
       <a href="https://www.figma.com/proto/9Hsn3A5eJ7N5shMZBcPzJf/BollyStepxGA-Deliverable?node-id=1635-10473&t=o3dDOLRvtyEl5bbQ-0&scaling=scale-down&content-scaling=fixed&page-id=154%3A54049&starting-point-node-id=1635%3A10473&show-proto-sidebar=1" target="_blank" class="btn btn-gold">View Full Prototype ↗</a>
     </div>
   </div>
@@ -932,7 +932,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="before-after">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">09 — Before / After</span>
+      <span class="lbl">09 - Before / After</span>
       <h2>The changes that made the biggest difference.</h2>
     </div>
 
@@ -944,12 +944,12 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div class="ba-panels">
         <div class="ba-panel">
           <div class="ba-lbl before">Before</div>
-          <img src="images/bollystep/Sign up flow before .png" alt="Old sign-up — contact form"/>
+          <img src="images/bollystep/Sign up flow before .png" alt="Old sign-up - contact form"/>
           <p>Users clicked "Join Now" and hit a contact form asking for their event details. It felt like submitting a request, not signing up. Most didn't get past this.</p>
         </div>
         <div class="ba-panel">
           <div class="ba-lbl after">After</div>
-          <img src="images/bollystep/Sp 3.png" alt="Redesigned sign-up — direct account creation"/>
+          <img src="images/bollystep/Sp 3.png" alt="Redesigned sign-up - direct account creation"/>
           <p>Email and password. Done. No NDA, no contact form, no guessing whether someone would email you back.</p>
         </div>
       </div>
@@ -964,7 +964,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
         <div class="ba-panel">
           <div class="ba-lbl before">Before</div>
           <img src="images/bollystep/beforehomepage.png" alt="Old navigation"/>
-          <p>"About", "Pricing", "Join Now" — fine for a generic site, but none of it tells a dancer or a choreographer that this place is for them. Everyone I spoke to felt like a visitor, not a user.</p>
+          <p>"About", "Pricing", "Join Now" - fine for a generic site, but none of it tells a dancer or a choreographer that this place is for them. Everyone I spoke to felt like a visitor, not a user.</p>
         </div>
         <div class="ba-panel">
           <div class="ba-lbl after">After</div>
@@ -982,34 +982,34 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="testing">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">10 — Usability Testing</span>
+      <span class="lbl">10 - Usability Testing</span>
       <h2>Two rounds. The gap between them is where the real work was.</h2>
-      <p>Round 1 was on the existing site — I needed to see how bad it actually was with real users before I could argue for changes. Round 2 was on my mid-fi prototype. The improvement was bigger than I expected, which made me trust the research more.</p>
+      <p>Round 1 was on the existing site - I needed to see how bad it actually was with real users before I could argue for changes. Round 2 was on my mid-fi prototype. The improvement was bigger than I expected, which made me trust the research more.</p>
     </div>
 
     <div class="g2" style="align-items:start;gap:1.5rem;margin-bottom:1.5rem;">
       <div class="test-round r1 fade">
-        <h3>Round 1 — Existing Site</h3>
+        <h3>Round 1 - Existing Site</h3>
         <ul class="test-items">
           <li><span class="x">✗</span>0% could identify pricing before sign-up</li>
           <li><span class="x">✗</span>All participants confused by the sign-up flow</li>
           <li><span class="x">✗</span>Average 4m 12s to complete core task</li>
-          <li><span class="x">✗</span>SUS score: 52 — rated "OK"</li>
+          <li><span class="x">✗</span>SUS score: 52 - rated "OK"</li>
         </ul>
       </div>
       <div class="test-round r2 fade d1">
-        <h3>Round 2 — Redesigned Prototype</h3>
+        <h3>Round 2 - Redesigned Prototype</h3>
         <ul class="test-items">
           <li><span class="ok">✓</span>100% could identify pricing before sign-up</li>
           <li><span class="ok">✓</span>Users understood their role in &lt;30 seconds</li>
           <li><span class="ok">✓</span>Average 1m 26s to complete core task (3× faster)</li>
-          <li><span class="ok">✓</span>SUS score: 87 — rated "Excellent"</li>
+          <li><span class="ok">✓</span>SUS score: 87 - rated "Excellent"</li>
         </ul>
       </div>
     </div>
 
     <div class="test-img-wrap fade">
-      <div class="lb-wrap" onclick="openLightbox('images/bollystep/usabilitydelta.png','Usability Testing — Task Details & Results')">
+      <div class="lb-wrap" onclick="openLightbox('images/bollystep/usabilitydelta.png','Usability Testing - Task Details & Results')">
         <img src="images/bollystep/usabilitydelta.png" alt="Usability testing results and findings"/>
         <span class="lb-hint">Click to expand</span>
       </div>
@@ -1019,19 +1019,19 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
     <div class="g2" style="margin:1.25rem 0;gap:1.5rem;">
       <div class="fade" style="background:var(--cream);border-radius:var(--r16);padding:1.25rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
         <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1rem;"><span>📊</span> Key Metrics</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Metrics.png','Key Metrics — HEART Framework')">
-          <img src="images/bollystep/Metrics.png" alt="HEART metrics framework — goals, signals and metrics" style="border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin:.75rem 0;"/>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Metrics.png','Key Metrics - HEART Framework')">
+          <img src="images/bollystep/Metrics.png" alt="HEART metrics framework - goals, signals and metrics" style="border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin:.75rem 0;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p style="font-size:.82rem;">Tracked impact across usability, adoption, and satisfaction using the HEART framework — useful for making the outcomes legible beyond just "it felt better".</p>
+        <p style="font-size:.82rem;">Tracked impact across usability, adoption, and satisfaction using the HEART framework - useful for making the outcomes legible beyond just "it felt better".</p>
       </div>
       <div class="fade d1" style="background:var(--cream);border-radius:var(--r16);padding:1.25rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
         <h3 style="margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;font-size:1rem;"><span>🚀</span> Next Steps & Recommendations</h3>
         <div class="lb-wrap" onclick="openLightbox('images/bollystep/Next steps.png','Next Steps & Recommendations')">
-          <img src="images/bollystep/Next steps.png" alt="Next steps — API integrations and post-launch roadmap" style="border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin:.75rem 0;"/>
+          <img src="images/bollystep/Next steps.png" alt="Next steps - API integrations and post-launch roadmap" style="border-radius:var(--r8);border:1px solid var(--rule);width:100%;margin:.75rem 0;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p style="font-size:.82rem;">Recommendations for what comes after — what I'd prioritise in a next sprint, and what I'd need to learn more about before designing it.</p>
+        <p style="font-size:.82rem;">Recommendations for what comes after - what I'd prioritise in a next sprint, and what I'd need to learn more about before designing it.</p>
       </div>
     </div>
 
@@ -1053,7 +1053,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
         <span class="metric-icon">⭐</span>
         <span class="metric-val">87</span>
         <div class="metric-lbl">SUS Score (R2)</div>
-        <p class="metric-desc">Up from 52 — "OK" to "Excellent"</p>
+        <p class="metric-desc">Up from 52 - "OK" to "Excellent"</p>
       </div>
       <div class="metric-card fade d3">
         <span class="metric-icon">🎯</span>
@@ -1071,13 +1071,13 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="styleguide">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">10b — Style Guide</span>
+      <span class="lbl">10b - Style Guide</span>
       <h2>A visual language that felt like the culture, not just the colours.</h2>
-      <p>I wanted the design to feel warm and South Asian without leaning on clichés. The palette came from research into the emotional tone users associated with weddings and celebration — not from picking colours that "looked Indian".</p>
+      <p>I wanted the design to feel warm and South Asian without leaning on clichés. The palette came from research into the emotional tone users associated with weddings and celebration - not from picking colours that "looked Indian".</p>
     </div>
     <div class="fade" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh2);">
       <div class="lb-wrap" onclick="openLightbox('images/bollystep/styleguide.png','BollyStep Style Guide')">
-        <img src="images/bollystep/styleguide.png" alt="BollyStep style guide — colours, typography, and components" style="max-height:none;object-fit:unset;"/>
+        <img src="images/bollystep/styleguide.png" alt="BollyStep style guide - colours, typography, and components" style="max-height:none;object-fit:unset;"/>
         <span class="lb-hint">Click to expand</span>
       </div>
     </div>
@@ -1090,32 +1090,32 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="components">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">10c — Design System / Components</span>
+      <span class="lbl">10c - Design System / Components</span>
       <h2>Building components so the next iteration doesn't start from scratch.</h2>
-      <p>This was new for me — I'd never documented a component library before this project. It took longer than I expected, but by the end I understood why it matters: every decision is written down, so future changes are conversations, not guesswork.</p>
+      <p>This was new for me - I'd never documented a component library before this project. It took longer than I expected, but by the end I understood why it matters: every decision is written down, so future changes are conversations, not guesswork.</p>
     </div>
     <div class="g2" style="gap:1.25rem;">
       <div class="fade" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/compo1.png','Component Library — Sheet 1')">
-          <img src="images/bollystep/compo1.png" alt="Component library — sheet 1" style="max-height:none;object-fit:unset;"/>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/compo1.png','Component Library - Sheet 1')">
+          <img src="images/bollystep/compo1.png" alt="Component library - sheet 1" style="max-height:none;object-fit:unset;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
       </div>
       <div class="fade d1" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Compo2.png','Component Library — Sheet 2')">
-          <img src="images/bollystep/Compo2.png" alt="Component library — sheet 2" style="max-height:none;object-fit:unset;"/>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Compo2.png','Component Library - Sheet 2')">
+          <img src="images/bollystep/Compo2.png" alt="Component library - sheet 2" style="max-height:none;object-fit:unset;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
       </div>
       <div class="fade d2" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Compo3.png','Component Library — Sheet 3')">
-          <img src="images/bollystep/Compo3.png" alt="Component library — sheet 3" style="max-height:none;object-fit:unset;"/>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Compo3.png','Component Library - Sheet 3')">
+          <img src="images/bollystep/Compo3.png" alt="Component library - sheet 3" style="max-height:none;object-fit:unset;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
       </div>
       <div class="fade d3" style="border-radius:var(--r16);overflow:hidden;border:1.5px solid var(--rule);box-shadow:var(--sh1);">
-        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Compo4.png','Component Library — Sheet 4')">
-          <img src="images/bollystep/Compo4.png" alt="Component library — sheet 4" style="max-height:none;object-fit:unset;"/>
+        <div class="lb-wrap" onclick="openLightbox('images/bollystep/Compo4.png','Component Library - Sheet 4')">
+          <img src="images/bollystep/Compo4.png" alt="Component library - sheet 4" style="max-height:none;object-fit:unset;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
       </div>
@@ -1129,7 +1129,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="reflection">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">11 — Reflection</span>
+      <span class="lbl">11 - Reflection</span>
       <h2>What I'd tell myself at the start of this project.</h2>
     </div>
 
@@ -1141,28 +1141,28 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       </div>
       <div class="ref-card fade d1">
         <div class="ref-icon">🛡️</div>
-        <h4>Trust isn't a copy problem — it's a structure problem</h4>
-        <p>I kept thinking the trust issues were about wording. They weren't. Pricing hidden three clicks deep doesn't become trustworthy with better language. It needs to be in the right place — which is an IA decision, not a writing one.</p>
+        <h4>Trust isn't a copy problem - it's a structure problem</h4>
+        <p>I kept thinking the trust issues were about wording. They weren't. Pricing hidden three clicks deep doesn't become trustworthy with better language. It needs to be in the right place - which is an IA decision, not a writing one.</p>
       </div>
       <div class="ref-card fade d2">
         <div class="ref-icon">⚡</div>
         <h4>Three weeks is not very long</h4>
-        <p>It forced me to make calls I wasn't confident about and move anyway. That was uncomfortable. But heuristic evaluation gave me something concrete to point at when I had to justify a decision — which helped a lot when I wasn't sure of my own instincts yet.</p>
+        <p>It forced me to make calls I wasn't confident about and move anyway. That was uncomfortable. But heuristic evaluation gave me something concrete to point at when I had to justify a decision - which helped a lot when I wasn't sure of my own instincts yet.</p>
       </div>
       <div class="ref-card fade d3">
         <div class="ref-icon">🔗</div>
         <h4>Most dancers never saw the homepage</h4>
-        <p>They came in through a forwarded link from the organizer. I'd spent most of my time designing the homepage. This was a useful reminder that the front door isn't always where people actually enter — and I should have mapped that earlier.</p>
+        <p>They came in through a forwarded link from the organizer. I'd spent most of my time designing the homepage. This was a useful reminder that the front door isn't always where people actually enter - and I should have mapped that earlier.</p>
       </div>
       <div class="ref-card fade d4">
         <div class="ref-icon">🌏</div>
         <h4>I didn't go deep enough on the cultural layer</h4>
-        <p>South Asian weddings carry a lot of emotion — performance anxiety, family pressure, wanting to do something meaningful together. I solved the functional problems. The emotional ones — the delight moments, the sense of occasion — I left on the table. That's what I'd focus on next.</p>
+        <p>South Asian weddings carry a lot of emotion - performance anxiety, family pressure, wanting to do something meaningful together. I solved the functional problems. The emotional ones - the delight moments, the sense of occasion - I left on the table. That's what I'd focus on next.</p>
       </div>
       <div class="ref-card fade d5">
         <div class="ref-icon">🔮</div>
         <h4>If I had another sprint</h4>
-        <p>I'd design a rehearsal mode where the group can practice together in real time — even across time zones. That's the thing Sanjana actually needed, and a static video library only gets you halfway there. That's where the real coordination problem lives.</p>
+        <p>I'd design a rehearsal mode where the group can practice together in real time - even across time zones. That's the thing Sanjana actually needed, and a static video library only gets you halfway there. That's where the real coordination problem lives.</p>
       </div>
     </div>
 
@@ -1197,7 +1197,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('personaModal')">✕</button>
     <div class="modal-body">
-      <img src="images/bollystep/Detail persona.png" alt="Detailed Persona — Sanjana"/>
+      <img src="images/bollystep/Detail persona.png" alt="Detailed Persona - Sanjana"/>
       <h2 style="margin-bottom:.4rem;">Sanjana</h2>
       <p style="color:var(--turmeric);font-weight:700;font-size:1rem;margin-bottom:1.25rem;">Wedding Organizer · South Asian Professional</p>
       <p>Sanjana is a 28-year-old wedding organizer planning her wedding in 3 months. She needs 12 family members spread across 4 cities and 3 time zones to learn a coordinated Bollywood dance routine. She has no professional dance training background but is highly organized and uses WhatsApp as her primary communication medium.</p>

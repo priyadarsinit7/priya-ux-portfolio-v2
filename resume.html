@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Resume — Priya T · UX Designer</title>
+<title>Resume - Priya T · UX Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-/* SHARED STYLES — imported by all pages */
+/* SHARED STYLES - imported by all pages */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -16,8 +16,8 @@
   --ink-faint: #b0aba5;
   --cream: #f7f4ef;
   --cream-dark: #ede9e1;
-  --accent: #c85a2a;
-  --accent-light: #f5ede7;
+  --accent: #1f8c9d;
+  --accent-light: #d9eef4;
   --white: #ffffff;
   --serif: 'DM Serif Display', Georgia, serif;
   --sans: 'DM Sans', system-ui, sans-serif;
@@ -51,7 +51,7 @@ section { padding: 90px 0; }
 .fade-up.will-animate.visible { opacity: 1; transform: none; }
 
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-.eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+.eyebrow::before { display: none; }
 h1.display { font-family: var(--serif); font-size: clamp(2.4rem,4.5vw,3.8rem); line-height: 1.1; letter-spacing: -0.02em; }
 h2.section-title { font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.8rem); line-height: 1.15; letter-spacing: -0.02em; }
 em { color: var(--accent); font-style: italic; }
@@ -106,7 +106,7 @@ em { color: var(--accent); font-style: italic; }
 .exp-right .company { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.6rem; }
 .exp-right ul { list-style: none; margin: 0; }
 .exp-right li { font-size: 0.875rem; font-weight: 300; color: var(--ink-muted); padding-left: 14px; position: relative; margin-bottom: 5px; line-height: 1.65; }
-.exp-right li::before { content: '—'; position: absolute; left: 0; color: var(--ink-faint); font-size: 0.65rem; top: 5px; }
+  .exp-right li::before { content: '•'; position: absolute; left: 0; color: var(--ink-faint); font-size: 0.65rem; top: 5px; }
 
 .edu-item { display: grid; grid-template-columns: 130px 1fr; gap: 1.75rem; margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--cream-dark); }
 .edu-item:last-of-type { border-bottom: none; }
@@ -138,7 +138,7 @@ em { color: var(--accent); font-style: italic; }
       <div>
         <div class="eyebrow">Resume</div>
         <h1>Experience &amp;<br/><em>Education</em></h1>
-        <p>Fresh UX grad from General Assembly (March 2026). Background in teaching — which shaped how I observe people, adapt to their needs, and communicate clearly. Looking for my first UX or product design role.</p>
+        <p>Fresh UX grad from General Assembly (March 2026). Background in teaching, which shaped how I observe people, adapt to their needs, and communicate clearly. Looking for my first UX or product design role where I can contribute and keep learning.</p>
       </div>
       <a href="Priya_T_UX_Designer_Resume.pdf" class="btn" download>↓ Download PDF Resume</a>
     </div>
@@ -193,27 +193,26 @@ em { color: var(--accent); font-style: italic; }
         <div class="section-label">UX / Product Design Experience</div>
 
         <div class="exp-item">
-          <div class="exp-date">Feb 2026<br/>— Mar 2026</div>
+          <div class="exp-date">Feb 2026<br/>- Mar 2026</div>
           <div class="exp-right">
-            <h3>UX/UI Designer — Capstone</h3>
+            <h3>UX/UI Designer - Capstone</h3>
             <div class="company">BollyStep · Remote</div>
             <ul>
-              <li>Led the UX redesign of the BollyStep marketing site as my capstone — focused on navigation, onboarding, and trust signals across three distinct user roles</li>
-              <li>Ran user interviews, heuristic evaluation, and content audit; found that trust, not navigation, was the primary drop-off cause — which changed the direction of the project</li>
+              <li>Led the UX redesign of the BollyStep marketing site as my capstone - focused on navigation, onboarding, and trust signals across three distinct user roles</li>
+              <li>Ran user interviews, heuristic evaluation, and content audit; found that trust, not navigation, was the primary drop-off cause - which changed the direction of the project</li>
               <li>Built user flows, mid-fi wireframes, and a high-fidelity Figma prototype; iterated based on two rounds of usability testing</li>
-              <li>SUS score improved from 52 to 87 between Round 1 and Round 2 testing</li>
             </ul>
           </div>
         </div>
 
         <div class="exp-item">
-          <div class="exp-date">Dec 2025<br/>— Feb 2026</div>
+          <div class="exp-date">Dec 2025<br/>- Feb 2026</div>
           <div class="exp-right">
-            <h3>UX/UI Designer — Bootcamp Projects</h3>
+            <h3>UX/UI Designer - Bootcamp Projects</h3>
             <div class="company">General Assembly · Remote</div>
             <ul>
-              <li><strong>Food4U:</strong> Designed a mobile app for restaurants to distribute surplus food, with organisations accepting donations through a third-party delivery partner. Ran surveys, interviews, and competitive analysis; refined the experience after early prototype research showed the need to focus on the restaurant flow.</li>
-              <li><strong>Mayura Roots:</strong> Redesigned navigation and IA for a traditional Indian e-commerce site. Card sorting revealed users think by occasion, not product type — which replaced my original nav structure entirely</li>
+              <li><strong>Food4U:</strong> Designed a mobile app enabling restaurants to post surplus food quickly while organisations claimed donations in real time. Ran surveys, interviews, and competitive analysis; refined the experience after early prototype research showed the restaurant flow needed first priority.</li>
+              <li><strong>Mayura Roots:</strong> Redesigned navigation and IA for a traditional Indian e-commerce site. Card sorting revealed users think by occasion, not product type - which replaced my original nav structure entirely</li>
               <li><strong>Ruchi Kitchen:</strong> Ran user interviews and designed a multi-mode Recipe Play feature (Video, Audio, Step-by-Step) for hands-free cooking usability</li>
             </ul>
           </div>
@@ -222,25 +221,25 @@ em { color: var(--accent); font-style: italic; }
         <div class="section-label" style="margin-top:3rem;">Teaching Experience</div>
 
         <div class="exp-item">
-          <div class="exp-date">Aug 2025<br/>— Nov 2025</div>
+          <div class="exp-date">Aug 2025<br/>- Nov 2025</div>
           <div class="exp-right">
             <h3>Preschool Teacher</h3>
             <div class="company">Kiddie Academy of Cupertino · Cupertino, CA</div>
             <ul>
-              <li>Watched how young children navigated confusion and frustration before they had the words to describe it — which sharpened my instinct for reading non-verbal behaviour in research sessions</li>
-              <li>Adapted teaching approach daily to individual learning needs across a group with very different starting points — an early lesson in designing for more than one user type</li>
+              <li>Watched how young children navigated confusion and frustration before they had the words to describe it - which sharpened my instinct for reading non-verbal behaviour in research sessions</li>
+              <li>Adapted teaching approach daily to individual learning needs across a group with very different starting points - an early lesson in designing for more than one user type</li>
               <li>Collaborated with parents and educators to track progress and adjust plans based on observed outcomes rather than assumptions</li>
             </ul>
           </div>
         </div>
 
         <div class="exp-item">
-          <div class="exp-date">Dec 2024<br/>— Jul 2025</div>
+          <div class="exp-date">Dec 2024<br/>- Jul 2025</div>
           <div class="exp-right">
             <h3>Preschool Teacher</h3>
             <div class="company">International Child Resource Institute · Stanford, CA</div>
             <ul>
-              <li>Planned and facilitated structured learning activities for a classroom with a wide range of ages and abilities — required constant re-evaluation of what was and wasn't working</li>
+              <li>Planned and facilitated structured learning activities for a classroom with a wide range of ages and abilities - required constant re-evaluation of what was and wasn't working</li>
               <li>Observed learning behaviours closely and adjusted approaches mid-session when something wasn't landing</li>
               <li>Maintained an inclusive, consistent environment where children with different needs could participate</li>
             </ul>
@@ -248,7 +247,7 @@ em { color: var(--accent); font-style: italic; }
         </div>
 
         <div class="exp-item">
-          <div class="exp-date">Aug 2024<br/>— Dec 2024</div>
+          <div class="exp-date">Aug 2024<br/>- Dec 2024</div>
           <div class="exp-right">
             <h3>Support Teacher</h3>
             <div class="company">ChildCare Careers · San Jose, CA</div>
@@ -260,12 +259,12 @@ em { color: var(--accent); font-style: italic; }
         </div>
 
         <div class="exp-item">
-          <div class="exp-date">Aug 2013<br/>— May 2015</div>
+          <div class="exp-date">Aug 2013<br/>- May 2015</div>
           <div class="exp-right">
             <h3>Computer Science Teacher</h3>
             <div class="company">VVNKM CBSE School · India</div>
             <ul>
-              <li>Taught coding fundamentals and digital literacy to secondary school students — learned quickly that how you explain something matters as much as what you explain</li>
+              <li>Taught coding fundamentals and digital literacy to secondary school students - learned quickly that how you explain something matters as much as what you explain</li>
               <li>Designed lessons that integrated technology in ways students found relevant, not just instructional</li>
             </ul>
           </div>
@@ -279,7 +278,7 @@ em { color: var(--accent); font-style: italic; }
         </div>
         <div class="edu-item">
           <div class="edu-date">2025</div>
-          <div class="edu-right"><h3>Learn Figma: UI/UX Design Masterclass</h3><span>Certification — Beginner to Pro</span></div>
+          <div class="edu-right"><h3>Learn Figma: UI/UX Design Masterclass</h3><span>Certification - Beginner to Pro</span></div>
         </div>
         <div class="edu-item">
           <div class="edu-date">2025</div>

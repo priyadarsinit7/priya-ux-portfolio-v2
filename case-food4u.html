@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Food4U — Case Study · Priya T</title>
+<title>Food4U - Case Study · Priya T</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --ink:#0f1f14; --bark:#1e3a26; --forest:#2e6b3e; --forest-mid:#3d8c52;
-  --sage:#7dc494; --sage-lt:#d4eddb; --sage-bg:#f0faf4;
+  --ink:#0f1f24; --bark:#132c33; --forest:#1f8c9d; --forest-mid:#2395b3;
+  --sage:#66b8c8; --sage-lt:#d4eef3; --sage-bg:#eaf7f9;
   --parchment:#f7f4ee; --cream:#eef5ef; --sand:#ddeee2; --rule:#c8dece;
-  --warm-mid:#5a7060; --warm-lt:#8aaa92;
-  --red-bg:#fff1ef; --red-bd:#f4a39a; --red-tx:#9b1c1c;
-  --grn-bg:#f0faf4; --grn-bd:#86efac; --grn-tx:#166534;
+  --warm-mid:#5a7d8b; --warm-lt:#8aaa99;
+  --red-bg:#eef7fb; --red-bd:#9ed4e1; --red-tx:#165f6d;
+  --grn-bg:#eaf7f9; --grn-bd:#7cc7d5; --grn-tx:#145b5e;
   --fd:'Playfair Display',Georgia,serif;
   --fb:'Plus Jakarta Sans',system-ui,sans-serif;
   --r3:3px;--r8:8px;--r16:16px;--r24:24px;--r999:999px;
@@ -75,16 +75,16 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 
 /* Hero */
 .hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
-.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 2.5rem 5rem;background:linear-gradient(160deg,#051208 0%,#0d2415 35%,#1a4a26 65%,#2e6b3e 100%);}
-.hero-left::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 2.5rem 5rem;background:linear-gradient(160deg,#06121a 0%,#13323f 35%,#1f6c89 65%,#1f8c9d 100%);}
+.hero-left::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2rem;}
 .hero-tag{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .85rem;border-radius:var(--r999);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:.7rem;font-weight:600;letter-spacing:.04em;}
 .hero-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;}
 .hero h1{color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4);margin-bottom:.6rem;}
-.hero-sub{font-family:var(--fd);font-size:clamp(1rem,1.8vw,1.3rem);font-style:italic;color:rgba(255,255,255,.65);max-width:42ch;margin-bottom:2.25rem;line-height:1.55;}
-.hero-strip{display:flex;flex-wrap:wrap;gap:2rem;padding:1.4rem 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:2.25rem;}
+.hero-sub{font-family:var(--fd);font-size:clamp(1rem,1.8vw,1.3rem);font-style:italic;color:rgba(255,255,255,.75);max-width:42ch;margin-bottom:2.25rem;line-height:1.55;}
+.hero-strip{display:flex;flex-wrap:wrap;gap:2rem;padding:1.4rem 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:2.25rem;}
 .h-stat .sl{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:.2rem;}
-.h-stat .sv{font-size:.875rem;color:rgba(255,255,255,.88);font-weight:500;}
+.h-stat .sv{font-size:.875rem;color:rgba(255,255,255,.9);font-weight:500;}
 .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;position:relative;z-index:3;}
 .hero-right{position:relative;background:var(--cream);display:flex;align-items:center;justify-content:center;padding:5rem 2rem 4rem;}
 .hero-phones{display:flex;gap:2rem;align-items:center;justify-content:center;}
@@ -138,13 +138,12 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 .affinity{background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);margin-top:1.75rem;}
 .affinity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem;}
 .cluster{border-radius:var(--r8);padding:1rem 1.1rem;}
-.cluster.orange{background:#fff7ed;border:1.5px solid #fed7aa;}
-.cluster.red{background:#fff1f2;border:1.5px solid #fca5a5;}
-.cluster.amber{background:#fffbeb;border:1.5px solid #fcd34d;}
-.cluster.green{background:#f0fdf4;border:1.5px solid #86efac;}
-.c-title{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.65rem;}
-.cluster.orange .c-title{color:#c2410c;}
-.cluster.red .c-title{color:#be123c;}
+  .cluster.orange{background:rgba(31,140,157,.08);border:1.5px solid rgba(31,140,157,.3);}
+  .cluster.red{background:#fff1f2;border:1.5px solid #fca5a5;}
+  .cluster.amber{background:#fffbeb;border:1.5px solid #fcd34d;}
+  .cluster.green{background:#f0fdf4;border:1.5px solid #86efac;}
+  .c-title{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.65rem;}
+  .cluster.orange .c-title{color:var(--forest);}
 .cluster.amber .c-title{color:#92400e;}
 .cluster.green .c-title{color:#15803d;}
 .c-note{background:rgba(255,255,255,.85);border-radius:3px;padding:.38rem .5rem;font-size:.7rem;color:var(--ink);line-height:1.4;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:.4rem;}
@@ -356,7 +355,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <div style="position:relative;display:inline-block;">
         <!-- Phone mockup -->
         <div class="hero-phone" style="width:240px;">
-          <img src="images/food4u/sneak%20peak%201.png" alt="Food4U dashboard — restaurant view"/>
+          <img src="images/food4u/sneak%20peak%201.png" alt="Food4U dashboard - restaurant view"/>
         </div>
         <!-- Logo badge pinned to top-left corner of phone, like an app icon -->
         <div style="position:absolute;top:-18px;left:-18px;background:#fff;border-radius:20px;padding:10px;box-shadow:0 8px 28px rgba(15,31,20,.18);border:1px solid rgba(15,31,20,.06);">
@@ -378,20 +377,20 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="sneak">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">01 — Final Design Preview</span>
+      <span class="lbl">01 - Final Design Preview</span>
       <h2>Where we ended up.</h2>
       <p>Real-time listings, one-tap reposting, and delivery handled automatically. Getting here required throwing out our first prototype almost entirely.</p>
       <div style="margin:1.5rem 0 1.75rem;background:var(--cream);border-left:3px solid var(--forest);border-radius:0 var(--r8) var(--r8) 0;padding:1rem 1.25rem;max-width:640px;">
         <div style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:.4rem;">What I assumed going in</div>
-        <p style="font-size:.88rem;font-style:italic;color:var(--warm-mid);margin:0;max-width:none;">One app, two user types — restaurants and organisations — sharing the same screens. That was my first design. It didn't work. The two sides needed completely different flows, and I only understood why after testing it.</p>
+        <p style="font-size:.88rem;font-style:italic;color:var(--warm-mid);margin:0;max-width:none;">My first version used one app for restaurants and organisations. Testing showed the two sides needed separate flows, and that insight changed the whole product direction.</p>
       </div>
     </div>
     <div style="display:flex;justify-content:center;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
       <div style="text-align:center;">
         <div style="width:220px;border-radius:32px;overflow:hidden;box-shadow:var(--sh3);border:1px solid rgba(0,0,0,.08);display:inline-block;">
-          <img src="images/food4u/sneak%20peak%201.png" alt="Dashboard — restaurant view" style="width:100%;display:block;max-height:none;background:transparent;object-fit:unset;"/>
+          <img src="images/food4u/sneak%20peak%201.png" alt="Dashboard - restaurant view" style="width:100%;display:block;max-height:none;background:transparent;object-fit:unset;"/>
         </div>
-        <p style="margin-top:.75rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--warm-mid);max-width:none;">Dashboard — restaurant</p>
+        <p style="margin-top:.75rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--warm-mid);max-width:none;">Dashboard - restaurant</p>
       </div>
       <div style="text-align:center;margin-top:2rem;">
         <div style="width:220px;border-radius:32px;overflow:hidden;box-shadow:var(--sh3);border:1px solid rgba(0,0,0,.08);display:inline-block;">
@@ -410,9 +409,9 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="wrap">
     <div class="g2" style="align-items:start;gap:3.5rem;">
       <div>
-        <span class="lbl">02 — The Problem</span>
+        <span class="lbl">02 - The Problem</span>
         <h2>The food exists. The goodwill exists. The system doesn't.</h2>
-        <p class="lead" style="margin-top:.8rem;">Restaurants throw away edible food every night — not because they want to, but because donating it is too complicated at 11pm when the kitchen is closing.</p>
+        <p class="lead" style="margin-top:.8rem;">Restaurants throw away edible food every night - not because they want to, but because donating it is too complicated at 11pm when the kitchen is closing.</p>
         <div class="pain-list">
           <div class="pain-item fade">
             <div class="pain-icon">⏱️</div>
@@ -420,7 +419,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           </div>
           <div class="pain-item fade d1">
             <div class="pain-icon">⚖️</div>
-            <div class="pain-text"><h4>Liability fears that aren't real — but feel real</h4><p>Good Samaritan laws protect restaurants from food safety liability. Most staff don't know this. The fear of being sued stops more donations than the logistics do.</p></div>
+            <div class="pain-text"><h4>Liability fears that aren't real - but feel real</h4><p>Good Samaritan laws protect restaurants from food safety liability. Most staff don't know this. The fear of being sued stops more donations than the logistics do.</p></div>
           </div>
           <div class="pain-item fade d2">
             <div class="pain-icon">😓</div>
@@ -428,7 +427,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           </div>
           <div class="pain-item fade d3">
             <div class="pain-icon">🔗</div>
-            <div class="pain-text"><h4>No one has solved the last-mile coordination</h4><p>Existing platforms handle discovery but not delivery. That means restaurants still have to arrange collection themselves — which is the step they can't do.</p></div>
+            <div class="pain-text"><h4>No one has solved the last-mile coordination</h4><p>Existing platforms handle discovery but not delivery. That means restaurants still have to arrange collection themselves - which is the step they can't do.</p></div>
           </div>
         </div>
       </div>
@@ -446,7 +445,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
               <div style="font-size:.75rem;color:var(--warm-mid);margin-top:.3rem;">Americans face food insecurity daily</div>
             </div>
           </div>
-          <p style="font-size:.85rem;max-width:none;">The scale of the problem is real. But the secondary research also showed something more useful: most restaurants want to donate. The barrier isn't motivation — it's mechanics.</p>
+          <p style="font-size:.85rem;max-width:none;">The scale of the problem is real. But the secondary research also showed something more useful: most restaurants want to donate. The barrier isn't motivation - it's mechanics.</p>
         </div>
         <div class="hmw-banner" style="grid-template-columns:1fr 1fr 1fr;">
           <div class="hmw-item"><div class="hmw-q">How Might We…</div><p>Motivate restaurants to want to donate their surplus food?</p></div>
@@ -464,14 +463,14 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="vision">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">03 — Product Vision</span>
+      <span class="lbl">03 - Product Vision</span>
       <h2>Getting clear on what we were actually trying to do.</h2>
-      <p>Before designing anything, we needed to agree on what success looked like. This wasn't just an exercise — it stopped the team from going in three different directions.</p>
+      <p>Before designing anything, we needed to agree on what success looked like. This wasn't just an exercise - it stopped the team from going in three different directions.</p>
     </div>
     <div class="g3">
       <div class="vision-card fade"><div class="vision-icon">🎯</div><h4>Mission</h4><p>Prevent food waste by rescuing surplus food and delivering it to communities in need.</p></div>
       <div class="vision-card fade d1"><div class="vision-icon">🔭</div><h4>Vision</h4><p>A world where no food is wasted and no community goes hungry.</p></div>
-      <div class="vision-card fade d2"><div class="vision-icon">💡</div><h4>Unique Value</h4><p>Real-time, last-minute food redistribution — fast enough to catch food before it's discarded.</p></div>
+      <div class="vision-card fade d2"><div class="vision-icon">💡</div><h4>Unique Value</h4><p>Real-time, last-minute food redistribution - fast enough to catch food before it's discarded.</p></div>
     </div>
     <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem;margin-top:1.25rem;" class="fade">
       <h4 style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);margin-bottom:1rem;">Product Principles</h4>
@@ -487,8 +486,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
     <div style="margin-top:1.75rem;" class="fade">
       <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);">
         <h3 style="margin-bottom:.4rem;">Business Model Canvas</h3>
-        <p style="margin-bottom:.75rem;">Mapping the full value exchange helped us see that restaurants and organisations had completely different needs — and that realisation directly shaped the decision to separate their flows.</p>
-        <div class="lb-wrap" onclick="openLightbox('images/food4u/BMCspot.png','Business Model Canvas — Spotlight')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+        <p style="margin-bottom:.75rem;">Mapping the full value exchange helped us see that restaurants and organisations had completely different needs - and that realisation directly shaped the decision to separate their flows.</p>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/BMCspot.png','Business Model Canvas - Spotlight')" style="border-radius:var(--r8);border:1px solid var(--rule);">
           <img src="images/food4u/BMCspot.png" alt="Business Model Canvas spotlight" style="max-height:340px;object-fit:contain;object-position:top;background:var(--parchment);width:100%;display:block;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
@@ -504,28 +503,28 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="research">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">04 — Research</span>
+      <span class="lbl">04 - Research</span>
       <h2>Five methods. The restaurant side kept shouting louder.</h2>
     </div>
     <div class="g3">
       <div class="r-card fade">
         <div class="r-icon">📋</div>
         <h3>Surveys</h3>
-        <p>Ran separate surveys for restaurants and organisations. The restaurant side came back with more pain, more urgency, and clearer barriers — so we focused the MVP there first. In hindsight, I wish I'd gone deeper on the organisation side too.</p>
+        <p>Ran separate surveys for restaurants and organisations. The restaurant side came back with more pain, more urgency, and clearer barriers - so we focused the MVP there first. In hindsight, I wish I'd gone deeper on the organisation side too.</p>
         <span class="r-stat">2</span>
         <p style="font-size:.75rem;margin-top:.15rem;">stakeholder groups surveyed</p>
       </div>
       <div class="r-card fade d1">
         <div class="r-icon">🎙️</div>
         <h3>User Interviews</h3>
-        <p>The liability fear surprised me most. I went in expecting to hear about logistics. Instead, staff kept saying things like "what if someone gets sick?" — they didn't know Good Samaritan laws existed. That had to go into the product.</p>
+        <p>The liability fear surprised me most. I went in expecting to hear about logistics. Instead, staff kept saying things like "what if someone gets sick?" - they didn't know Good Samaritan laws existed. That had to go into the product.</p>
         <span class="r-stat">6</span>
         <p style="font-size:.75rem;margin-top:.15rem;">restaurant staff interviewed</p>
       </div>
       <div class="r-card fade d2">
         <div class="r-icon">🔍</div>
         <h3>Competitive Analysis</h3>
-        <p>Looked at Goodr, Too Good To Go, and others. They solve discovery well. None of them solve delivery — the restaurant still has to arrange a pickup. That's the gap we designed for.</p>
+        <p>Looked at Goodr, Too Good To Go, and others. They solve discovery well. None of them solve delivery - the restaurant still has to arrange a pickup. That's the gap we designed for.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1rem;">
           <div class="lb-wrap" onclick="openLightbox('images/food4u/Swot.png','SWOT Analysis')" style="border:1px solid var(--rule);border-radius:var(--r8);">
             <img src="images/food4u/Swot.png" alt="SWOT Analysis"/>
@@ -545,7 +544,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
     <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);margin-top:1.75rem;" class="fade">
       <h3 style="margin-bottom:.4rem;">Where the opportunity actually was</h3>
       <p style="margin-bottom:.75rem;">The Venn analysis helped us see something simple: surplus food and hungry communities exist simultaneously every night. The only thing missing is a system fast enough to connect them in the window before the food is discarded.</p>
-      <div class="lb-wrap" onclick="openLightbox('images/food4u/venn%20diagram.png','Opportunity Space — Venn Diagram')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+      <div class="lb-wrap" onclick="openLightbox('images/food4u/venn%20diagram.png','Opportunity Space - Venn Diagram')" style="border-radius:var(--r8);border:1px solid var(--rule);">
         <img src="images/food4u/venn%20diagram.png" alt="Venn diagram showing opportunity space"/>
         <span class="lb-hint">Click to expand</span>
       </div>
@@ -553,8 +552,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 
     <!-- Affinity Map -->
     <div class="affinity fade" style="margin-top:1.75rem;">
-      <h3 style="margin-bottom:.75rem;">Affinity Map — Key Themes</h3>
-      <div class="lb-wrap" onclick="openLightbox('images/food4u/Affni%20Map.png','Affinity Map — Key Research Themes')" style="border:1px solid var(--rule);border-radius:var(--r8);margin-bottom:1.25rem;">
+      <h3 style="margin-bottom:.75rem;">Affinity Map - Key Themes</h3>
+      <div class="lb-wrap" onclick="openLightbox('images/food4u/Affni%20Map.png','Affinity Map - Key Research Themes')" style="border:1px solid var(--rule);border-radius:var(--r8);margin-bottom:1.25rem;">
         <img src="images/food4u/Affni%20Map.png" alt="Affinity map from Food4U research"/>
         <span class="lb-hint">Click to expand</span>
       </div>
@@ -594,12 +593,12 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="persona">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">05 — User Understanding</span>
-      <h2>Katie — the person I kept coming back to.</h2>
+      <span class="lbl">05 - User Understanding</span>
+      <h2>Katie - the person I kept coming back to.</h2>
     </div>
     <div class="persona fade">
       <div class="p-avatar">
-        <div class="lb-wrap" onclick="openLightbox('images/food4u/pers%20spot.png','Katie M. — Persona Spotlight')" style="border-radius:50%;border:3px solid var(--forest);">
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/pers%20spot.png','Katie M. - Persona Spotlight')" style="border-radius:50%;border:3px solid var(--forest);">
           <img src="images/food4u/pers%20spot.png" alt="Persona spotlight - Katie M" style="width:100px;height:100px;border-radius:50%;object-fit:cover;max-height:none;background:transparent;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
@@ -609,11 +608,11 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       </div>
       <div class="p-details">
         <h3>Throwing away good food every night and hating it</h3>
-        <p class="p-bio">Katie runs a mid-size restaurant in New York. At 11pm every night, when the kitchen closes, there are 30+ portions of perfectly edible food that will go in the bin. She wants to donate it. She just can't make it happen consistently — the process takes too long, she's not sure about liability, and her staff are already done for the night.</p>
+        <p class="p-bio">Katie runs a mid-size restaurant in New York. At 11pm every night, when the kitchen closes, there are 30+ portions of perfectly edible food that will go in the bin. She wants to donate it. She just can't make it happen consistently - the process takes too long, she's not sure about liability, and her staff are already done for the night.</p>
         <div class="p-attrs">
           <div class="p-attr"><div class="al">Goal</div><div class="av">Donate food fast with minimal effort</div></div>
           <div class="p-attr"><div class="al">Frustration</div><div class="av">No easy, reliable system exists</div></div>
-          <div class="p-attr"><div class="al">Context</div><div class="av">Closing rush — exhausted staff, time pressure</div></div>
+          <div class="p-attr"><div class="al">Context</div><div class="av">Closing rush - exhausted staff, time pressure</div></div>
           <div class="p-attr"><div class="al">Motivation</div><div class="av">Reduce waste, give back to community</div></div>
         </div>
         <div class="p-quote">"I throw away perfectly good food every night. It's heartbreaking. I just need someone to make it easy."</div>
@@ -623,7 +622,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
     <!-- Journey -->
     <div class="journey fade">
       <h3>Where Katie's experience breaks down each night</h3>
-      <div class="lb-wrap" onclick="openLightbox('images/food4u/Journey%20SL.png','Katie\'s User Journey — Friction Points')" style="border:1px solid var(--rule);border-radius:var(--r8);">
+      <div class="lb-wrap" onclick="openLightbox('images/food4u/Journey%20SL.png','Katie\'s User Journey - Friction Points')" style="border:1px solid var(--rule);border-radius:var(--r8);">
         <img src="images/food4u/Journey%20SL.png" alt="Katie's user journey map"/>
         <span class="lb-hint">Click to expand</span>
       </div>
@@ -638,7 +637,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="insights">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">06 — Design Decisions</span>
+      <span class="lbl">06 - Design Decisions</span>
       <h2>From what we heard to what we built.</h2>
     </div>
     <table class="d-table fade">
@@ -655,7 +654,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 
     <!-- MoSCoW -->
     <div style="margin-top:2rem;" class="fade">
-      <h3 style="margin-bottom:.4rem;">What we decided to build first — and what we cut</h3>
+      <h3 style="margin-bottom:.4rem;">What we decided to build first - and what we cut</h3>
       <p style="margin-bottom:.75rem;">Three weeks goes fast. MoSCoW forced us to be honest about what was truly core versus what we wanted to add. The hardest call was leaving the organisation-side experience underdeveloped in v1.</p>
       <div class="lb-wrap" onclick="openLightbox('images/food4u/MoSoCoW.png','MoSCoW Prioritization')" style="border-radius:var(--r16);border:1.5px solid var(--rule);margin-bottom:1.25rem;">
         <img src="images/food4u/MoSoCoW.png" alt="MoSCoW Prioritization"/>
@@ -677,34 +676,34 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="process">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">06b — Design Process</span>
-      <h2>Sketching before building — and why it saved us time.</h2>
+      <span class="lbl">06b - Design Process</span>
+      <h2>Sketching before building - and why it saved us time.</h2>
       <p>The first thing we designed in Figma was wrong. Getting rough ideas on paper first helped us see the structural problems before we'd invested hours in pixels.</p>
     </div>
 
     <div class="g2" style="gap:1.5rem;margin-bottom:1.75rem;">
       <div style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
-        <h3 style="margin-bottom:.6rem;font-size:1.05rem;">✏️ Ideation — Design Studio</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/food4u/design%20studio%20p3.png','Design Studio — Ideation Sketches')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
+        <h3 style="margin-bottom:.6rem;font-size:1.05rem;">✏️ Ideation - Design Studio</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/design%20studio%20p3.png','Design Studio - Ideation Sketches')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
           <img src="images/food4u/design%20studio%20p3.png" alt="Design studio sketches" style="max-height:180px;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
         <p style="font-size:.85rem;">Sketched multiple posting flows before touching Figma. The sketches made it obvious that trying to serve restaurants and organisations from the same home screen was creating too many compromises. That insight drove the decision to separate the experiences.</p>
       </div>
       <div style="background:#fff;border-radius:var(--r16);padding:1.5rem;border:1px solid var(--rule);box-shadow:var(--sh1);">
-        <h3 style="margin-bottom:.6rem;font-size:1.05rem;">🔄 User Flow — End to End</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/food4u/user%20flow%20p3.png','User Flow — Restaurant to Organization')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
+        <h3 style="margin-bottom:.6rem;font-size:1.05rem;">🔄 User Flow - End to End</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/user%20flow%20p3.png','User Flow - Restaurant to Organization')" style="border-radius:var(--r8);border:1px solid var(--rule);margin:.75rem 0;">
           <img src="images/food4u/user%20flow%20p3.png" alt="User flow diagram" style="max-height:180px;"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p style="font-size:.85rem;">Mapping the full end-to-end flow — from restaurant posting through to organisation pickup and delivery — made the handoff moments visible. Those handoff moments were where the most friction lived, and where the Uber Eats integration became obviously necessary.</p>
+        <p style="font-size:.85rem;">Mapping the full end-to-end flow - from restaurant posting through to organisation pickup and delivery - made the handoff moments visible. Those handoff moments were where the most friction lived, and where the Uber Eats integration became obviously necessary.</p>
       </div>
     </div>
 
     <!-- Mid-Fi Wireframes -->
     <div style="background:#fff;border:1px solid var(--rule);border-radius:var(--r16);padding:1.5rem 1.75rem;box-shadow:var(--sh1);">
-      <h3 style="margin-bottom:.4rem;">Mid-fidelity first — before committing to colour and polish</h3>
-      <p style="margin-bottom:.75rem;">Testing with mid-fi kept feedback focused on flow and structure rather than visual choices. Users pointed at real problems — like the copy-paste feature being invisible — rather than debating button colours.</p>
+      <h3 style="margin-bottom:.4rem;">Mid-fidelity first - before committing to colour and polish</h3>
+      <p style="margin-bottom:.75rem;">Testing with mid-fi kept feedback focused on flow and structure rather than visual choices. Users pointed at real problems - like the copy-paste feature being invisible - rather than debating button colours.</p>
       <div class="lb-wrap" onclick="openLightbox('images/food4u/Mid%20fi%20P3.png','Mid-Fidelity Wireframes')" style="border-radius:var(--r8);border:1px solid var(--rule);">
         <img src="images/food4u/Mid%20fi%20P3.png" alt="Mid-fidelity wireframes"/>
         <span class="lb-hint">Click to expand</span>
@@ -719,7 +718,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="prototype">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">07 — Final Design</span>
+      <span class="lbl">07 - Final Design</span>
       <h2>Three decisions that made the biggest difference.</h2>
     </div>
 
@@ -730,36 +729,36 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
       <button class="fd-tab" data-slide="2" style="padding:.5rem 1.2rem;border-radius:var(--r999);font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--warm-mid);transition:all .2s;font-family:var(--fb);">🎨 Design System</button>
     </div>
 
-    <!-- Carousel track wrapper — height locked to tallest of slide 0/1 by JS -->
+    <!-- Carousel track wrapper - height locked to tallest of slide 0/1 by JS -->
     <div id="fd-outer" style="overflow:hidden;border-radius:var(--r16);">
       <div id="fd-track" style="display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);align-items:flex-start;">
 
-        <!-- Slide 1 — For Restaurants -->
+        <!-- Slide 1 - For Restaurants -->
         <div class="fd-slide flow-card" id="fd-slide-0" style="flex-shrink:0;width:100%;">
           <div class="flow-card-top">
             <div>
               <div class="flow-badge restaurant">For Restaurants</div>
               <h3>Smart dropdown posting</h3>
-              <p style="margin:.6rem 0 1rem;max-width:none;">The goal was under 60 seconds from opening the app to the listing going live. Every field we added pushed that time up. So we stripped it back to the minimum — food type, quantity, best-by time — and made the rest optional. Then we added one-tap repost for the next night.</p>
-              <ul><li>Dropdown: food type, quantity, best-by time</li><li>Copy-paste previous listing in one tap</li><li>Safety guidelines embedded — no extra steps</li></ul>
+              <p style="margin:.6rem 0 1rem;max-width:none;">The goal was under 60 seconds from opening the app to the listing going live. Every field we added pushed that time up. So we stripped it back to the minimum - food type, quantity, best-by time - and made the rest optional. Then we added one-tap repost for the next night.</p>
+              <ul><li>Dropdown: food type, quantity, best-by time</li><li>Copy-paste previous listing in one tap</li><li>Safety guidelines embedded - no extra steps</li></ul>
             </div>
-            <div class="lb-wrap" onclick="openLightbox('images/food4u/feat%201.png','Smart Dropdown Posting — Restaurant Screen')" style="border:1px solid var(--rule);border-radius:var(--r8);align-self:start;">
+            <div class="lb-wrap" onclick="openLightbox('images/food4u/feat%201.png','Smart Dropdown Posting - Restaurant Screen')" style="border:1px solid var(--rule);border-radius:var(--r8);align-self:start;">
               <img src="images/food4u/feat%201.png" alt="Restaurant posting screen" style="max-height:420px;"/>
               <span class="lb-hint">Click to expand</span>
             </div>
           </div>
           <div class="flow-card-bottom">
-            <p class="insight-bar">💡 The copy-paste feature came directly from research — staff said the same food gets donated almost every night. Making the second donation easier than the first was the right call.</p>
+            <p class="insight-bar">💡 The copy-paste feature came directly from research - staff said the same food gets donated almost every night. Making the second donation easier than the first was the right call.</p>
           </div>
         </div>
 
-        <!-- Slide 2 — Restaurant + Org -->
+        <!-- Slide 2 - Restaurant + Org -->
         <div class="fd-slide flow-card" id="fd-slide-1" style="flex-shrink:0;width:100%;">
           <div class="flow-card-top">
             <div>
               <div class="flow-badge both">Restaurant + Org</div>
               <h3>Pickup status &amp; delivery tracking</h3>
-              <p style="margin:.6rem 0 1rem;max-width:none;">The moment staff had to think about who would pick up the food, donations stopped. So we removed that responsibility entirely. Uber Eats handles dispatch automatically once a claim is made — the restaurant just posts and waits. That was the biggest single change to how the system worked.</p>
+              <p style="margin:.6rem 0 1rem;max-width:none;">The moment staff had to think about who would pick up the food, donations stopped. So we removed that responsibility entirely. Uber Eats handles dispatch automatically once a claim is made - the restaurant just posts and waits. That was the biggest single change to how the system worked.</p>
               <ul><li>Live driver location via Uber Direct API</li><li>ETA shown to both restaurant and organization</li><li>Zero staff coordination required after posting</li></ul>
             </div>
             <div class="lb-wrap" onclick="openLightbox('images/food4u/feat%202.png','Delivery Tracking Screen')" style="border:1px solid var(--rule);border-radius:var(--r8);align-self:start;">
@@ -768,11 +767,11 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
             </div>
           </div>
           <div class="flow-card-bottom">
-            <p class="insight-bar">💡 This wasn't a tech decision — it was a UX decision. Removing logistics from the user's responsibility is what made donation actually feasible at 11pm.</p>
+            <p class="insight-bar">💡 This wasn't a tech decision - it was a UX decision. Removing logistics from the user's responsibility is what made donation actually feasible at 11pm.</p>
           </div>
         </div>
 
-        <!-- Slide 3 — Design System: fixed outer height, only image area scrolls -->
+        <!-- Slide 3 - Design System: fixed outer height, only image area scrolls -->
         <div class="fd-slide flow-card" id="fd-slide-2" style="flex-shrink:0;width:100%;display:flex;flex-direction:column;">
           <!-- Header: always visible, never scrolls -->
           <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--rule);flex-shrink:0;">
@@ -782,7 +781,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           </div>
           <!-- Scrollable image region only -->
           <div id="fd-ds-scroll" style="flex:1;overflow-y:auto;padding:1.25rem 1.5rem;">
-            <div class="lb-wrap" onclick="openLightbox('images/food4u/design%20gui.png','Design System — Guidelines')" style="border-radius:var(--r8);border:1px solid var(--rule);">
+            <div class="lb-wrap" onclick="openLightbox('images/food4u/design%20gui.png','Design System - Guidelines')" style="border-radius:var(--r8);border:1px solid var(--rule);">
               <img src="images/food4u/design%20gui.png" alt="Design system guidelines" style="max-height:none;object-fit:unset;width:100%;display:block;"/>
               <span class="lb-hint">Click to expand</span>
             </div>
@@ -793,7 +792,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           </div>
           <!-- Insight bar -->
           <div class="flow-card-bottom" style="flex-shrink:0;">
-            <p class="insight-bar">💡 Building the design system as we went slowed us down at first. By the final sprint it sped us up considerably — every new screen had a starting point.</p>
+            <p class="insight-bar">💡 Building the design system as we went slowed us down at first. By the final sprint it sped us up considerably - every new screen had a starting point.</p>
           </div>
         </div>
 
@@ -809,7 +808,7 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 
     <div style="margin-top:2rem;text-align:center;background:var(--sage-bg);border-radius:var(--r16);padding:1.75rem;border:1px solid var(--rule);" class="fade">
       <h3 style="margin-bottom:.5rem;">See the full flow in the prototype</h3>
-      <p style="margin:0 auto 1.25rem;">Restaurant posting through to organisation claim and delivery — end to end in Figma.</p>
+      <p style="margin:0 auto 1.25rem;">Restaurant posting through to organisation claim and delivery - end to end in Figma.</p>
       <a href="https://www.figma.com/proto/WEpZqi52dlQflwZP79f1g9/Orange-team---P3_-Prototype?node-id=251-649&p=f&t=uzBHdtomOwCUAvIg-0&scaling=scale-down&content-scaling=fixed&page-id=43%3A6&starting-point-node-id=251%3A649" target="_blank" class="btn btn-primary">View Full Prototype ↗</a>
     </div>
   </div>
@@ -821,8 +820,8 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section" id="accessibility">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">08 — Accessibility</span>
-      <h2>Accessibility wasn't an afterthought — but it nearly was.</h2>
+      <span class="lbl">08 - Accessibility</span>
+      <h2>Accessibility wasn't an afterthought - but it nearly was.</h2>
       <p>We caught ourselves adding WCAG checks late in the process. The contrast issues were minor, but it was a reminder that accessibility needs to be part of the design process from the start, not a final audit.</p>
     </div>
     <div class="g2" style="gap:1.75rem;align-items:start;">
@@ -874,35 +873,35 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--dark" id="testing">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">09 — Usability Testing</span>
+      <span class="lbl">09 - Usability Testing</span>
       <h2>Two rounds. Round 1 was more useful than I expected.</h2>
-      <p>Round 1 was uncomfortable — users couldn't find things I thought were obvious. But that feedback directly shaped Round 2, and seeing the difference between the two rounds was the clearest evidence the research was working.</p>
+      <p>Round 1 was uncomfortable - users couldn't find things I thought were obvious. But that feedback directly shaped Round 2, and seeing the difference between the two rounds was the clearest evidence the research was working.</p>
     </div>
     <div class="g2" style="gap:1.5rem;margin-bottom:1.75rem;">
       <div class="test-round r1 fade">
-        <h3>Round 1 — What users couldn't find</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/food4u/r1%20feedback.png','Round 1 — Usability Feedback')" style="border-radius:var(--r8);border:1px solid var(--red-bd);margin-bottom:1rem;">
+        <h3>Round 1 - What users couldn't find</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/r1%20feedback.png','Round 1 - Usability Feedback')" style="border-radius:var(--r8);border:1px solid var(--red-bd);margin-bottom:1rem;">
           <img src="images/food4u/r1%20feedback.png" alt="Round 1 feedback"/>
           <span class="lb-hint">Click to expand</span>
         </div>
         <ul class="test-items">
-          <li><span class="x">✗</span>Primary CTA wasn't prominent — users kept looking for where to start</li>
-          <li><span class="x">✗</span>Donation Guide was buried — the safety info users most needed was hardest to find</li>
-          <li><span class="x">✗</span>Too many required fields — posting felt like a form, not a quick action</li>
-          <li><span class="x">✗</span>Copy-paste feature was invisible — the thing we were most proud of, nobody found</li>
+          <li><span class="x">✗</span>Primary CTA wasn't prominent - users kept looking for where to start</li>
+          <li><span class="x">✗</span>Donation Guide was buried - the safety info users most needed was hardest to find</li>
+          <li><span class="x">✗</span>Too many required fields - posting felt like a form, not a quick action</li>
+          <li><span class="x">✗</span>Copy-paste feature was invisible - the thing we were most proud of, nobody found</li>
         </ul>
       </div>
       <div class="test-round r2 fade d1">
-        <h3>Round 2 — What we fixed, and why</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/food4u/r2%20change.png','Round 2 — Changes & High-Fidelity')" style="border-radius:var(--r8);border:1px solid var(--grn-bd);margin-bottom:1rem;">
+        <h3>Round 2 - What we fixed, and why</h3>
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/r2%20change.png','Round 2 - Changes & High-Fidelity')" style="border-radius:var(--r8);border:1px solid var(--grn-bd);margin-bottom:1rem;">
           <img src="images/food4u/r2%20change.png" alt="Round 2 changes applied"/>
           <span class="lb-hint">Click to expand</span>
         </div>
         <ul class="test-items">
-          <li><span class="ok">✓</span>Full-width green CTA — impossible to miss, task start time dropped immediately</li>
-          <li><span class="ok">✓</span>Donation Guide surfaced on home screen — liability anxiety went down noticeably</li>
-          <li><span class="ok">✓</span>Reduced to 3 required fields — posting felt fast for the first time</li>
-          <li><span class="ok">✓</span>Copy-paste promoted to hero action on return visits — repeat donations became trivial</li>
+          <li><span class="ok">✓</span>Full-width green CTA - impossible to miss, task start time dropped immediately</li>
+          <li><span class="ok">✓</span>Donation Guide surfaced on home screen - liability anxiety went down noticeably</li>
+          <li><span class="ok">✓</span>Reduced to 3 required fields - posting felt fast for the first time</li>
+          <li><span class="ok">✓</span>Copy-paste promoted to hero action on return visits - repeat donations became trivial</li>
         </ul>
       </div>
     </div>
@@ -915,15 +914,15 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
           <img src="images/food4u/metri%20deta%20vw.png" alt="Detailed metrics view"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p style="font-size:.82rem;color:rgba(200,230,210,.6);">Full breakdown of task times and completion rates across both rounds — useful for showing the delta, not just the final numbers.</p>
+        <p style="font-size:.82rem;color:rgba(200,230,210,.6);">Full breakdown of task times and completion rates across both rounds - useful for showing the delta, not just the final numbers.</p>
       </div>
       <div class="fade d1" style="background:rgba(255,255,255,.07);border-radius:var(--r16);padding:1.25rem;border:1px solid rgba(255,255,255,.12);">
         <h3 style="margin-bottom:.5rem;font-size:1rem;color:#e8f0ea;">📊 Usability Test Deltas</h3>
-        <div class="lb-wrap" onclick="openLightbox('images/food4u/usability%20test%20delta.png','Usability Test Deltas — Round 1 vs Round 2')" style="border-radius:var(--r8);border:1px solid rgba(255,255,255,.15);margin:.75rem 0;">
+        <div class="lb-wrap" onclick="openLightbox('images/food4u/usability%20test%20delta.png','Usability Test Deltas - Round 1 vs Round 2')" style="border-radius:var(--r8);border:1px solid rgba(255,255,255,.15);margin:.75rem 0;">
           <img src="images/food4u/usability%20test%20delta.png" alt="Usability Test Delta"/>
           <span class="lb-hint">Click to expand</span>
         </div>
-        <p style="font-size:.82rem;color:rgba(200,230,210,.6);">Round 1 vs Round 2 — seeing the task time reduction made the design decisions feel real in a way that instinct alone never does.</p>
+        <p style="font-size:.82rem;color:rgba(200,230,210,.6);">Round 1 vs Round 2 - seeing the task time reduction made the design decisions feel real in a way that instinct alone never does.</p>
       </div>
     </div>
 
@@ -942,21 +941,21 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
 <section class="section section--alt" id="reflection">
   <div class="wrap">
     <div class="sec-hd">
-      <span class="lbl">10 — Reflection</span>
+      <span class="lbl">10 - Reflection</span>
       <h2>What I'd tell myself at the start of this project.</h2>
     </div>
     <div class="g3" style="margin-bottom:1.5rem;">
       <div class="ref-card fade"><div class="ref-icon">⏱️</div><h4>Every extra step is a reason to give up</h4><p>I kept wanting to add confirmation screens, helpful tips, extra fields "just in case." Each one made sense in isolation. Together they made the posting flow feel like a chore. Cutting felt wrong at the time. Testing confirmed it was right.</p></div>
-      <div class="ref-card fade d1"><div class="ref-icon">🤝</div><h4>The Uber Eats integration was a UX decision, not a tech one</h4><p>My first instinct was to treat delivery as a logistics problem to solve later. But every interview said the same thing — once restaurants had to coordinate collection themselves, they stopped donating. Removing that step wasn't a feature. It was the product.</p></div>
+      <div class="ref-card fade d1"><div class="ref-icon">🤝</div><h4>The Uber Eats integration was a UX decision, not a tech one</h4><p>My first instinct was to treat delivery as a logistics problem to solve later. But every interview said the same thing - once restaurants had to coordinate collection themselves, they stopped donating. Removing that step wasn't a feature. It was the product.</p></div>
       <div class="ref-card fade d2"><div class="ref-icon">🌱</div><h4>The motivation to do good isn't the barrier</h4><p>Katie wanted to donate. Every restaurant owner we spoke to wanted to donate. The problem was never "how do we get them to care?" It was always "how do we make it possible at 11pm when they're already tired?" That reframe changed what we designed.</p></div>
-      <div class="ref-card fade d3"><div class="ref-icon">📊</div><h4>I under-designed the organisation side</h4><p>Almost all our testing was on the restaurant flow. The organisation experience — discovering listings, claiming food, tracking pickups — got far less attention than it deserved. It's the other half of the system. If they can't use it reliably, none of the restaurant work matters.</p></div>
-      <div class="ref-card fade d4"><div class="ref-icon">🔮</div><h4>If I had another sprint</h4><p>I'd spend it entirely on the organisation side — proper research, proper flows, proper testing. I'd also want to explore what happens when no organisation is available to claim a listing. That edge case matters a lot for whether restaurants keep using the app after the first few attempts.</p></div>
+      <div class="ref-card fade d3"><div class="ref-icon">📊</div><h4>I under-designed the organisation side</h4><p>Almost all our testing was on the restaurant flow. The organisation experience - discovering listings, claiming food, tracking pickups - got far less attention than it deserved. It's the other half of the system. If they can't use it reliably, none of the restaurant work matters.</p></div>
+      <div class="ref-card fade d4"><div class="ref-icon">🔮</div><h4>If I had another sprint</h4><p>I'd spend it entirely on the organisation side - proper research, proper flows, proper testing. I'd also want to explore what happens when no organisation is available to claim a listing. That edge case matters a lot for whether restaurants keep using the app after the first few attempts.</p></div>
       <div class="ref-card fade d5"><div class="ref-icon">💡</div><h4>The copy-paste feature came from listening, not inventing</h4><p>I didn't come up with one-tap repost as a smart idea. A restaurant manager said "we throw away the same stuff every night" almost as a throwaway comment. I nearly missed it. Paying attention to those offhand remarks during interviews is where the most useful design ideas actually live.</p></div>
     </div>
 
     <div class="final-cta fade">
       <h2>Want to see how the full flow works?</h2>
-      <p>The Figma prototype covers the restaurant posting experience end to end — from opening the app to the listing going live and delivery being dispatched.</p>
+      <p>The Figma prototype covers the restaurant posting experience end to end - from opening the app to the listing going live and delivery being dispatched.</p>
       <div class="final-cta-btns">
         <a href="https://www.figma.com/proto/WEpZqi52dlQflwZP79f1g9/Orange-team---P3_-Prototype?node-id=251-649&p=f&t=uzBHdtomOwCUAvIg-0&scaling=scale-down&content-scaling=fixed&page-id=43%3A6&starting-point-node-id=251%3A649" target="_blank" class="btn btn-primary">View Prototype ↗</a>
         <a href="index.html" class="btn btn-ghost">← All Projects</a>
@@ -1002,10 +1001,10 @@ hr.rule{height:1px;background:var(--rule);border:none;margin:0;}
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('personaModal')">✕</button>
     <div class="modal-body">
-      <img src="images/food4u/persona%20deta.png" alt="Detailed Persona — Katie M"/>
+      <img src="images/food4u/persona%20deta.png" alt="Detailed Persona - Katie M"/>
       <h2 style="margin-bottom:.4rem;">Katie M.</h2>
       <p style="color:var(--forest);font-weight:700;font-size:1rem;margin-bottom:1rem;">Restaurant Owner · NYC</p>
-      <p>Katie runs a mid-size restaurant in New York. Every night at closing she faces the same problem — 30+ portions of unsold prepared food that will be thrown away. She wants to donate but doesn't have the time or system to make it happen consistently.</p>
+      <p>Katie runs a mid-size restaurant in New York. Every night at closing she faces the same problem - 30+ portions of unsold prepared food that will be thrown away. She wants to donate but doesn't have the time or system to make it happen consistently.</p>
     </div>
   </div>
 </div>
@@ -1051,7 +1050,7 @@ function closeLightbox() {
 function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
 function closeOnOverlay(e, id) { if(e.target === document.getElementById(id)) closeModal(id); }
-// Final Design carousel — height locked to tallest of slide 0/1
+// Final Design carousel - height locked to tallest of slide 0/1
 (function(){
   const track = document.getElementById('fd-track');
   const outer = document.getElementById('fd-outer');
